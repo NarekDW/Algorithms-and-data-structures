@@ -15,5 +15,3 @@ Web Site: [https://algs4.cs.princeton.edu/](https://algs4.cs.princeton.edu/)
 - [ ] 4 Graphs
 - [ ] 5 Strings
 - [ ] 6 Context
-
-:+1

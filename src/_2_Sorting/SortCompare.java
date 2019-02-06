@@ -42,6 +42,7 @@ import _2_Sorting._2_3_Quicksort.creative.NonrecursiveQuicksort;
 import _2_Sorting._2_3_Quicksort.creative.Sentinels;
 import _2_Sorting._2_3_Quicksort.experiments.IgnoreSmallSubarrays;
 import _2_Sorting._2_3_Quicksort.experiments.QuickX;
+import _2_Sorting._2_4_Priority_Queues.Heap;
 import common.StdDraw;
 import common.StdOut;
 import common.StdRandom;
@@ -72,7 +73,7 @@ public class SortCompare {
         else if (alg.equals("NonrecursiveQuicksort"))   NonrecursiveQuicksort.sort(a);
         else if (alg.equals("IgnoreSmallSubarrays"))    IgnoreSmallSubarrays.sort(a);
         else if (alg.equals("QuickX"))                  QuickX.sort(a);
-//        else if (alg.equals("Heap"))            Heap.sort(a);
+        else if (alg.equals("Heap"))                    Heap.sort(a);
         else if (alg.equals("System")) Arrays.sort(a);
         else throw new IllegalArgumentException("Invalid algorithm: " + alg);
         return sw.elapsedTime();
@@ -389,9 +390,27 @@ public class SortCompare {
 //        run("Quick", "NonrecursiveQuicksort", 10_000, 10_000, false);
 
 
-        run("Quick", "QuickX", 10_000, 10_000, false);
-        run("Quick", "QuickX", 10_000, 10_000, false);
-        run("QuickX", "Quick", 10_000, 10_000, false);
+//        run("Quick", "QuickX", 10_000, 10_000, false);
+//        run("Quick", "QuickX", 10_000, 10_000, false);
+//        run("QuickX", "Quick", 10_000, 10_000, false);
+
+
+        /*
+        Heap : 19.746000000000095
+        Quick : 15.753000000000114
+        For 10000 random Doubles Heap is 0.798 times faster than Quick
+
+        Heap : 18.6900000000005
+        Quick : 14.653999999999991
+        For 10000 random Doubles Heap is 0.784 times faster than Quick
+
+        Quick : 14.870000000000116
+        Heap : 18.772000000000407
+        For 10000 random Doubles Quick is 1.262 times faster than Heap
+         */
+        run("Heap", "Quick", 10_000, 10_000, false);
+        run("Heap", "Quick", 10_000, 10_000, false);
+        run("Quick", "Heap", 10_000, 10_000, false);
 
     }
 
