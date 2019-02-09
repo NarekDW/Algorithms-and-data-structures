@@ -15,6 +15,11 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
+ *
+ * 2.4.33 Index priority-queue implementation.
+ * 2.4.34 Index priority-queue implementation (additional operations).
+ *
+ *
  *  The {@code IndexMinPQ} class represents an indexed priority queue of generic keys.
  *  It supports the usual <em>insert</em> and <em>delete-the-minimum</em>
  *  operations, along with <em>delete</em> and <em>change-the-key</em>
