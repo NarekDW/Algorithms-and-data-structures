@@ -74,7 +74,15 @@ public class SortCompare {
         else if (alg.equals("IgnoreSmallSubarrays"))    IgnoreSmallSubarrays.sort(a);
         else if (alg.equals("QuickX"))                  QuickX.sort(a);
         else if (alg.equals("Heap"))                    Heap.sort(a);
-        else if (alg.equals("System")) Arrays.sort(a);
+        /*
+                Java’s systems programmers have chosen to use quicksort (with 3-way partitioning)
+        to implement the primitive-type methods, and mergesort for reference-type methods.
+        The primary practical implications of these choices are, as just discussed, to trade speed
+        and memory usage (for primitive types) for stability (for reference types).
+
+        From JDK 1.7 Arrays.sort - uses TimSort!
+         */
+        else if (alg.equals("System"))                  Arrays.sort(a);
         else throw new IllegalArgumentException("Invalid algorithm: " + alg);
         return sw.elapsedTime();
     }
