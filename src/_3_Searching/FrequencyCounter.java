@@ -74,7 +74,7 @@ public class FrequencyCounter {
             if (key.length() < minlen) continue;
             words++;
             if (st.contains(key)) {
-                st.put(key, st.get(key) + 1);
+                st.put(key, st.getLastValue() + 1);
             } else {
                 st.put(key, 1);
                 distinct++;

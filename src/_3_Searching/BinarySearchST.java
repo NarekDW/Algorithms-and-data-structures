@@ -1,11 +1,14 @@
 package _3_Searching;
 
+import _1_Fundamentals._1_3_Bags_Queues_and_Stacks.Queue;
+
 @SuppressWarnings("Duplicates")
 public class BinarySearchST<Key extends Comparable<Key>, Value> {
 
     private Key[] keys;
     private Value[] values;
     private int n;
+    private Value lastValue;
 
     public BinarySearchST(int capacity) {
         keys = (Key[]) new Comparable[capacity];
@@ -14,6 +17,13 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
 
     public int size() {
         return n;
+    }
+
+    public int size(Key k1, Key k2) {
+        int r1 = rank(k1);
+        int r2 = Math.min(rank(k2), n - 1);
+        if (r2 < r1) return 0;
+        return r2 - r1 + 1;
     }
 
     public boolean isEmpty() {
@@ -30,6 +40,18 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
     }
 
     public void put(Key key, Value value) {
+        /*****************************************************************************************************
+         * 3.1.28 Ordered insertions. Modify BinarySearchST so that inserting a key that is larg-
+         * er than all keys in the table takes constant time (so that building a table by calling put()
+         * for keys that are in order takes linear time).
+         ****************************************************************************************************/
+        if (!isEmpty() && key.compareTo(max()) > 0) {
+            keys[n] = key;
+            values[n] = value;
+            n++;
+            return;
+        }
+
         int i = rank(key);
         if (i < n && key.compareTo(keys[i]) == 0) {
             values[i] = value;
@@ -97,6 +119,55 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
         if (i < n && keys[i].compareTo(key) == 0) return keys[i];
         if (i == 0) return null;
         return keys[i - 1];
+    }
+
+    public Key ceiling(Key key) {
+        int i = rank(key);
+        if (i == n - 1) return null;
+        return keys[i];
+    }
+
+    public boolean contains(Key key) {
+        Value value = get(key);
+        if (value != null)
+            lastValue = value;
+        return value != null;
+    }
+
+    public Iterable<Key> keys() {
+        Queue<Key> queue = new Queue<>();
+        for (int i = 0; i < n; i++)
+            queue.enqueue(keys[i]);
+        return queue;
+    }
+
+    public Iterable<Key> keys(Key k1, Key k2) {
+        Queue<Key> queue = new Queue<>();
+        int r1 = rank(k1);
+        int r2 = rank(k2);
+        for (int i = r1; i <= Math.min(r2, n - 1); i++)
+            queue.enqueue(keys[i]);
+        return queue;
+    }
+
+    public Key max() {
+        return keys[n - 1];
+    }
+
+    public Key min() {
+        return keys[0];
+    }
+
+    public Key select(int i) {
+        return keys[i];
+    }
+
+    public Value getLastValue() {
+        return lastValue;
+    }
+
+    public void deleteMin() {
+        delete(min());
     }
 
     private void show() {

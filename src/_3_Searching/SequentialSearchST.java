@@ -5,6 +5,7 @@ import java.util.Iterator;
 public class SequentialSearchST<Key, Value> {
     private int n;
     private Node first;
+    private Value lastValue;
 
     private class Node {
         Key key;
@@ -20,8 +21,11 @@ public class SequentialSearchST<Key, Value> {
 
     public Value get(Key key) {
         for (Node x = first; x != null; x = x.next)
-            if (key.equals(x.key))
-                return x.value;
+            if (key.equals(x.key)) {
+                Value value = x.value;
+                lastValue = value;
+                return value;
+            }
         return null;
     }
 
@@ -106,6 +110,13 @@ public class SequentialSearchST<Key, Value> {
      */
     public boolean contains(Key key) {
         if (key == null) throw new IllegalArgumentException("argument to contains() is null");
-        return get(key) != null;
+        Value value = get(key);
+        if (value != null)
+            lastValue = value;
+        return value != null;
+    }
+
+    public Value getLastValue() {
+        return lastValue;
     }
 }
