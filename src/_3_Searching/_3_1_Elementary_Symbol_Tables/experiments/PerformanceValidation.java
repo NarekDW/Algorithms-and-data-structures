@@ -1,7 +1,7 @@
-package _3_Searching.experiments;
+package _3_Searching._3_1_Elementary_Symbol_Tables.experiments;
 
 import _1_Fundamentals._1_4_Analysis_of_Algorithms.Stopwatch;
-import _3_Searching.SequentialSearchST;
+import _3_Searching._3_1_Elementary_Symbol_Tables.SequentialSearchST;
 import common.StdIn;
 import common.StdOut;
 

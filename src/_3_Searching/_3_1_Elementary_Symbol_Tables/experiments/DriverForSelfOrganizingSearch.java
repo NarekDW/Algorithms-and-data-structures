@@ -1,8 +1,8 @@
-package _3_Searching.experiments;
+package _3_Searching._3_1_Elementary_Symbol_Tables.experiments;
 
 import _1_Fundamentals._1_4_Analysis_of_Algorithms.Stopwatch;
-import _3_Searching.BinarySearchST;
-import _3_Searching.creative.ArrayST;
+import _3_Searching._3_1_Elementary_Symbol_Tables.BinarySearchST;
+import _3_Searching._3_1_Elementary_Symbol_Tables.creative.ArrayST;
 import common.StdRandom;
 
 /*****************************************************************************************************

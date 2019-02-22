@@ -1,4 +1,4 @@
-package _3_Searching.exercises;
+package _3_Searching._3_1_Elementary_Symbol_Tables.exercises;
 
 import _2_Sorting._2_2_Mergesort.Merge;
 
