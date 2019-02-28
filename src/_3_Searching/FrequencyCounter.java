@@ -1,4 +1,4 @@
-package _3_Searching._3_1_Elementary_Symbol_Tables;
+package _3_Searching;
 
 /******************************************************************************
  *  Compilation:  javac FrequencyCounter.java
@@ -27,6 +27,8 @@ package _3_Searching._3_1_Elementary_Symbol_Tables;
  ******************************************************************************/
 
 
+import _3_Searching._3_1_Elementary_Symbol_Tables.SequentialSearchST;
+import _3_Searching._3_2_Binary_Search_Trees.BST;
 import common.StdIn;
 import common.StdOut;
 
@@ -64,6 +66,7 @@ public class FrequencyCounter {
         int distinct = 0, words = 0;
         int minlen = Integer.parseInt(args[0]);
         SequentialSearchST<String, Integer> st = new SequentialSearchST<>();
+//        BST<String, Integer> st = new BST<>();
 
         if (args.length > 1)
             System.setIn(new FileInputStream(args[1]));
