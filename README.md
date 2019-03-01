@@ -8,7 +8,7 @@
 
 Web Site: [https://algs4.cs.princeton.edu/](https://algs4.cs.princeton.edu/)
 
-**What is done:**
+**What are done:**
 - [x] 1 Fundamentals
 - [x] 2 Sorting
 - [ ] 3 Searching
