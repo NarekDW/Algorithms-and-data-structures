@@ -81,10 +81,12 @@ public class BST<Key extends Comparable<Key>, Value> {
         while (x != null) {
             int cmp = key.compareTo(x.key);
             x.n = x.n + 1;
+//            x.h = Math.max(height(x.left), height(x.right));
             if (cmp < 0) {
                 if (x.left == null) {
                     x.left = new Node(key, value, 1);
                     last = x.left;
+//                    x.h = Math.max(height(x.left), height(x.right));
                     return;
                 }
                 x = x.left;
@@ -92,6 +94,7 @@ public class BST<Key extends Comparable<Key>, Value> {
                 if (x.right == null) {
                     x.right = new Node(key, value, 1);
                     last = x.right;
+//                    x.h = Math.max(height(x.left), height(x.right));
                     return;
                 }
                 x = x.right;
@@ -119,7 +122,7 @@ public class BST<Key extends Comparable<Key>, Value> {
 //    public void put(Key key, Value value) {
 //        root = put(root, key, value);
 //    }
-
+//
 //    private Node put(Node x, Key key, Value value) {
 //        if (x == null) return new Node(key, value, 1);
 //        int cmp = key.compareTo(x.key);
