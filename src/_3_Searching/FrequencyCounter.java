@@ -27,7 +27,6 @@ package _3_Searching;
  ******************************************************************************/
 
 
-import _3_Searching._3_1_Elementary_Symbol_Tables.SequentialSearchST;
 import _3_Searching._3_2_Binary_Search_Trees.BST;
 import common.StdIn;
 import common.StdOut;
@@ -65,8 +64,8 @@ public class FrequencyCounter {
     public static void main(String[] args) throws IOException {
         int distinct = 0, words = 0;
         int minlen = Integer.parseInt(args[0]);
-        SequentialSearchST<String, Integer> st = new SequentialSearchST<>();
-//        BST<String, Integer> st = new BST<>();
+//        SequentialSearchST<String, Integer> st = new SequentialSearchST<>();
+        BST<String, Integer> st = new BST<>();
 
         if (args.length > 1)
             System.setIn(new FileInputStream(args[1]));

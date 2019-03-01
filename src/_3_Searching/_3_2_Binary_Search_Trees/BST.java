@@ -7,6 +7,11 @@ public class BST<Key extends Comparable<Key>, Value> {
 
     private Node root;
 
+    /*****************************************************************************************************
+     * 3.2.28 Software caching.
+     ****************************************************************************************************/
+    private Node last;
+
     private class Node {
         Key key;
         Value value;
@@ -49,7 +54,10 @@ public class BST<Key extends Comparable<Key>, Value> {
             int cmp = key.compareTo(x.key);
             if (cmp < 0) x = x.left;
             else if (cmp > 0) x = x.right;
-            else return x.value;
+            else {
+                last = x;
+                return x.value;
+            }
         }
         return null;
     }
@@ -64,6 +72,7 @@ public class BST<Key extends Comparable<Key>, Value> {
             else if (cmp > 0) x = x.right;
             else {
                 x.value = value;
+                last = x;
                 return;
             }
         }
@@ -75,12 +84,14 @@ public class BST<Key extends Comparable<Key>, Value> {
             if (cmp < 0) {
                 if (x.left == null) {
                     x.left = new Node(key, value, 1);
+                    last = x.left;
                     return;
                 }
                 x = x.left;
             } else if (cmp > 0) {
                 if (x.right == null) {
                     x.right = new Node(key, value, 1);
+                    last = x.right;
                     return;
                 }
                 x = x.right;
@@ -131,8 +142,10 @@ public class BST<Key extends Comparable<Key>, Value> {
      ****************************************************************************************************/
     public Key min() {
         Node min = min(root);
-        if (min != null) return min.key;
-        else return null;
+        if (min != null) {
+            last = min;
+            return min.key;
+        } else return null;
     }
 
     private Node min(Node x) {
@@ -155,8 +168,10 @@ public class BST<Key extends Comparable<Key>, Value> {
 
     public Key max() {
         Node max = max(root);
-        if (max != null) return max.key;
-        else return null;
+        if (max != null) {
+            last = max;
+            return max.key;
+        } else return null;
     }
 
     private Node max(Node x) {
@@ -178,8 +193,10 @@ public class BST<Key extends Comparable<Key>, Value> {
 
     public Key floor(Key key) {
         Node x = floor(root, key);
-        if (x != null) return x.key;
-        else return null;
+        if (x != null) {
+            last = x;
+            return x.key;
+        } else return null;
     }
 
     private Node floor(Node x, Key key) {
@@ -222,7 +239,10 @@ public class BST<Key extends Comparable<Key>, Value> {
     // ------------------------------------------------------------------------------------------------
     public Key ceiling(Key key) {
         Node x = ceiling(root, key);
-        if (x != null) return x.key;
+        if (x != null) {
+            last = x;
+            return x.key;
+        }
         return null;
     }
 
@@ -252,8 +272,10 @@ public class BST<Key extends Comparable<Key>, Value> {
 
     public Key select(int k) {
         Node x = select(root, k);
-        if (x != null) return x.key;
-        else return null;
+        if (x != null) {
+            last = x;
+            return x.key;
+        } else return null;
     }
 
     private Node select(Node x, int k) {
@@ -322,6 +344,10 @@ public class BST<Key extends Comparable<Key>, Value> {
     private int externalPath(Node x) {
         if (x == null) return 0;
         return externalPath(x.left) + externalPath(x.right) + x.n - 1;
+    }
+
+    public Value getLastValue() {
+        return last.value;
     }
 
     public void deleteMin() {
@@ -461,5 +487,43 @@ public class BST<Key extends Comparable<Key>, Value> {
     public boolean contains(Key x) {
         return get(x) != null;
     }
+
+    /*****************************************************************************************************
+     *
+     * 3.2.29 Binary tree check. Write a recursive method isBinaryTree() that takes a Node
+     * as argument and returns true if the subtree count field N is consistent in the data struc-
+     * ture rooted at that node, false otherwise. Note : This check also ensures that the data
+     * structure has no cycles and is therefore a binary tree (!).
+     *
+     ****************************************************************************************************/
+    public boolean isBinaryTree() {
+        return count(root, 0) == root.n;
+    }
+
+    private int count(Node x, int cnt) {
+        if (x == null) return cnt;
+        return count(x.right, 1 + count(x.left, cnt));
+    }
+
+    /*****************************************************************************************************
+     *
+     * 3.2.30 Order check. Write a recursive method isOrdered() that takes a Node and two
+     * keys min and max as arguments and returns true if all the keys in the tree are between
+     * min and max ; min and max are indeed the smallest and largest keys in the tree, respec-
+     * tively; and the BST ordering property holds for all keys in the tree; false otherwise.
+     *
+     ****************************************************************************************************/
+    public boolean isOrdered(Key min, Key max) {
+        return isOrdered(root, min, max);
+    }
+
+    private boolean isOrdered(Node x, Key min, Key max) {
+        if (x == null) return true;
+        if (min != null && x.key.compareTo(min) <= 0) return false;
+        if (max != null && x.key.compareTo(max) >= 0) return false;
+        return isOrdered(x.left, min, x.key) && isOrdered(x.right, x.key, max);
+    }
+
+
 
 }
