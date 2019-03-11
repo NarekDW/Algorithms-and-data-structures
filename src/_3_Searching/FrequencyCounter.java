@@ -31,6 +31,9 @@ package _3_Searching;
 import _1_Fundamentals._1_4_Analysis_of_Algorithms.Stopwatch;
 import _3_Searching._3_2_Binary_Search_Trees.BST;
 import _3_Searching._3_2_Binary_Search_Trees.experiments.ArrayRepresentationBST;
+import _3_Searching._3_3_Balanced_Search_Trees.RedBlackBSTOrigin;
+import _3_Searching._3_4_Hash_Tables.LinearProbingHashST;
+import _3_Searching._3_4_Hash_Tables.SeparateChainingHashST;
 import common.StdIn;
 import common.StdOut;
 
@@ -71,12 +74,14 @@ public class FrequencyCounter {
         int distinct = 0, words = 0;
         int minlen = Integer.parseInt(args[0]);
 //        SequentialSearchST<String, Integer> st = new SequentialSearchST<>();
-        BST<String, Integer> st = new BST<>();
-
+//        BST<String, Integer> st = new BST<>();
+//        RedBlackBSTOrigin<String, Integer> st = new RedBlackBSTOrigin<>();
+        SeparateChainingHashST<String, Integer> st = new SeparateChainingHashST<>();
+//        LinearProbingHashST<String, Integer> st = new LinearProbingHashST<>(3610829);
         /*
         BST
         --------------------------------------------------------------------------------------------------------
-        Gutenberg-tm 53
+        Gutenberg-tm 5  3
         distinct = 4266
         words    = 6695
         time: 0.345
@@ -110,8 +115,8 @@ public class FrequencyCounter {
             if (key.length() < minlen) continue;
             words++;
             if (st.contains(key)) {
-                st.put(key, st.getLastValue() + 1);
-//                st.put(key, st.get(key) + 1);
+//                st.put(key, st.getLastValue() + 1);
+                st.put(key, st.get(key) + 1);
             } else {
                 st.put(key, 1);
                 distinct++;
@@ -136,6 +141,8 @@ public class FrequencyCounter {
 
         double t = stopwatch.elapsedTime();
         System.out.println("time: " + t);
+
+        System.out.println("Pirson: " + st.pirson());
     }
 
 }

@@ -50,7 +50,7 @@ public class SequentialSearchST<Key, Value> {
 
             @Override
             public boolean hasNext() {
-                return x.next != null;
+                return x != null && x.next != null;
             }
 
             @Override
