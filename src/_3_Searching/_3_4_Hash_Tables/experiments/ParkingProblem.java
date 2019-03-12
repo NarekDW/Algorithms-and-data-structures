@@ -2,6 +2,10 @@ package _3_Searching._3_4_Hash_Tables.experiments;
 
 import common.StdRandom;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+
 /*****************************************************************************************************
  * 3.4.43 Parking problem. (D. Knuth) Run experimental studies to validate the hypoth-
  * esis that the number of compares needed to insert M random keys into a linear-probing

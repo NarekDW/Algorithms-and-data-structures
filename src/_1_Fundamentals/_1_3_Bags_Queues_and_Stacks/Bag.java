@@ -7,7 +7,7 @@ public class Bag<Item> implements Iterable<Item> {
     private Node current;
     private int n;
 
-    void add(Item item) {
+    public void add(Item item) {
         Node previous = current;
         current = new Node();
         current.item = item;
@@ -15,11 +15,11 @@ public class Bag<Item> implements Iterable<Item> {
         n++;
     }
 
-    boolean isEmpty() {
+    public boolean isEmpty() {
         return current == null;
     }
 
-    int size() {
+    public int size() {
         return n;
     }
 
