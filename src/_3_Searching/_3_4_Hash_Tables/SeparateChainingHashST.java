@@ -80,6 +80,10 @@ public class SeparateChainingHashST<Key extends Comparable<Key>, Value> {
         return get(key) != null;
     }
 
+    public int size() {
+        return n;
+    }
+
     // 3.4.19
     public Iterable<Key> keys() {
         Queue<Key> queue = new Queue<Key>();
