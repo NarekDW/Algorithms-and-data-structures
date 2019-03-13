@@ -11,18 +11,18 @@ import _2_Sorting._2_3_Quicksort.Quick;
  *
  ****************************************************************************************************/
 @SuppressWarnings("Duplicates")
-public class LinearProbingHashST<Key extends Comparable<Key>, Value> {
+public class LinearProbingHashSTWithDuplicates<Key extends Comparable<Key>, Value> {
 
     private int n;
     private int m;
     private Key[] keys;
     private Value[] values;
 
-    public LinearProbingHashST() {
+    public LinearProbingHashSTWithDuplicates() {
         this(16);
     }
 
-    public LinearProbingHashST(int m) {
+    public LinearProbingHashSTWithDuplicates(int m) {
         this.m = m;
         keys = (Key[]) new Comparable[m];
         values = (Value[]) new Comparable[m];
@@ -33,7 +33,7 @@ public class LinearProbingHashST<Key extends Comparable<Key>, Value> {
     }
 
     private void resize(int s) {
-        LinearProbingHashST<Key, Value> tmp = new LinearProbingHashST<>(s);
+        LinearProbingHashSTWithDuplicates<Key, Value> tmp = new LinearProbingHashSTWithDuplicates<>(s);
         for (int i = 0; i < m; i++)
             if (keys[i] != null)
                 tmp.put(keys[i], values[i]);
@@ -54,10 +54,11 @@ public class LinearProbingHashST<Key extends Comparable<Key>, Value> {
     }
 
     public Value get(Key key) {
+        Value res = null;
         for (int i = hash(key); keys[i] != null; i = (i + 1) % m)
             if (key.equals(keys[i]))
-                return values[i];
-        return null;
+                res = values[i];
+        return res;
     }
 
     public void delete(Key key) {
@@ -94,6 +95,40 @@ public class LinearProbingHashST<Key extends Comparable<Key>, Value> {
         delete(key);
     }
 
+    public void deleteOne(Key key) {
+        if (key == null)
+            return;
+        if (!contains(key)) return;
+
+        // find position i of key
+        int index = -1;
+        for (int i = hash(key); keys[i] != null; i = (i + 1) % m)
+            if (key.equals(keys[i]))
+                index = i;
+
+        if (index != -1) {
+            // delete key and associated value
+            keys[index] = null;
+            values[index] = null;
+
+            // rehash all keys in same cluster
+            index = (index + 1) % m;
+            while (keys[index] != null) {
+                // delete keys[i] an vals[i] and reinsert
+                Key keyToRehash = keys[index];
+                Value valToRehash = values[index];
+                keys[index] = null;
+                values[index] = null;
+                n--;
+                put(keyToRehash, valToRehash);
+                index = (index + 1) % m;
+            }
+
+            n--;
+            if (n > 0 && n <= m / 8) resize(m / 2);
+        }
+    }
+
     public boolean contains(Key key) {
         return get(key) != null;
     }
@@ -112,7 +147,7 @@ public class LinearProbingHashST<Key extends Comparable<Key>, Value> {
     }
 
     public static void main(String[] args) {
-        LinearProbingHashST<Integer, String> st = new LinearProbingHashST<>();
+        LinearProbingHashSTWithDuplicates<Integer, String> st = new LinearProbingHashSTWithDuplicates<>();
 
         st.put(1, "a");
         st.put(2, "b");
