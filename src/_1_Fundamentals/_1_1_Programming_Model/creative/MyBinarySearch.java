@@ -39,7 +39,11 @@ public class MyBinarySearch {
         return res;
     }
 
-
+    /***
+     * @deprecated Replaced by {@link BinarySearch#rankLowerIndex}
+     */
+    @Deprecated
+    // 1.1.28
     static int[] removeDuplicates(int[] arr) {
         final int n = arr.length;
         int[] temp = new int[n];

@@ -30,4 +30,20 @@ public class Fibonacci {
         return f;
     }
 
+    public static long betterF(int n) {
+        long f = 0;
+        long g = 1;
+        for (int i = 0; i < n; i++) {
+            f = f + g;
+            g = f - g;
+        }
+
+        return f;
+    }
+
+    public static long betterF2Helper(int n, long first, long second) {
+        if (n == 0) return first;
+        return betterF2Helper(n - 1, second, first + second);
+    }
+
 }

@@ -10,10 +10,6 @@ public class Bones {
             for (int j = 1; j <= SIDES; j++)
                 dist[i + j] += 1.0;
 
-//        for (double v : dist) {
-//            System.out.println(v);
-//        }
-
         for (int k = 2; k <= 2 * SIDES; k++)
             dist[k] /= 36;
 

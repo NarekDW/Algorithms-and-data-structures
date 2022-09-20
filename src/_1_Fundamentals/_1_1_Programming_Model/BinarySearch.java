@@ -1,5 +1,7 @@
 package _1_Fundamentals._1_1_Programming_Model;
 
+import common.In;
+
 import java.util.Arrays;
 
 public class BinarySearch {
