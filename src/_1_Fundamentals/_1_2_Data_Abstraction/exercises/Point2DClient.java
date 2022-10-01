@@ -16,7 +16,6 @@ import java.util.ArrayList;
 @SuppressWarnings("Duplicates")
 public class Point2DClient {
     public static void main(String[] args) {
-
         int n = 10;
 
         StdDraw.setCanvasSize(800, 800);
@@ -50,7 +49,6 @@ public class Point2DClient {
 
         System.out.println("min = " + min);
         dists.sort(Double::compareTo);
-        dists.forEach(System.out::println);
         point1.drawTo(point2);
     }
 }

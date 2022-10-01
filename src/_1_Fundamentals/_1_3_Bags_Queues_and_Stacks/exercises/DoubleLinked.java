@@ -1,7 +1,7 @@
 package _1_Fundamentals._1_3_Bags_Queues_and_Stacks.exercises;
 
 /*****************************************************************************************************
- *
+ * <p>
  * 1.3.31 Implement a nested class DoubleNode for building doubly-linked lists, where
  * each node contains a reference to the item preceding it and the item following it in the
  * list ( null if there is no such item). Then implement static methods for the following
@@ -10,7 +10,6 @@ package _1_Fundamentals._1_3_Bags_Queues_and_Stacks.exercises;
  * node.
  *
  ****************************************************************************************************/
-@SuppressWarnings("ALL")
 public class DoubleLinked<T> {
 
     public DoubleNode first;
@@ -22,17 +21,14 @@ public class DoubleLinked<T> {
 
         @Override
         public String toString() {
-            return "DoubleNode{" +
-                    "item=" + item +
-                    ", \nnext=" + next +
-                    '}';
+            return "DN{item=" + item + ", next=" + next + '}';
         }
     }
 
     public int size() {
         int cnt = 0;
         DoubleNode x = first;
-        while (x != null){
+        while (x != null) {
             cnt++;
             x = x.next;
         }
@@ -100,6 +96,9 @@ public class DoubleLinked<T> {
         linked.addLast(1)
                 .addLast(2)
                 .addLast(3);
+
+        if (linked.size() != 3)
+            throw new RuntimeException();
 
         System.out.println(linked);
         linked.removeFirst();

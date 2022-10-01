@@ -122,6 +122,14 @@ public class Interval2D {
         StdDraw.rectangle(xc, yc, x.length() / 2.0, y.length() / 2.0);
     }
 
+    public Interval1D getX() {
+        return x;
+    }
+
+    public Interval1D getY() {
+        return y;
+    }
+
     /**
      * Unit tests the {@code Interval2D} data type.
      *

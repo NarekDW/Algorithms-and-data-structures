@@ -40,7 +40,7 @@ public class Stack<Item> implements Iterable<Item> {
         return first == null;
     }
 
-    int size() {
+    public int size() {
         return n;
     }
 

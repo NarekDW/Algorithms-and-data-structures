@@ -1,10 +1,10 @@
 package _1_Fundamentals._1_3_Bags_Queues_and_Stacks.exercises;
 
 /*****************************************************************************************************
- *
+ * <p>
  * 1.3.29 Write a Queue implementation that uses a circular linked list, which is the same
- * as a linked list except that no links are null and the value of last.next is first when-
- * ever the list is not empty. Keep only one Node instance variable ( last ).
+ * as a linked list except that no links are null and the value of last.next is first
+ * whenever the list is not empty. Keep only one Node instance variable ( last ).
  *
  ****************************************************************************************************/
 public class QueueCircled<Item> {
@@ -72,10 +72,6 @@ public class QueueCircled<Item> {
         queue.enqueue(3);
         queue.enqueue(4);
         queue.enqueue(5);
-
-//        for (Integer i : queue) {
-//            System.out.println("it: " + i);
-//        }
 
         System.out.println(queue.dequeue());
         System.out.println(queue.dequeue());

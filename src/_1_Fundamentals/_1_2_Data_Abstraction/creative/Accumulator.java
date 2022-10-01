@@ -110,15 +110,22 @@ public class Accumulator {
      */
     public static void main(String[] args) {
         Accumulator stats = new Accumulator();
-        while (!StdIn.isEmpty()) {
-            double x = StdIn.readDouble();
-            stats.addDataValue(x);
+        double[] values = {2, 7, 3, 12, 9};
+        for (double value : values) {
+            stats.addDataValue(value);
+            System.out.println(stats.mean() + " : " + stats.var());
         }
 
-        StdOut.printf("n      = %d\n",   stats.count());
-        StdOut.printf("mean   = %.5f\n", stats.mean());
-        StdOut.printf("stddev = %.5f\n", stats.stddev());
-        StdOut.printf("var    = %.5f\n", stats.var());
-        StdOut.println(stats);
+
+//        while (!StdIn.isEmpty()) {
+//            double x = StdIn.readDouble();
+//            stats.addDataValue(x);
+//        }
+//
+//        StdOut.printf("n      = %d\n",   stats.count());
+//        StdOut.printf("mean   = %.5f\n", stats.mean());
+//        StdOut.printf("stddev = %.5f\n", stats.stddev());
+//        StdOut.printf("var    = %.5f\n", stats.var());
+//        StdOut.println(stats);
     }
 }

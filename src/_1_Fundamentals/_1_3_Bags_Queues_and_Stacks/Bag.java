@@ -29,8 +29,8 @@ public class Bag<Item> implements Iterable<Item> {
     }
 
     private class Node {
-        Item item;
-        Node next;
+        private Item item;
+        private Node next;
     }
 
     private class BagIterator implements Iterator<Item> {

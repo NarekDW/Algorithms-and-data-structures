@@ -1,7 +1,7 @@
 package _1_Fundamentals._1_3_Bags_Queues_and_Stacks.exercises;
 
 /*****************************************************************************************************
- *
+ * <p>
  * 1.3.14 Develop a class ResizingArrayQueueOfStrings that implements the queue
  * abstraction with a fixed-size array, and then extend your implementation to use array
  * resizing to remove the size restriction.
@@ -36,7 +36,7 @@ public class ResizingArrayQueueOfStrings<Item> {
     }
 
     public int size() {
-        return items.length;
+        return last - first;
     }
 
     private void resize(int max) {

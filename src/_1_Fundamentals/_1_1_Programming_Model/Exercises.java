@@ -53,7 +53,7 @@ public class Exercises {
     }
 
     // 1.1.13
-    static int[][] transposition(int[][] x) {
+    public static int[][] transposition(int[][] x) {
         int m = x.length;
         int n = x[0].length;
         int[][] result = new int[n][m];
@@ -64,7 +64,7 @@ public class Exercises {
         return result;
     }
 
-    static void printMatrix(int[][] x) {
+    public static void printMatrix(int[][] x) {
         for (int i = 0; i < x.length; i++) {
             for (int j = 0; j < x[0].length; j++) {
                 System.out.print(x[i][j] + "  ");

@@ -1559,7 +1559,7 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
     /**
      * Enable double buffering. All subsequent calls to
      * drawing methods such as {@code line()}, {@code circle()},
-     * and {@code square()} will be deffered until the next call
+     * and {@code square()} will be differed until the next call
      * to show(). Useful for animations.
      */
     public static void enableDoubleBuffering() {
