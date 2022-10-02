@@ -237,6 +237,7 @@ public class LinkedListExercises {
     }
 
     private static void testReverse() {
+        System.out.println("Running test for reverse function.");
         Node<Integer> node = generateNode(1, 5);
         Node<Integer> expected = new Node<>(4);
         expected.next = new Node(3);

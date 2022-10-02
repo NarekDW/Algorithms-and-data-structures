@@ -22,4 +22,17 @@ public class Sattolo {
         return a;
     }
 
+    public static int[] shuffleFunc(int[] a) {
+        int n = a.length;
+        int[] result = new int[n];
+        System.arraycopy(a, 0, result, 0, n);
+        for (int i = n - 1; i > 1; i--) {
+            int r = StdRandom.uniform(i);
+            int temp = result[i];
+            result[i] = result[r];
+            result[r] = temp;
+        }
+
+        return result;
+    }
 }

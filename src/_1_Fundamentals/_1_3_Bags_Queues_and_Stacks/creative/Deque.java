@@ -55,10 +55,7 @@ public class Deque<T> implements Iterable<T> {
 
         @Override
         public String toString() {
-            return "Node{" +
-                    "item=" + item +
-                    ", next=" + next +
-                    '}';
+            return "Node{item=" + item + ", next=" + next + '}';
         }
     }
 
@@ -91,51 +88,78 @@ public class Deque<T> implements Iterable<T> {
     }
 
     public T popLeft() {
+        if (isEmpty()) {
+            right = null;
+            left = null;
+            return null;
+        }
         T item = left.item;
-        left = left.next;
+        Node newLeft = left.next;
+        if (newLeft != null)
+            newLeft.prev = null;
+        left.next = null;
+        left = newLeft;
         n--;
-        if (isEmpty()) right = null;
         return item;
     }
 
     public T popRight() {
+        if (isEmpty()) {
+            right = null;
+            left = null;
+            return null;
+        }
         T item = right.item;
-        right = right.prev;
+        Node newRight = right.prev;
+        if (newRight != null)
+            newRight.next = null;
+        right.prev = null;
+        right = newRight;
         n--;
-        if (isEmpty()) left = null;
         return item;
     }
 
     @Override
     public String toString() {
-        return "Deque{" +
-                "left=" + left +
-                '}';
+        return "Deque{left=" + left + '}';
     }
 
     public static void main(String[] args) {
+        System.out.println("Running test for Deque.");
         Deque<Integer> deque = new Deque<>();
         deque.pushLeft(1);
         deque.pushLeft(2);
         deque.pushLeft(3);
 
-        for (Integer i : deque) {
-            System.out.println("it: " + i);
-        }
+        if (deque.size() != 3)
+            throw new RuntimeException();
 
-        System.out.println(deque.popLeft());
-        System.out.println(deque.popLeft());
-        System.out.println(deque.popLeft());
-        System.out.println(deque);
+        if (deque.popLeft() != 3)
+            throw new RuntimeException();
+        if (deque.popRight() != 1)
+            throw new RuntimeException();
+        if (deque.popLeft() != 2)
+            throw new RuntimeException();
 
-        Deque<Integer> deque2 = new Deque<>();
-        deque2.pushRight(1);
-        deque2.pushRight(2);
-        deque2.pushRight(3);
+        if (deque.popLeft() != null)
+            throw new RuntimeException();
+        if (deque.popRight() != null)
+            throw new RuntimeException();
 
-        System.out.println(deque2.popRight());
-        System.out.println(deque2.popRight());
-        System.out.println(deque2.popRight());
-        System.out.println(deque2);
+        deque.pushRight(11);
+        deque.pushRight(22);
+        deque.pushRight(33);
+
+        if (deque.popLeft() != 11)
+            throw new RuntimeException();
+        if (deque.popRight() != 33)
+            throw new RuntimeException();
+        if (deque.popLeft() != 22)
+            throw new RuntimeException();
+
+        if (deque.popLeft() != null)
+            throw new RuntimeException();
+        if (deque.popRight() != null)
+            throw new RuntimeException();
     }
 }

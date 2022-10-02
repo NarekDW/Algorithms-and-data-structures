@@ -47,6 +47,8 @@ public class ResizingArrayDeque<T> implements Iterable<T> {
     }
 
     public T popLeft() {
+        if (n == 0)
+            return null;
         if (n <= q.length / 4) resize(q.length / 2);
         T t = q[first];
         q[first] = null;
@@ -57,6 +59,8 @@ public class ResizingArrayDeque<T> implements Iterable<T> {
     }
 
     public T popRight() {
+        if (n == 0)
+            return null;
         if (n <= q.length / 4) resize(q.length / 2);
         last--;
         if (last < 0) last = q.length - 1;
@@ -97,33 +101,41 @@ public class ResizingArrayDeque<T> implements Iterable<T> {
     }
 
     public static void main(String[] args) {
+        System.out.println("Running test for ResizingArrayDeque.");
         ResizingArrayDeque<Integer> deque = new ResizingArrayDeque<>();
-
-        deque.pushRight(1);
-        deque.pushRight(2);
-        deque.pushRight(3);
-
         deque.pushLeft(1);
         deque.pushLeft(2);
         deque.pushLeft(3);
 
-        deque.forEach(System.out::println);
+        if (deque.size() != 3)
+            throw new RuntimeException();
 
+        if (deque.popLeft() != 3)
+            throw new RuntimeException();
+        if (deque.popRight() != 1)
+            throw new RuntimeException();
+        if (deque.popLeft() != 2)
+            throw new RuntimeException();
 
-//        System.out.println("\npopRight:");
-//        System.out.println(deque.popRight());
-//        System.out.println(deque.popRight());
-//        System.out.println(deque.popRight());
-//        System.out.println(deque.popRight());
-//        System.out.println(deque.popRight());
-//        System.out.println(deque.popRight());
+        if (deque.popLeft() != null)
+            throw new RuntimeException();
+        if (deque.popRight() != null)
+            throw new RuntimeException();
 
-        System.out.println("\npopLeft:");
-        System.out.println(deque.popLeft());
-        System.out.println(deque.popLeft());
-        System.out.println(deque.popLeft());
-        System.out.println(deque.popLeft());
-        System.out.println(deque.popLeft());
-        System.out.println(deque.popLeft());
+        deque.pushRight(11);
+        deque.pushRight(22);
+        deque.pushRight(33);
+
+        if (deque.popLeft() != 11)
+            throw new RuntimeException();
+        if (deque.popRight() != 33)
+            throw new RuntimeException();
+        if (deque.popLeft() != 22)
+            throw new RuntimeException();
+
+        if (deque.popLeft() != null)
+            throw new RuntimeException();
+        if (deque.popRight() != null)
+            throw new RuntimeException();
     }
 }

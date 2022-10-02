@@ -1,8 +1,9 @@
 package _1_Fundamentals._1_3_Bags_Queues_and_Stacks.creative;
 
 /*****************************************************************************************************
- *
- * 1.3.32 Steque. A stack-ended queue or steque is a data type that supports push, pop, and
+ * <p>
+ * 1.3.32 Steque.
+ * A stack-ended queue or steque is a data type that supports push, pop, and
  * enqueue. Articulate an API for this ADT. Develop a linked-list-based implementation.
  *
  ****************************************************************************************************/
@@ -62,35 +63,48 @@ public class Steque<T> implements Stack<T>, Queue<T> {
     }
 
     private class Node {
-        T item;
-        Node next;
-        Node prev;
+        private T item;
+        private Node next;
+        private Node prev;
     }
 
 
     public static void main(String[] args) {
+        testStack();
+        testQueue();
+    }
+
+    private static void testStack() {
+        System.out.println("Running test for Stack.");
         Stack<Integer> stack = new Steque<>();
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-        System.out.println(stack.pop());
-        System.out.println(stack.pop());
-        stack.push(4);
-        System.out.println(stack.pop());
-        System.out.println(stack.pop());
-        System.out.println(stack.isEmpty());
+        for (int i = 1; i <= 5; i++)
+            stack.push(i);
 
-        System.out.println();
+        if (stack.size() != 5)
+            throw new RuntimeException();
 
+        for (int i = 5; i >= 1; i--)
+            if (stack.pop() != i)
+                throw new RuntimeException();
+
+        if (!stack.isEmpty())
+            throw new RuntimeException();
+    }
+
+    private static void testQueue() {
+        System.out.println("Running test for Queue.");
         Queue<Integer> queue = new Steque<>();
-        queue.enqueue(1);
-        queue.enqueue(2);
-        queue.enqueue(3);
-        System.out.println(queue.dequeue());
-        System.out.println(queue.dequeue());
-        queue.enqueue(4);
-        System.out.println(queue.dequeue());
-        System.out.println(queue.dequeue());
-        System.out.println(queue.isEmpty());
+        for (int i = 1; i <= 5; i++)
+            queue.enqueue(i);
+
+        if (queue.size() != 5)
+            throw new RuntimeException();
+
+        for (int i = 1; i <= 5; i++)
+            if (queue.dequeue() != i)
+                throw new RuntimeException();
+
+        if (!queue.isEmpty())
+            throw new RuntimeException();
     }
 }
