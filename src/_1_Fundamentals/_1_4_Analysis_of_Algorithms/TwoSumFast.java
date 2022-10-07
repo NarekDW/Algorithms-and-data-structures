@@ -52,11 +52,6 @@ public class TwoSumFast {
         int cntSorted = TwoSumSorted.count(x);
         double v2 = stopwatch2.elapsedTime();
         System.out.println("cntSorted = " + cntSorted + " : time = " + v2);
-
-
-
-//        int countSlow = countSlow(x);
-//        System.out.println("countSlow = " + countSlow);
     }
 }
 
