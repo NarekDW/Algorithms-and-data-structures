@@ -7,6 +7,8 @@ package _1_Fundamentals._1_4_Analysis_of_Algorithms.exercises;
  * should be proportional to N in the worst case.
  *
  ****************************************************************************************************/
+@Deprecated
+// take a look at DuplicateElementsInArrays
 public class IntersectionOfArrays {
 
     // Running time ~ N
