@@ -3,14 +3,15 @@ package _1_Fundamentals._1_4_Analysis_of_Algorithms.exercises;
 import java.util.Arrays;
 
 /*****************************************************************************************************
- *
+ * <p>
  * 1.4.11 Add an instance method howMany() to StaticSETofInts (page 99) that finds the
  * number of occurrences of a given key in time proportional to log N in the worst case.
  *
  ****************************************************************************************************/
-@SuppressWarnings("ALL")
 public class StaticSETofInts {
-    private int[] a;
+    private final int[] a;
+    @SuppressWarnings("FieldCanBeLocal")
+    private final boolean checkForDuplicates = false;
 
     /**
      * Initializes a set of integers specified by the integer array.
@@ -19,9 +20,9 @@ public class StaticSETofInts {
      * @throws IllegalArgumentException if the array contains duplicate integers
      */
     public StaticSETofInts(int[] keys) {
-
         // defensive copy
         a = new int[keys.length];
+        //noinspection ManualArrayCopy
         for (int i = 0; i < keys.length; i++)
             a[i] = keys[i];
 
@@ -29,9 +30,11 @@ public class StaticSETofInts {
         Arrays.sort(a);
 
         // check for duplicates
-//        for (int i = 1; i < a.length; i++)
-//            if (a[i] == a[i - 1])
-//                throw new IllegalArgumentException("Argument arrays contains duplicate keys.");
+        if (checkForDuplicates) {
+            for (int i = 1; i < a.length; i++)
+                if (a[i] == a[i - 1])
+                    throw new IllegalArgumentException("Argument arrays contains duplicate keys.");
+        }
     }
 
     /**
@@ -96,11 +99,17 @@ public class StaticSETofInts {
             return highestIndex(key, mid + 1, hi);
     }
 
+
     public static void main(String[] args) {
         int[] x = {1, 2, 3, 3, 3, 4, 5, 5, 6, 6, 6, 6, 6};
-        StaticSETofInts ints = new StaticSETofInts(x);
-        System.out.println(ints.howMany(3));
-        System.out.println(ints.howMany(5));
-        System.out.println(ints.howMany(6));
+        StaticSETofInts setOfInts = new StaticSETofInts(x);
+        if (setOfInts.howMany(1) != 1)
+            throw new RuntimeException(String.valueOf(1));
+        if (setOfInts.howMany(3) != 3)
+            throw new RuntimeException(String.valueOf(3));
+        if (setOfInts.howMany(5) != 2)
+            throw new RuntimeException(String.valueOf(2));
+        if (setOfInts.howMany(6) != 5)
+            throw new RuntimeException(String.valueOf(5));
     }
 }
