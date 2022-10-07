@@ -36,16 +36,15 @@ public class DoublingRation {
         for (int i = 0; i < 10; i++)
             prev = timeTrial(4000);
 
-//        for(int n = 250; true; n += n) {
-        int n = 8000;
-        double time = 0;
-        for (int i = 0; i < repeats; i++) {
-            time = timeTrial(n);
-            System.out.printf("%6d %7.3f ", n, time);
-            System.out.printf("%5.1f\n", time / prev);
+        for (int n = 250; true; n += n) {
+            double time = 0;
+            for (int i = 0; i < repeats; i++) {
+                time = timeTrial(n);
+                System.out.printf("%6d %7.3f ", n, time);
+                System.out.printf("%5.1f\n", time / prev);
+            }
+            prev = time;
         }
-        prev = time;
-//        }
     }
 
 }
