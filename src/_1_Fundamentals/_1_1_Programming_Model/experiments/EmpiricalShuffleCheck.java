@@ -1,6 +1,6 @@
 package _1_Fundamentals._1_1_Programming_Model.experiments;
 
-import _1_Fundamentals._1_1_Programming_Model.Exercises;
+import _1_Fundamentals._1_1_Programming_Model.exercises.Exercises;
 import common.StdRandom;
 
 import java.util.function.Consumer;

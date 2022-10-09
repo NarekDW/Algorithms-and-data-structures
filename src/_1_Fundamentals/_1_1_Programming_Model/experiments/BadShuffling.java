@@ -1,6 +1,5 @@
 package _1_Fundamentals._1_1_Programming_Model.experiments;
 
-import _1_Fundamentals._1_1_Programming_Model.Exercises;
 import _1_Fundamentals._1_1_Programming_Model.web_exercises.Sattolo;
 import common.StdRandom;
 
