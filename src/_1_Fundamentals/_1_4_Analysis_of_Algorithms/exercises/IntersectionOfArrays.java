@@ -8,7 +8,7 @@ package _1_Fundamentals._1_4_Analysis_of_Algorithms.exercises;
  *
  ****************************************************************************************************/
 @Deprecated
-// take a look at DuplicateElementsInArrays
+// take a look at ../exercises/DuplicateElementsInArrays
 public class IntersectionOfArrays {
 
     // Running time ~ N

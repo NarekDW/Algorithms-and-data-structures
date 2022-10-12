@@ -1,6 +1,6 @@
 package _1_Fundamentals._1_4_Analysis_of_Algorithms;
 
-import _1_Fundamentals._1_4_Analysis_of_Algorithms.creative.TwoSumSorted;
+import _1_Fundamentals._1_4_Analysis_of_Algorithms.creative.TwoSumFaster;
 import common.StdRandom;
 
 import java.util.Arrays;
@@ -49,9 +49,9 @@ public class TwoSumFast {
         // Faster
         Stopwatch stopwatch2 = new Stopwatch();
         // ~ N
-        int cntSorted = TwoSumSorted.count(x);
+        int cntFaster = TwoSumFaster.count(x);
         double v2 = stopwatch2.elapsedTime();
-        System.out.println("cntSorted = " + cntSorted + " : time = " + v2);
+        System.out.println("cntFaster = " + cntFaster + " : time = " + v2);
     }
 }
 

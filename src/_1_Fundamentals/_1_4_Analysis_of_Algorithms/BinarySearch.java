@@ -17,7 +17,6 @@ public class BinarySearch {
         return -1;
     }
 
-
     public static int rank(int[] a, int key) {
         return rank(a, key, 0, a.length - 1);
     }

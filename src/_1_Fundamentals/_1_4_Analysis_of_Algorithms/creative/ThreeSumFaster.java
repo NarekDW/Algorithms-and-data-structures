@@ -1,4 +1,4 @@
-package _1_Fundamentals._1_4_Analysis_of_Algorithms.exercises;
+package _1_Fundamentals._1_4_Analysis_of_Algorithms.creative;
 
 import _1_Fundamentals._1_4_Analysis_of_Algorithms.StopwatchCPU;
 import _1_Fundamentals._1_4_Analysis_of_Algorithms.ThreeSumFast;

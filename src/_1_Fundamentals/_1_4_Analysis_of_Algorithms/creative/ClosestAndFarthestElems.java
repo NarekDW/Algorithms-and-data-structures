@@ -99,19 +99,6 @@ public class ClosestAndFarthestElems {
 
         System.out.println("x.length = " + x.length);
 
-//        Stopwatch stopwatch = new Stopwatch();
-//        // N^2 time ~ 37.456 sec
-//        printClosests(x);
-//        double v = stopwatch.elapsedTime();
-//        System.out.println("N^2 time ~ " + v);
-//
-//        Stopwatch stopwatch1 = new Stopwatch();
-//        // N*log(N) time ~ 0.078 sec
-//        printClosestsFast(x);
-//        double v1 = stopwatch1.elapsedTime();
-//        System.out.println("N*log(N) time ~ " + v1);
-
-
         Stopwatch stopwatch = new Stopwatch();
         // N^2 time ~ 24.858 sec
         printFarthest(x);
@@ -123,7 +110,6 @@ public class ClosestAndFarthestElems {
         printFarthestFast(x);
         double v1 = stopwatch1.elapsedTime();
         System.out.println("N*log(N) time ~ " + v1);
-
     }
 
 }
