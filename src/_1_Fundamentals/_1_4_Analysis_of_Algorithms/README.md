@@ -227,3 +227,4 @@ Design an algorithm that finds the secret number in at most ~2 lg N guesse
 - 1.4.29 (Steque with two stacks)
 - 1.4.30 (Deque with a stack and a steque)
 - 1.4.31 (Deque with three stacks)
+- 
