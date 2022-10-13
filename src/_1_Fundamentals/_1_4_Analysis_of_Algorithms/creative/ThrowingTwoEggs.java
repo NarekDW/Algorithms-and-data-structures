@@ -15,16 +15,14 @@ public class ThrowingTwoEggs {
 
     private final int f; // egg is broken if it is thrown off f or higher
     private final int floors;
-//    private int step;
 
     public ThrowingTwoEggs(int floors, int f) {
         this.floors = floors;
         this.f = f;
-//        this.step = firstStepIndex(floors.length);
     }
 
     /**
-     * 1 approach is to devide floors on equal sections of size sqrt(floor),
+     * 1 approach is to divide floors on equal sections of size sqrt(floor),
      * number of throws ~ 2* sqrt(N)
      */
     public int findFloorSlow() {
@@ -40,8 +38,8 @@ public class ThrowingTwoEggs {
 
     /**
      * 2 approach is to try to use fixed amount of eggs drops.
-     * Lets say we want to use ~ n tries in the worst case
-     * then first drop will be from n'th floor, (n throws)
+     * Let's say we want to use ~ n tries in the worst case
+     * then first drop will be from n-th floor, (n throws)
      * second - 1 + (n - 1) throws
      * third -  2 + (n - 2) throws
      * ...
@@ -88,8 +86,8 @@ public class ThrowingTwoEggs {
 
     public static void main(String[] args) {
         testAlgo();
-        testSlowAlgoPerfomance();
-        testFastAlgoPerfomance();
+        testSlowAlgoPerformance();
+        testFastAlgoPerformance();
     }
 
     private static void testAlgo() {
@@ -105,7 +103,7 @@ public class ThrowingTwoEggs {
         }
     }
 
-    private static void testSlowAlgoPerfomance() {
+    private static void testSlowAlgoPerformance() {
         StopwatchCPU stopwatch = new StopwatchCPU();
         int floors = 1_000_000;
         for (int i = 1; i < floors; i++) {
@@ -117,7 +115,7 @@ public class ThrowingTwoEggs {
         System.out.println("Time: " + stopwatch.elapsedTime() + " sec.");
     }
 
-    private static void testFastAlgoPerfomance() {
+    private static void testFastAlgoPerformance() {
         StopwatchCPU stopwatch = new StopwatchCPU();
         int floors = 100_000;
         for (int i = 1; i < floors; i++) {
