@@ -4,7 +4,7 @@ import common.In;
 
 public class UFQuickFind {
 
-    private int[] id;
+    private final int[] id;
     private int count;
 
     public UFQuickFind(int n) {
@@ -18,6 +18,7 @@ public class UFQuickFind {
         return count;
     }
 
+    @SuppressWarnings("unused")
     public boolean connected(int p, int q) {
         return find(p) == find(q);
     }
@@ -35,6 +36,7 @@ public class UFQuickFind {
         for (int i = 0; i < id.length; i++) {
             if (id[i] == idP) {
                 id[i] = idQ;
+                // Here should be +2
                 arrayAccess++;
             }
 
@@ -46,9 +48,7 @@ public class UFQuickFind {
 
     // for N-1 tries we get ~ N^2 using the site-indexed id[] array
     public static void main(String[] args) {
-//        In in = new In("tinyUF.txt");
-//        In in = new In("mediumUF.txt");
-        In in = new In("testUF.txt");
+        In in = new In(Data.MEDIUM_FILE_URL);
         int n = in.readInt();
         UFQuickFind ufQuickFind = new UFQuickFind(n);
         while (!in.isEmpty()) {

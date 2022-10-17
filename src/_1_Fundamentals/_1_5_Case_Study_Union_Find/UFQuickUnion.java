@@ -2,9 +2,11 @@ package _1_Fundamentals._1_5_Case_Study_Union_Find;
 
 import common.In;
 
+import java.util.Arrays;
+
 public class UFQuickUnion {
 
-    private int[] id;
+    private final int[] id;
     private int count;
 
     public UFQuickUnion(int n) {
@@ -58,10 +60,13 @@ public class UFQuickUnion {
     }
 
     public static void main(String[] args) {
-//        In in = new In("tinyUF.txt");
-//        In in = new In("mediumUF.txt");
-        In in = new In("largeUF.txt");
-//        In in = new In("testUF.txt");
+        testOnFile(Data.LARGE_FILE_URL);
+        pathOfLengthMoreThen4();
+    }
+
+    @SuppressWarnings("SameParameterValue")
+    private static void testOnFile(String file) {
+        In in = new In(file);
         int n = in.readInt();
         UFQuickUnion ufQuickUnion = new UFQuickUnion(n);
         while (!in.isEmpty()) {
@@ -70,5 +75,17 @@ public class UFQuickUnion {
             ufQuickUnion.union(p, q);
         }
         System.out.println("Count = " + ufQuickUnion.count());
+    }
+
+    private static void pathOfLengthMoreThen4() {
+        // Give a sequence of input pairs that causes this method to produce a path of length 4
+        // 0 - 1, 1 - 2, 2 - 3, 3 - 4
+        UFQuickUnion ufQuickUnion = new UFQuickUnion(5);
+        ufQuickUnion.union(0, 1);
+        ufQuickUnion.union(1, 2);
+        ufQuickUnion.union(2, 3);
+        ufQuickUnion.union(3, 4);
+
+        System.out.println(Arrays.toString(ufQuickUnion.id));
     }
 }

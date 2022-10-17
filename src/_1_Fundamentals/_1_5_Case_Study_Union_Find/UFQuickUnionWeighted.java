@@ -1,12 +1,12 @@
 package _1_Fundamentals._1_5_Case_Study_Union_Find;
 
-import _1_Fundamentals._1_4_Analysis_of_Algorithms.Stopwatch;
+import _1_Fundamentals._1_4_Analysis_of_Algorithms.StopwatchCPU;
 import common.In;
 
 public class UFQuickUnionWeighted {
 
-    private int[] id;
-    private int[] sz; // size of component for roots (site indexed)
+    private final int[] id;
+    private final int[] sz; // size of component for roots (site indexed)
     private int count;
 
     public UFQuickUnionWeighted(int n) {
@@ -60,6 +60,10 @@ public class UFQuickUnionWeighted {
         count--;
     }
 
+    /***
+     * 1.5.11 Implement weighted quick-find, where you always change the id[] entries of the smaller component to the
+     * identifier of the larger component. How does this change affect performance?
+     */
     public void unionReversed(int p, int q) {
         int rootP = find(p);
         int rootQ = find(q);
@@ -79,33 +83,37 @@ public class UFQuickUnionWeighted {
 
     // for N-1 tries we get (N-1)*(2*log(N) + 5) using the site-indexed id[] and sz[] arrays
     public static void main(String[] args) {
-//        In in = new In("largeUF.txt");
-////        In in = new In("testUF.txt");
-//        int n = in.readInt();
-//        Stopwatch stopwatch = new Stopwatch();
-//        UFQuickUnionWeighted weighted = new UFQuickUnionWeighted(n);
-//        while (!in.isEmpty()) {
-//            int p = in.readInt();
-//            int q = in.readInt();
-//            weighted.unionReversed(p, q);
-//        }
-//        double v = stopwatch.elapsedTime();
-//        System.out.println("rev = " + v);
-//        System.out.println("Count = " + weighted.count());
+//        double originalTime = checkOriginalPerformance();
+        double reversedTime = checkReversedPerformance();
+        System.out.println(reversedTime);
+//        System.out.println("originalTime: " + originalTime + ", reversedTime: " + reversedTime);
+//        System.out.println(reversedTime / originalTime);
+    }
 
-
-        In in2 = new In("largeUF.txt");
-        int n2 = in2.readInt();
-        Stopwatch stopwatch2 = new Stopwatch();
-        UFQuickUnionWeighted weighted2 = new UFQuickUnionWeighted(n2);
-        while (!in2.isEmpty()) {
-            int p = in2.readInt();
-            int q = in2.readInt();
-            weighted2.union(p, q);
+    private static double checkOriginalPerformance() {
+        In in = new In(Data.LARGE_FILE_URL);
+        int n = in.readInt();
+        StopwatchCPU stopwatch = new StopwatchCPU();
+        UFQuickUnionWeighted weighted = new UFQuickUnionWeighted(n);
+        while (!in.isEmpty()) {
+            int p = in.readInt();
+            int q = in.readInt();
+            weighted.union(p, q);
         }
-        double v2 = stopwatch2.elapsedTime();
-        System.out.println("usu = " + v2);
-        System.out.println("Count = " + weighted2.count());
+        return stopwatch.elapsedTime();
+    }
 
+    private static double checkReversedPerformance() {
+        In in = new In(Data.LARGE_FILE_URL);
+        int n = in.readInt();
+        System.out.println(n);
+        StopwatchCPU stopwatch = new StopwatchCPU();
+        UFQuickUnionWeighted weighted = new UFQuickUnionWeighted(n);
+        while (!in.isEmpty()) {
+            int p = in.readInt();
+            int q = in.readInt();
+            weighted.unionReversed(p, q);
+        }
+        return stopwatch.elapsedTime();
     }
 }
