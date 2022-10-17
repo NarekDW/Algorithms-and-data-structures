@@ -20,6 +20,7 @@ public class UFQuickUnion {
         return count;
     }
 
+    @SuppressWarnings("unused")
     public boolean connected(int p, int q) {
         return find(p) == find(q);
     }
@@ -39,8 +40,9 @@ public class UFQuickUnion {
 
         // 1.5.12 Quick-union with path compression.
         while (p != id[p]) {
-            p = id[p];
+            int next = id[p];
             id[p] = root;
+            p = next;
             arrayAccess += 3;
         }
 
@@ -55,7 +57,7 @@ public class UFQuickUnion {
         id[rootP] = rootQ;
         arrayAccess++;
         count--;
-//        System.out.println(arrayAccess);
+        System.out.println(arrayAccess);
         arrayAccess = 0;
     }
 
@@ -75,6 +77,7 @@ public class UFQuickUnion {
             ufQuickUnion.union(p, q);
         }
         System.out.println("Count = " + ufQuickUnion.count());
+        in.close();
     }
 
     private static void pathOfLengthMoreThen4() {

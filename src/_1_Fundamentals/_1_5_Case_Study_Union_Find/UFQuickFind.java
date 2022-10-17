@@ -57,5 +57,6 @@ public class UFQuickFind {
             ufQuickFind.union(p, q);
         }
         System.out.println("Count = " + ufQuickFind.count());
+        in.close();
     }
 }

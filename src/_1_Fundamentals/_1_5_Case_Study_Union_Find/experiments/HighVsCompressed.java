@@ -20,7 +20,7 @@ public class HighVsCompressed {
         double t2 = stopwatch2.elapsedTime();
         System.out.println("compression time = " + t2);
         System.out.println("compression count = " + compression.count());
-
+        in2.close();
 
         In in1 = new In("largeUF.txt");
         int n1 = in1.readInt();
@@ -34,6 +34,7 @@ public class HighVsCompressed {
         double t1 = stopwatch1.elapsedTime();
         System.out.println("height time = " + t1);
         System.out.println("height count = " + height.count());
+        in1.close();
     }
 
 }

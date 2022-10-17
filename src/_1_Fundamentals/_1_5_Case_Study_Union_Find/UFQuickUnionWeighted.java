@@ -23,6 +23,7 @@ public class UFQuickUnionWeighted {
         return count;
     }
 
+    @SuppressWarnings("unused")
     public boolean connected(int p, int q) {
         return find(p) == find(q);
     }
@@ -54,9 +55,6 @@ public class UFQuickUnionWeighted {
             arrayAccess += 3;
         }
 
-//        System.out.println(arrayAccess);
-        arrayAccess = 0;
-
         count--;
     }
 
@@ -83,11 +81,11 @@ public class UFQuickUnionWeighted {
 
     // for N-1 tries we get (N-1)*(2*log(N) + 5) using the site-indexed id[] and sz[] arrays
     public static void main(String[] args) {
-//        double originalTime = checkOriginalPerformance();
+        double originalTime = checkOriginalPerformance();
         double reversedTime = checkReversedPerformance();
         System.out.println(reversedTime);
-//        System.out.println("originalTime: " + originalTime + ", reversedTime: " + reversedTime);
-//        System.out.println(reversedTime / originalTime);
+        System.out.println("originalTime: " + originalTime + ", reversedTime: " + reversedTime);
+        System.out.println(reversedTime / originalTime);
     }
 
     private static double checkOriginalPerformance() {
@@ -100,7 +98,11 @@ public class UFQuickUnionWeighted {
             int q = in.readInt();
             weighted.union(p, q);
         }
-        return stopwatch.elapsedTime();
+        double time = stopwatch.elapsedTime();
+        in.close();
+
+        System.out.println("Array access: " + weighted.arrayAccess);
+        return time;
     }
 
     private static double checkReversedPerformance() {
@@ -114,6 +116,8 @@ public class UFQuickUnionWeighted {
             int q = in.readInt();
             weighted.unionReversed(p, q);
         }
-        return stopwatch.elapsedTime();
+        double time = stopwatch.elapsedTime();
+        in.close();
+        return time;
     }
 }

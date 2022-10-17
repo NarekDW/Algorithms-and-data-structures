@@ -1,22 +1,21 @@
 package _1_Fundamentals._1_5_Case_Study_Union_Find.creative;
 
-import _1_Fundamentals._1_4_Analysis_of_Algorithms.Stopwatch;
-import _1_Fundamentals._1_5_Case_Study_Union_Find.UFQuickUnionWeighted;
+import _1_Fundamentals._1_5_Case_Study_Union_Find.Data;
 import common.In;
 
+import java.util.Arrays;
+
 /*****************************************************************************************************
- *
+ * <p>
  * 1.5.14 Weighted quick-union by height. Develop a UF implementation that uses the
  * same basic strategy as weighted quick-union but keeps track of tree height and always
  * links the shorter tree to the taller one. Prove a logarithmic upper bound on the height
  * of the trees for N sites with your algorithm.
  *
  ****************************************************************************************************/
-@SuppressWarnings("ALL")
 public class WeightedQuickUnionByHeight {
-
-    private int[] id;
-    private int[] height; // size of component for roots (site indexed)
+    private final int[] id;
+    private final int[] height;
     private int count;
 
     public WeightedQuickUnionByHeight(int n) {
@@ -31,10 +30,6 @@ public class WeightedQuickUnionByHeight {
 
     public int count() {
         return count;
-    }
-
-    public boolean connected(int p, int q) {
-        return find(p) == find(q);
     }
 
     public int find(int p) {
@@ -53,43 +48,79 @@ public class WeightedQuickUnionByHeight {
         else if (height[rootP] > height[rootQ])
             id[rootQ] = rootP;
         else {
-            id[rootQ] = rootP;
-            height[rootP]++;
-        }
-
-        count--;
-    }
-
-    public void unionReversed(int p, int q) {
-        int rootP = find(p);
-        int rootQ = find(q);
-        if (rootP == rootQ) return;
-
-        if (height[rootP] > height[rootQ]) {
             id[rootP] = rootQ;
-            height[rootQ] += height[rootP];
-        } else {
-            id[rootQ] = rootP;
-            height[rootP] += height[rootQ];
+            height[rootQ]++;
         }
+
         count--;
     }
+
 
     // for N-1 tries we get (N-1)*(2*log(N) + 5) using the site-indexed id[] and height[] arrays
     public static void main(String[] args) {
-        In in2 = new In("largeUF.txt");
-        int n2 = in2.readInt();
-        Stopwatch stopwatch2 = new Stopwatch();
-        UFQuickUnionWeighted weighted2 = new UFQuickUnionWeighted(n2);
-        while (!in2.isEmpty()) {
-            int p = in2.readInt();
-            int q = in2.readInt();
-            weighted2.union(p, q);
-        }
-        double v2 = stopwatch2.elapsedTime();
-        System.out.println("usu = " + v2);
-        System.out.println("Count = " + weighted2.count());
+        checkTreeHeight();
+        checkTreeHeight(Data.LARGE_FILE_URL);
+    }
 
+    @SuppressWarnings("SameParameterValue")
+    private static void checkTreeHeight(String fileUrl) {
+        In in = new In(fileUrl);
+        int n = in.readInt();
+        WeightedQuickUnionByHeight weighted = new WeightedQuickUnionByHeight(n);
+        while (!in.isEmpty()) {
+            int p = in.readInt();
+            int q = in.readInt();
+            weighted.union(p, q);
+        }
+        in.close();
+
+        //noinspection OptionalGetWithoutIsPresent
+        System.out.println("For n = " + n + ", tree height = " + Arrays.stream(weighted.height).max().getAsInt());
+    }
+
+    /**
+     * This should build a tree like this:
+     *                      11
+     *             /        \   \    \   \
+     *            4          7   12  13  14
+     *           / \ \ \    / \  \
+     *          1   3 4 6  8   9  10
+     *         / \
+     *        0   2
+     */
+    private static void checkTreeHeight() {
+        WeightedQuickUnionByHeight wqu = new WeightedQuickUnionByHeight(15);
+        wqu.union(0, 1);
+        wqu.union(1, 2);
+        wqu.union(3, 4);
+        wqu.union(5, 3);
+        wqu.union(4, 6);
+        wqu.union(0, 4);
+
+        wqu.union(8, 7);
+        wqu.union(9, 7);
+        wqu.union(10, 7);
+
+        wqu.union(12, 11);
+        wqu.union(13, 11);
+        wqu.union(14, 11);
+
+        wqu.union(7, 11);
+
+        wqu.union(0, 8);
+
+        for (int i = 0; i < wqu.id.length; i++) {
+            System.out.print(i + ":" + wqu.id[i] + "  ");
+        }
+
+        System.out.println();
+        for (int i = 0; i < wqu.height.length; i++) {
+            System.out.print(i + ":" + wqu.height[i] + "  ");
+        }
+
+        // For n = 15, tree height = 3
+        //noinspection OptionalGetWithoutIsPresent
+        System.out.println("\nHeight: " + Arrays.stream(wqu.height).max().getAsInt());
     }
 
 }
