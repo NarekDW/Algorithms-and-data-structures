@@ -20,7 +20,6 @@ public class WeightedQuickUnionWithPathCompression {
     private final int[] id;
     private final int[] sz; // size of component for roots (site indexed)
     private int count;
-    private int numberOfConnections;
 
     public WeightedQuickUnionWithPathCompression(int n) {
         count = n;
@@ -34,10 +33,6 @@ public class WeightedQuickUnionWithPathCompression {
 
     public int count() {
         return count;
-    }
-
-    public int getNumberOfConnections() {
-        return numberOfConnections;
     }
 
     @SuppressWarnings("unused")
@@ -84,7 +79,6 @@ public class WeightedQuickUnionWithPathCompression {
             arrayAccess += 5;
         }
 
-        numberOfConnections++;
         count--;
     }
 

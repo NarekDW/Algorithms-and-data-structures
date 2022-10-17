@@ -8,7 +8,6 @@ public class UFQuickUnion {
 
     private final int[] id;
     private int count;
-    private int numberOfPairs;
 
     public UFQuickUnion(int n) {
         count = n;
@@ -19,10 +18,6 @@ public class UFQuickUnion {
 
     public int count() {
         return count;
-    }
-
-    public int getNumberOfPairs() {
-        return numberOfPairs;
     }
 
     @SuppressWarnings("unused")
@@ -62,7 +57,6 @@ public class UFQuickUnion {
         id[rootP] = rootQ;
         arrayAccess++;
         count--;
-        numberOfPairs++;
     }
 
     public static void main(String[] args) {

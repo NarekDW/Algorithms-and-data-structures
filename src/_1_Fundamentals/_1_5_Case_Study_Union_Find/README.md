@@ -37,12 +37,15 @@ removes the restriction on needing the number of objects ahead of time. Add a me
 an int identifier.
 [Implementation: WQUDynamicGrowth.java](./creative/WQUDynamicGrowth.java)
 
+1.5.21 Erdös-Renyi model. Use your client from Exercise 1.5.17
+to test the hypothesis that the number of pairs generated to get one component is ~ 1⁄2N ln N.
+[Implementation: ErdosRenyiModel.java](./experiments/ErdosRenyiModel.java)
+
 ## Not covered/ TODO (numbers)
 
 - 1.5.15 Binomial trees.
 - 1.5.16 Amortized costs plots.
 - 1.5.18 Random grid generator.
-- 1.5.21 Erdös-Renyi model.
 - 1.5.22 Doubling test for Erdös-Renyi model.
 - 1.5.23 Compare quick-find with quick-union for Erdös-Renyi model.
 - 1.5.24 Fast algorithms for Erdös-Renyi model.

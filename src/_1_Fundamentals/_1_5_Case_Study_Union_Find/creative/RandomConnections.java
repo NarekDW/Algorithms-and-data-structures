@@ -18,23 +18,20 @@ public class RandomConnections {
 
     public static void main(String[] args) {
         int n = 100_000;
-        System.out.println(count(n));
+        System.out.println("Amount of generated values: " + count(n));
     }
 
     public static int count(int n) {
         UFQuickUnion uf = new UFQuickUnion(n);
-        while (uf.count() != 1)
-            unionRandomSites(n, uf);
-
-        return uf.getNumberOfPairs();
-    }
-
-    private static void unionRandomSites(int n, UFQuickUnion uf) {
-        for (int i = 0; i < n; i++) {
+        int generatedValues = 0;
+        while (uf.count() != 1) {
             int p = StdRandom.uniform(n);
             int q = StdRandom.uniform(n);
             uf.union(p, q);
+            generatedValues++;
         }
+
+        return generatedValues;
     }
 
 }
