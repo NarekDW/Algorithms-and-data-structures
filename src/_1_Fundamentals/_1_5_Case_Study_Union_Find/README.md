@@ -23,6 +23,15 @@ quick-union but keeps track of tree height and always links the shorter tree to 
 upper bound on the height of the trees for N sites with your algorithm.
 [Implementation: WeightedQuickUnionByHeight.java](./creative/WeightedQuickUnionByHeight.java)
 
+1.5.17 Random connections.
+Develop a UF client ErdosRenyi that takes an integer value N from the command line,
+generates random pairs of integers between 0 and N-1, calling connected() to determine
+if they are connected and then union() if not (as in our development client),
+looping until all sites are connected, and printing the number of connections generated.
+Package your program as a static method count() that takes N as argument and returns the number
+of connections and a main() that takes N from the command line, calls count(), and prints the returned value.
+[Implementation: RandomConnections.java](./creative/RandomConnections.java)
+
 1.5.20 Dynamic growth. Using linked lists or a resizing array, develop a weighted quick-union implementation that
 removes the restriction on needing the number of objects ahead of time. Add a method newSite() to the API, which returns
 an int identifier.
@@ -32,7 +41,6 @@ an int identifier.
 
 - 1.5.15 Binomial trees.
 - 1.5.16 Amortized costs plots.
-- 1.5.17 Random connections.
 - 1.5.18 Random grid generator.
 - 1.5.21 Erdös-Renyi model.
 - 1.5.22 Doubling test for Erdös-Renyi model.
