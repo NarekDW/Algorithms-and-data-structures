@@ -2,7 +2,7 @@ package _2_Sorting._2_2_Mergesort.creative;
 
 import _1_Fundamentals._1_3_Bags_Queues_and_Stacks.Queue;
 
-import static _2_Sorting._2_1_Elementary_Sorts.SortUtils.less;
+import static common.SortUtils.less;
 
 /*****************************************************************************************************
  *

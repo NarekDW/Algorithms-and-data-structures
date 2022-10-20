@@ -2,7 +2,7 @@ package _2_Sorting._2_4_Priority_Queues.creative;
 
 import common.StdRandom;
 
-import static _2_Sorting._2_1_Elementary_Sorts.SortUtils.isSorted;
+import static common.SortUtils.isSorted;
 import static java.lang.Math.log;
 import static java.lang.Math.pow;
 

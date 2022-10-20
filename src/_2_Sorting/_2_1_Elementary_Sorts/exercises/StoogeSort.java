@@ -1,8 +1,8 @@
 package _2_Sorting._2_1_Elementary_Sorts.exercises;
 
-import static _2_Sorting._2_1_Elementary_Sorts.SortUtils.exch;
-import static _2_Sorting._2_1_Elementary_Sorts.SortUtils.less;
-import static _2_Sorting._2_1_Elementary_Sorts.SortUtils.show;
+import static common.SortUtils.exch;
+import static common.SortUtils.less;
+import static common.SortUtils.show;
 
 /*****************************************************************************************************
  *

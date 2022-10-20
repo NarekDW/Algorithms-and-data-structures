@@ -1,7 +1,7 @@
 package _2_Sorting._2_2_Mergesort.exercises;
 
-import static _2_Sorting._2_1_Elementary_Sorts.SortUtils.less;
-import static _2_Sorting._2_1_Elementary_Sorts.SortUtils.show;
+import static common.SortUtils.less;
+import static common.SortUtils.show;
 
 @SuppressWarnings("ALL")
 public class MergeDynamic {

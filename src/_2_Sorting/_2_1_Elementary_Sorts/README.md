@@ -96,16 +96,47 @@ sort (Algorithm 2.1).
 [Implementation: ShellSortWithArray.java](./exercises/ShellSortWithArray.java)
 
 2.1.6 Which method runs faster for an array with all keys identical, 
-selection sort or insertion sort?
+selection sort or insertion sort?  
 [Implementation: SortCompareWithDiffArrays.java](./exercises/SortCompareWithDiffArrays.java)
 
-2.1.7 Which method runs faster for an array in reverse order, selection sort or insertion sort?
+2.1.7 Which method runs faster for an array in reverse order, selection sort or insertion sort?  
 [Implementation: SortCompareWithDiffArrays.java](./exercises/SortCompareWithDiffArrays.java)
 
 2.1.11 Implement a version of shellsort that keeps the increment sequence in an array,
-rather than computing it.
+rather than computing it.  
 [Implementation: ShellSortWithArray.java](./exercises/ShellSortWithArray.java)
 
-## Not covered/ TODO (numbers)
+2.1.14 Dequeue sort. Explain how you would sort a deck of cards, with the restriction
+that the only allowed operations are to look at the values of the top two cards, to
+exchange the top two cards, and to move the top card to the bottom of the deck.  
+[Implementation: DequeueSort.java](./creative/DequeueSort.java)
 
-- 
+2.1.15 Expensive exchange. A clerk at a shipping company is charged with the task of 
+rearranging a number of large crates in order of the time they are to be shipped out. 
+Thus, the cost of compares is very low (just look at the labels) relative to the cost 
+of exchanges (move the crates). The warehouse is nearly full—there is extra space 
+sufficient to hold any one of the crates, but not two. 
+What sorting method should the clerk use?  
+**Answer**: Selection sort, as it requires _N - 1_ exchanges only.
+
+2.1.17 Animation. Add code to Insertion and Selection to make them draw the
+array contents as vertical bars like the visual traces in this section, redrawing the bars
+after each pass, to produce an animated effect, ending in a “sorted” picture where the
+bars appear in order of their height. Hint : Use a client like the one in the text that generates
+random Double values, insert calls to show() as appropriate in the sort code, and
+implement a show() method that clears the canvas and draws the bars.
+[Implementation: Animation.java](./creative/Animation.java)
+[Implementation: AnimationInsertion.java](./creative/AnimationInsertion.java)
+[Implementation: AnimationSelection.java](./creative/AnimationSelection.java)
+
+2.1.19 Shellsort worst case.
+Construct an array of 100 elements containing the numbers 1 through 100 for which shellsort,
+with the increments 1 4 13 40 , uses as large a number of compares as you can find.  
+[Implementation: ShellSortWorstAndBestCases.java](./creative/ShellSortWorstAndBestCases.java)
+
+2.1.20 Shellsort best case. What is the best case for shellsort? Justify your answer.  
+[Implementation: ShellSortWorstAndBestCases.java](./creative/ShellSortWorstAndBestCases.java)
+
+
+## Not covered/ TODO (numbers)
+- 2.1.12

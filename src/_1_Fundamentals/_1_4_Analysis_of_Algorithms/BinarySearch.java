@@ -1,6 +1,6 @@
 package _1_Fundamentals._1_4_Analysis_of_Algorithms;
 
-import static _2_Sorting._2_1_Elementary_Sorts.SortUtils.less;
+import static common.SortUtils.less;
 
 public class BinarySearch {
 

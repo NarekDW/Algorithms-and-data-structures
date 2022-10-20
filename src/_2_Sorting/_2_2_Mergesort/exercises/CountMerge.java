@@ -5,7 +5,7 @@ import common.StdRandom;
 
 import java.awt.*;
 
-import static _2_Sorting._2_1_Elementary_Sorts.SortUtils.less;
+import static common.SortUtils.less;
 
 @SuppressWarnings("Duplicates")
 public class CountMerge {

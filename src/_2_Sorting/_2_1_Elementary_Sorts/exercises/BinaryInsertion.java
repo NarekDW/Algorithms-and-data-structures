@@ -2,8 +2,8 @@ package _2_Sorting._2_1_Elementary_Sorts.exercises;
 
 import common.StdRandom;
 
-import static _2_Sorting._2_1_Elementary_Sorts.SortUtils.isSorted;
-import static _2_Sorting._2_1_Elementary_Sorts.SortUtils.less;
+import static common.SortUtils.isSorted;
+import static common.SortUtils.less;
 
 /*****************************************************************************************************
  *

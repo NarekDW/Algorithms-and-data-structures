@@ -2,8 +2,8 @@ package _2_Sorting._2_2_Mergesort.creative;
 
 import common.StdRandom;
 
-import static _2_Sorting._2_1_Elementary_Sorts.SortUtils.exch;
-import static _2_Sorting._2_1_Elementary_Sorts.SortUtils.less;
+import static common.SortUtils.exch;
+import static common.SortUtils.less;
 import static java.lang.Math.min;
 
 // ???

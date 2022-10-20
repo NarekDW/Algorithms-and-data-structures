@@ -1,8 +1,10 @@
 package _2_Sorting._2_1_Elementary_Sorts;
 
-import static _2_Sorting._2_1_Elementary_Sorts.SortUtils.exch;
-import static _2_Sorting._2_1_Elementary_Sorts.SortUtils.less;
-import static _2_Sorting._2_1_Elementary_Sorts.SortUtils.show;
+import common.SortUtils;
+
+import static common.SortUtils.exch;
+import static common.SortUtils.less;
+import static common.SortUtils.show;
 
 public class Insertion {
 

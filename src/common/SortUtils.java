@@ -1,4 +1,4 @@
-package _2_Sorting._2_1_Elementary_Sorts;
+package common;
 
 import common.StdRandom;
 
@@ -20,7 +20,7 @@ public class SortUtils {
         System.out.println();
     }
 
-    public static boolean isSorted(Comparable<?>[] a) {
+    public static <T> boolean isSorted(Comparable<T>[] a) {
         for (int i = 1; i < a.length; i++)
             if (less(a[i], a[i-1])) return false;
         return true;

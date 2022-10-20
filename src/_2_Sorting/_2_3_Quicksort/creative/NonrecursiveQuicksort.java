@@ -4,7 +4,7 @@ import _1_Fundamentals._1_3_Bags_Queues_and_Stacks.Stack;
 import _2_Sorting._2_1_Elementary_Sorts.Insertion;
 import common.StdRandom;
 
-import static _2_Sorting._2_1_Elementary_Sorts.SortUtils.*;
+import static common.SortUtils.*;
 import static common.StdRandom.shuffle;
 
 /*****************************************************************************************************

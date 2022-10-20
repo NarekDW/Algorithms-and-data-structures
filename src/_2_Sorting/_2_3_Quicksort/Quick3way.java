@@ -1,8 +1,6 @@
 package _2_Sorting._2_3_Quicksort;
 
-import java.util.Arrays;
-
-import static _2_Sorting._2_1_Elementary_Sorts.SortUtils.exch;
+import static common.SortUtils.exch;
 import static common.StdRandom.shuffle;
 
 public class Quick3way {

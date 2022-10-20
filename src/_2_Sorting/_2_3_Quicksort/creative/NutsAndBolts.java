@@ -1,6 +1,6 @@
 package _2_Sorting._2_3_Quicksort.creative;
 
-import static _2_Sorting._2_1_Elementary_Sorts.SortUtils.*;
+import static common.SortUtils.*;
 import static common.StdRandom.shuffle;
 
 /*****************************************************************************************************
