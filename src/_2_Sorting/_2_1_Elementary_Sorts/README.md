@@ -8,7 +8,8 @@ entire array is sorted.
 
 ---
 __Proposition A__. Selection sort uses **~N^2/2** compares and **N** exchanges to sort
-an array of length N.  
+an array of length N.
+
 __Proof__: You can prove this fact by examining the trace, which is
 an N-by-N table in which unshaded letters correspond to compares.
 About one-half of the entries in the table are unshaded—those on
@@ -26,3 +27,85 @@ and
   It doesn't take any advantage (of running time) if original array is already sorted.
 - Data movement is minimal. It's always ~ N (linear).
 
+## Insertion sort
+
+Move smaller element to the left. Running time depends on the initial order.
+<br/><br/>
+___
+__Proposition B__. Insertion sort uses ~N^2/4 compares and ~N^2/4 exchanges to
+sort a randomly ordered array of length N with distinct keys, on the average.
+The worst case is ~ N^2/2 compares and ~N^2/2 exchanges and the best case is
+N - 1 compares and 0 exchanges.
+
+__Proof__: Just as for Proposition A, the number of compares and exchanges is
+easy to visualize in the N-by-N diagram that we use to illustrate the sort.
+We count entries below the diagonal—all of them, in the worst case, and none
+of them, in the best case. For randomly ordered arrays, we expect each item
+to go about halfway back, on the average, so we count one-half of the entries
+below the diagonal.  
+The number of compares is the number of exchanges plus an additional term
+equal to N minus the number of times the item inserted is the smallest so far.
+In the worst case (array in reverse order), this term is negligible in relation
+to the total; in the best case (array in order) it is equal to N - 1.
+***
+<br/><br/>
+**If initial array is already sorted, then the running time of Insertion sort
+algorithm is ~ N (linear)**
+
+_If the number of inversions (inversion is a pair of entries that are out of
+order in the array) in an array is less than a constant multiple of the array
+size, we say that the array is **partially sorted**._
+
+When the number of inversions is low - then Insertion sort most probably becomes
+the fastest sorting algorithm.
+
+<br/><br/>
+___
+__Proposition C__. The number of exchanges used by insertion sort is equal
+to the number of inversions in the array, and the number of compares is
+at least equal to the number of inversions and at most equal to the number
+of inversions plus the array size minus 1.
+
+__Proof__: Every exchange involves two inverted adjacent entries and thus
+reduces the number of inversions by one, and the array is sorted when the
+number of inversions reaches zero. Every exchange corresponds to a compare,
+and an additional compare might happen for each value of i from 1 to N-1
+(when a[i] does not reach the left end of the array).
+***
+
+## Shell sort
+
+Shell sort is a simple extension of insertion sort that gains speed by allowing 
+exchanges of array entries that are far apart, to produce partially sorted arrays 
+that can be efficiently sorted, eventually by insertion sort.
+
+**Shell Sort = Insertion Sort [for h = 1]**
+
+Performance characteristics:
+Worst-case ~ **N^(3/2)**
+
+
+# Exercise:
+
+## Done:
+
+2.1.3 Give an example of an array of N items that maximizes the number of times the test
+a[j] < a[min] fails (and, therefore, min gets updated) during the operation of selection
+sort (Algorithm 2.1).
+[2, 3, 4, 5, 6, 7, 8, 9, 10, 1]  
+[Implementation: ShellSortWithArray.java](./exercises/ShellSortWithArray.java)
+
+2.1.6 Which method runs faster for an array with all keys identical, 
+selection sort or insertion sort?
+[Implementation: SortCompareWithDiffArrays.java](./exercises/SortCompareWithDiffArrays.java)
+
+2.1.7 Which method runs faster for an array in reverse order, selection sort or insertion sort?
+[Implementation: SortCompareWithDiffArrays.java](./exercises/SortCompareWithDiffArrays.java)
+
+2.1.11 Implement a version of shellsort that keeps the increment sequence in an array,
+rather than computing it.
+[Implementation: ShellSortWithArray.java](./exercises/ShellSortWithArray.java)
+
+## Not covered/ TODO (numbers)
+
+- 

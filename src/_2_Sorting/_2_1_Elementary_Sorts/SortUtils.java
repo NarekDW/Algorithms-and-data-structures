@@ -1,5 +1,7 @@
 package _2_Sorting._2_1_Elementary_Sorts;
 
+import common.StdRandom;
+
 public class SortUtils {
 
     public static void exch(Comparable<?>[] a, int i, int j) {
@@ -22,5 +24,12 @@ public class SortUtils {
         for (int i = 1; i < a.length; i++)
             if (less(a[i], a[i-1])) return false;
         return true;
+    }
+
+    public static Double[] generateArray(int size) {
+        Double[] arr = new Double[size];
+        for (int i = 0; i < size; i++)
+            arr[i] = StdRandom.uniform();
+        return arr;
     }
 }

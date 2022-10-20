@@ -5,11 +5,13 @@ import static _2_Sorting._2_1_Elementary_Sorts.SortUtils.less;
 
 public class Shell {
 
+    @SuppressWarnings("rawtypes")
+    // When h = 1 it becomes to Insertion Sort.
     public static void sort(Comparable[] a) {
-        int n = a.length;
+        int n = a.length; // 21
         int h = 1;
         while (h < n / 3)
-            h = 3 * h + 1;
+            h = 3 * h + 1; // 1 4 13
         while (h >= 1) {
             for (int i = h; i < n; i++)
                 for (int j = i; j >= h && less(a[j], a[j - h]); j -= h)
