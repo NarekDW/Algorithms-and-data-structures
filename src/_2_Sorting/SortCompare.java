@@ -21,7 +21,7 @@ package _2_Sorting;
  *
  ******************************************************************************/
 
-import _1_Fundamentals._1_4_Analysis_of_Algorithms.Stopwatch;
+import common.Stopwatch;
 import _2_Sorting._2_1_Elementary_Sorts.Insertion;
 import _2_Sorting._2_1_Elementary_Sorts.Selection;
 import _2_Sorting._2_1_Elementary_Sorts.Shell;

@@ -19,6 +19,7 @@ package _1_Fundamentals._1_4_Analysis_of_Algorithms;
 import common.StdDraw;
 import common.StdOut;
 import common.StdRandom;
+import common.Stopwatch;
 
 /**
  * The {@code DoublingTest} class provides a client for measuring

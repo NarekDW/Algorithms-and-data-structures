@@ -1,11 +1,10 @@
 package _2_Sorting._2_1_Elementary_Sorts.experiments;
 
-import _1_Fundamentals._1_4_Analysis_of_Algorithms.Stopwatch;
+import common.Stopwatch;
 import _2_Sorting._2_1_Elementary_Sorts.Insertion;
 import common.StdRandom;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.function.Function;
 import java.util.function.Supplier;
 

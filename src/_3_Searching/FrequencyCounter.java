@@ -28,11 +28,7 @@ package _3_Searching;
  ******************************************************************************/
 
 
-import _1_Fundamentals._1_4_Analysis_of_Algorithms.Stopwatch;
-import _3_Searching._3_2_Binary_Search_Trees.BST;
-import _3_Searching._3_2_Binary_Search_Trees.experiments.ArrayRepresentationBST;
-import _3_Searching._3_3_Balanced_Search_Trees.RedBlackBSTOrigin;
-import _3_Searching._3_4_Hash_Tables.LinearProbingHashST;
+import common.Stopwatch;
 import _3_Searching._3_4_Hash_Tables.SeparateChainingHashST;
 import common.StdIn;
 import common.StdOut;

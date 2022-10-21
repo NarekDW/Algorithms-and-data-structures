@@ -1,6 +1,6 @@
 package _2_Sorting._2_1_Elementary_Sorts.experiments;
 
-import _1_Fundamentals._1_4_Analysis_of_Algorithms.StopwatchCPU;
+import common.StopwatchCPU;
 import _2_Sorting._2_1_Elementary_Sorts.Insertion;
 import common.SortUtils;
 

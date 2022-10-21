@@ -1,6 +1,6 @@
 package _1_Fundamentals._1_5_Case_Study_Union_Find.creative;
 
-import _1_Fundamentals._1_4_Analysis_of_Algorithms.StopwatchCPU;
+import common.StopwatchCPU;
 import _1_Fundamentals._1_5_Case_Study_Union_Find.Data;
 import _1_Fundamentals._1_5_Case_Study_Union_Find.UFQuickUnionWeighted;
 import common.In;

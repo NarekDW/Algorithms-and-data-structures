@@ -1,6 +1,6 @@
 package _1_Fundamentals._1_5_Case_Study_Union_Find;
 
-import _1_Fundamentals._1_4_Analysis_of_Algorithms.StopwatchCPU;
+import common.StopwatchCPU;
 import common.In;
 
 public class UFQuickUnionWeighted {

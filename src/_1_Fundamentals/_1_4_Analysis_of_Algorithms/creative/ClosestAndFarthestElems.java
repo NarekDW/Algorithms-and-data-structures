@@ -1,6 +1,6 @@
 package _1_Fundamentals._1_4_Analysis_of_Algorithms.creative;
 
-import _1_Fundamentals._1_4_Analysis_of_Algorithms.Stopwatch;
+import common.Stopwatch;
 import common.StdRandom;
 
 import java.util.Arrays;

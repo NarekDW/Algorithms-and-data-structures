@@ -1,6 +1,6 @@
 package _2_Sorting._2_1_Elementary_Sorts;
 
-import _1_Fundamentals._1_4_Analysis_of_Algorithms.Stopwatch;
+import common.Stopwatch;
 import common.StdOut;
 import common.StdRandom;
 

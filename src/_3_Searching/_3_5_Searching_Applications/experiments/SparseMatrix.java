@@ -1,6 +1,6 @@
 package _3_Searching._3_5_Searching_Applications.experiments;
 
-import _1_Fundamentals._1_4_Analysis_of_Algorithms.Stopwatch;
+import common.Stopwatch;
 import common.StdRandom;
 
 /******************************************************************************

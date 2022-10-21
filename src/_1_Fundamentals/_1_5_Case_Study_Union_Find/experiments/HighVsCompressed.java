@@ -1,6 +1,6 @@
 package _1_Fundamentals._1_5_Case_Study_Union_Find.experiments;
 
-import _1_Fundamentals._1_4_Analysis_of_Algorithms.Stopwatch;
+import common.Stopwatch;
 import _1_Fundamentals._1_5_Case_Study_Union_Find.creative.WeightedQuickUnionByHeight;
 import _1_Fundamentals._1_5_Case_Study_Union_Find.creative.WeightedQuickUnionWithPathCompression;
 import common.In;

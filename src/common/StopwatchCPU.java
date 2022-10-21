@@ -1,4 +1,4 @@
-package _1_Fundamentals._1_4_Analysis_of_Algorithms;
+package common;
 
 /******************************************************************************
  *  Compilation:  javac StopwatchCPU.java
@@ -13,8 +13,6 @@ package _1_Fundamentals._1_4_Analysis_of_Algorithms;
  *  6.666667e+11 (7.50 seconds)
  *
  ******************************************************************************/
-
-import common.StdOut;
 
 import java.lang.management.ThreadMXBean;
 import java.lang.management.ManagementFactory;

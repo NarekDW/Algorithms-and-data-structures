@@ -1,11 +1,10 @@
 package _1_Fundamentals._1_1_Programming_Model.experiments;
 
 import _1_Fundamentals._1_1_Programming_Model.BinarySearch;
-import _1_Fundamentals._1_4_Analysis_of_Algorithms.Stopwatch;
+import common.Stopwatch;
 import common.StdRandom;
 
 import java.util.function.BiFunction;
-import java.util.function.Supplier;
 
 /*****************************************************************************************************
  * <p>

@@ -1,6 +1,7 @@
 package _1_Fundamentals._1_4_Analysis_of_Algorithms;
 
 import common.StdRandom;
+import common.Stopwatch;
 
 import java.util.Arrays;
 import java.util.stream.IntStream;
