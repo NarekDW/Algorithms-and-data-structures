@@ -27,7 +27,6 @@ import _2_Sorting._2_1_Elementary_Sorts.Selection;
 import _2_Sorting._2_1_Elementary_Sorts.Shell;
 import _2_Sorting._2_1_Elementary_Sorts.exercises.BinaryInsertion;
 import _2_Sorting._2_1_Elementary_Sorts.exercises.BubbleSort;
-import _2_Sorting._2_1_Elementary_Sorts.experiments.InsertionSortSentinel;
 import _2_Sorting._2_1_Elementary_Sorts.experiments.InsertionX;
 import _2_Sorting._2_2_Mergesort.Merge;
 import _2_Sorting._2_2_Mergesort.MergeBU;
@@ -55,7 +54,6 @@ public class SortCompare {
         Stopwatch sw = new Stopwatch();
         if (alg.equals("Insertion"))                    Insertion.sort(a);
         else if (alg.equals("InsertionX"))              InsertionX.sort(a);
-        else if (alg.equals("InsertionSortSentinel"))   InsertionSortSentinel.sort(a);
         else if (alg.equals("BinaryInsertion"))         BinaryInsertion.sort(a);
         else if (alg.equals("Selection"))               Selection.sort(a);
         else if (alg.equals("Bubble"))                  BubbleSort.sort(a);

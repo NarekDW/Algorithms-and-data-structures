@@ -124,10 +124,10 @@ array contents as vertical bars like the visual traces in this section, redrawin
 after each pass, to produce an animated effect, ending in a “sorted” picture where the
 bars appear in order of their height. Hint : Use a client like the one in the text that generates
 random Double values, insert calls to show() as appropriate in the sort code, and
-implement a show() method that clears the canvas and draws the bars.
-[Implementation: Animation.java](./creative/Animation.java)
-[Implementation: AnimationInsertion.java](./creative/AnimationInsertion.java)
-[Implementation: AnimationSelection.java](./creative/AnimationSelection.java)
+implement a show() method that clears the canvas and draws the bars.  
+[Implementation: Animation.java](./creative/Animation.java)  
+[Implementation: AnimationInsertion.java](./creative/AnimationInsertion.java)  
+[Implementation: AnimationSelection.java](./creative/AnimationSelection.java)  
 
 2.1.19 Shellsort worst case.
 Construct an array of 100 elements containing the numbers 1 through 100 for which shellsort,
@@ -136,6 +136,14 @@ with the increments 1 4 13 40 , uses as large a number of compares as you can fi
 
 2.1.20 Shellsort best case. What is the best case for shellsort? Justify your answer.  
 [Implementation: ShellSortWorstAndBestCases.java](./creative/ShellSortWorstAndBestCases.java)
+
+2.1.24 Insertion sort with sentinel.
+Develop an implementation of insertion sort that eliminates the j>0 test in the inner loop
+by first putting the smallest item into position.
+Use SortCompare to evaluate the effectiveness of doing so.
+Note : It is often possible to avoid an index-out-of-bounds test in this way—the element that
+enables the test to be eliminated is known as a sentinel.  
+[Implementation: InsertionX.java](./experiments/InsertionX.java)
 
 
 ## Not covered/ TODO (numbers)
