@@ -1,40 +1,43 @@
 package _2_Sorting._2_1_Elementary_Sorts.experiments;
 
-import common.Stopwatch;
-import _2_Sorting._2_1_Elementary_Sorts.Insertion;
+import _2_Sorting._2_1_Elementary_Sorts.Shell;
 import common.StdRandom;
+import common.Stopwatch;
 
 import java.util.Arrays;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
 import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.groupingBy;
-import static java.util.stream.Collectors.toMap;
 
+/*****************************************************************************************************
+ * <p>
+ * 2.1.35 Nonuniform distributions.
+ * Write a client that generates test data by randomly ordering objects using other distributions
+ * than uniform, including the following:
+ *  - Gaussian
+ *  - Poisson
+ *  - Geometric
+ *  - Discrete (see Exercise 2.1.28 for a special case)
+ * Develop and test hypotheses about the effect of such input on the performance of the algorithms
+ * in this section.
+ *
+ ****************************************************************************************************/
 public class NonuniformDistributions {
 
     public static void main(String[] args) {
-//        Double[] gaussian = init(StdRandom::gaussian, 10_000);
-//        Integer[] poisson = initInt(() -> StdRandom.poisson(1.0), 10_000);
-//        Double[] uniform = init(StdRandom::uniform, 10_000);
-//        Integer[] discrete = initInt(() -> StdRandom.discrete(new int[]{1, 2, 3, 4, 5}), 10_000);
-//
-//        System.out.println("poisson = " + time(poisson));
-//        System.out.println("uniform = " + time(uniform));
-//        System.out.println("gaussian = " + time(gaussian));
-//        System.out.println("discrete = " + time(discrete));
+        int size = 1_000;
+        Double[] gaussian = generateDoubleArray(StdRandom::gaussian, size);
+        Integer[] poisson = generateIntegerArray(() -> StdRandom.poisson(1.0), size);
+        Double[] uniform = generateDoubleArray(StdRandom::uniform, size);
+        Integer[] discrete = generateIntegerArray(() -> StdRandom.discrete(new int[]{1, 1, 1, 1, 1}), size);
 
-
-        Double[] gaussian = init(StdRandom::gaussian, 100);
-        Integer[] poisson = initInt(() -> StdRandom.poisson(1.0), 100);
-        Double[] uniform = init(StdRandom::uniform, 100);
-        Integer[] discrete = initInt(() -> StdRandom.discrete(new int[]{1, 1, 1, 1, 1}), 100);
-
-//        printArray(gaussian, "gaussian");
-//        printArray(poisson, "poisson");
-//        printArray(uniform, "uniform");
-//        printArray(discrete, "discrete");
+        printArray(gaussian, "gaussian");
+        printArray(poisson, "poisson");
+        printArray(uniform, "uniform");
+        printArray(discrete, "discrete");
 
         System.out.println("discrete");
         Arrays.stream(discrete)
@@ -56,6 +59,10 @@ public class NonuniformDistributions {
                 .collect(groupingBy(Function.identity(), counting()))
                 .forEach((key, count) -> System.out.println(key + "  " + count));
 
+        System.out.println("Shell sort discrete: " + time(discrete, Shell::sort));
+        System.out.println("Shell sort gaussian: " + time(gaussian, Shell::sort));
+        System.out.println("Shell sort poisson: " + time(poisson, Shell::sort));
+        System.out.println("Shell sort uniform: " + time(uniform, Shell::sort));
     }
 
     private static <T> void printArray(T[] t, String name) {
@@ -65,24 +72,24 @@ public class NonuniformDistributions {
         System.out.println();
     }
 
-    public static <T extends Comparable> double time(T[] t) {
+    public static <T extends Comparable<?>> double time(T[] t, Consumer<Comparable<?>[]> sortAlgo) {
         Stopwatch stopwatch = new Stopwatch();
-        Insertion.sort(t);
+        sortAlgo.accept(t);
         return stopwatch.elapsedTime();
     }
 
-    public static Integer[] initInt(Supplier<Integer> generator, int n) {
+    public static Integer[] generateIntegerArray(Supplier<Integer> generator, int n) {
         Integer[] r = new Integer[n];
         for (int i = 0; i < n; i++)
             r[i] = generator.get();
         return r;
     }
 
-    public static Double[] init(Supplier<Double> generator, int n) {
-        Double[] r = new Double[n];
-        for (int i = 0; i < n; i++)
-            r[i] = generator.get();
-        return r;
+    public static Double[] generateDoubleArray(Supplier<Double> generator, int size) {
+        Double[] arr = new Double[size];
+        for (int i = 0; i < size; i++)
+            arr[i] = generator.get();
+        return arr;
     }
 
 }

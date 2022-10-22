@@ -75,15 +75,14 @@ and an additional compare might happen for each value of i from 1 to N-1
 
 ## Shell sort
 
-Shell sort is a simple extension of insertion sort that gains speed by allowing 
-exchanges of array entries that are far apart, to produce partially sorted arrays 
+Shell sort is a simple extension of insertion sort that gains speed by allowing
+exchanges of array entries that are far apart, to produce partially sorted arrays
 that can be efficiently sorted, eventually by insertion sort.
 
 **Shell Sort = Insertion Sort [for h = 1]**
 
 Performance characteristics:
 Worst-case ~ **N^(3/2)**
-
 
 # Exercise:
 
@@ -95,7 +94,7 @@ sort (Algorithm 2.1).
 [2, 3, 4, 5, 6, 7, 8, 9, 10, 1]  
 [Implementation: ShellSortWithArray.java](./exercises/ShellSortWithArray.java)
 
-2.1.6 Which method runs faster for an array with all keys identical, 
+2.1.6 Which method runs faster for an array with all keys identical,
 selection sort or insertion sort?  
 [Implementation: SortCompareWithDiffArrays.java](./exercises/SortCompareWithDiffArrays.java)
 
@@ -111,11 +110,11 @@ that the only allowed operations are to look at the values of the top two cards,
 exchange the top two cards, and to move the top card to the bottom of the deck.  
 [Implementation: DequeueSort.java](./creative/DequeueSort.java)
 
-2.1.15 Expensive exchange. A clerk at a shipping company is charged with the task of 
-rearranging a number of large crates in order of the time they are to be shipped out. 
-Thus, the cost of compares is very low (just look at the labels) relative to the cost 
-of exchanges (move the crates). The warehouse is nearly full—there is extra space 
-sufficient to hold any one of the crates, but not two. 
+2.1.15 Expensive exchange. A clerk at a shipping company is charged with the task of
+rearranging a number of large crates in order of the time they are to be shipped out.
+Thus, the cost of compares is very low (just look at the labels) relative to the cost
+of exchanges (move the crates). The warehouse is nearly full—there is extra space
+sufficient to hold any one of the crates, but not two.
 What sorting method should the clerk use?  
 **Answer**: Selection sort, as it requires _N - 1_ exchanges only.
 
@@ -127,7 +126,7 @@ random Double values, insert calls to show() as appropriate in the sort code, an
 implement a show() method that clears the canvas and draws the bars.  
 [Implementation: Animation.java](./creative/Animation.java)  
 [Implementation: AnimationInsertion.java](./creative/AnimationInsertion.java)  
-[Implementation: AnimationSelection.java](./creative/AnimationSelection.java)  
+[Implementation: AnimationSelection.java](./creative/AnimationSelection.java)
 
 2.1.19 Shellsort worst case.
 Construct an array of 100 elements containing the numbers 1 through 100 for which shellsort,
@@ -145,6 +144,46 @@ Note : It is often possible to avoid an index-out-of-bounds test in this way—t
 enables the test to be eliminated is known as a sentinel.  
 [Implementation: InsertionX.java](./experiments/InsertionX.java)
 
+2.1.25 Insertion sort without exchanges.
+Develop an implementation of insertion sort that moves larger elements to the right one position
+with one array access per entry, rather than using exch().
+Use SortCompare to evaluate the effectiveness of doing so.
+[Implementation: InsertionSortWithoutExchanges.java](./experiments/InsertionSortWithoutExchanges.java)
+
+2.1.26 Primitive types.
+Develop a version of insertion sort that sorts arrays of int values and compare its performance
+with the implementation given in the text (which sorts Integer values and implicitly uses
+autoboxing and auto-unboxing to convert).
+[Implementation: InsertionPrimitives.java](./experiments/InsertionPrimitives.java)
+
+2.1.32 Plot running times.
+Write a client that uses StdDraw to plot the average running times of the algorithm for
+random inputs and various values of the array size.
+You may add one or two more command-line arguments. Strive to design a useful tool.  
+[Implementation: Plot.java](./experiments/Plot.java)
+
+2.1.35 Nonuniform distributions.
+Write a client that generates test data by randomly ordering objects using other distributions
+than uniform, including the following:
+
+- Gaussian
+- Poisson
+- Geometric
+- Discrete (see Exercise 2.1.28 for a special case)
+
+Develop and test hypotheses about the effect of such input on the performance of the algorithms
+in this section.  
+[Implementation: NonuniformDistributions.java](./experiments/NonuniformDistributions.java)
 
 ## Not covered/ TODO (numbers)
+
 - 2.1.12
+- 2.1.27 Shellsort is subquadratic.
+- 2.1.28 Equal keys.
+- 2.1.29 Shellsort increments.
+- 2.1.30 Geometric increments.
+- 2.1.31 Doubling test.
+- 2.1.33 Distribution.
+- 2.1.36 Nonuniform data.
+- 2.1.37 Partially sorted.
+- 2.1.38 Various types of items.

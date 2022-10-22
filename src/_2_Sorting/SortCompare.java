@@ -52,26 +52,28 @@ public class SortCompare {
 
     public static double time(String alg, Double[] a) {
         Stopwatch sw = new Stopwatch();
-        if (alg.equals("Insertion"))                    Insertion.sort(a);
-        else if (alg.equals("InsertionX"))              InsertionX.sort(a);
-        else if (alg.equals("BinaryInsertion"))         BinaryInsertion.sort(a);
-        else if (alg.equals("Selection"))               Selection.sort(a);
-        else if (alg.equals("Bubble"))                  BubbleSort.sort(a);
-        else if (alg.equals("Shell"))                   Shell.sort(a);
-        else if (alg.equals("Merge"))                   Merge.sort(a);
-        else if (alg.equals("MergeCount"))              MergeCount.sort(a);
-        else if (alg.equals("MergeSlow"))               MergeSlow.sort(a);
-        else if (alg.equals("MergeX"))                  MergeX.sort(a);
-        else if (alg.equals("MergeBU"))                 MergeBU.sort(a);
-        else if (alg.equals("FasterMerge"))             FasterMerge.sort(a);
-        else if (alg.equals("Quick"))                   Quick.sort(a);
-        else if (alg.equals("Quick3way"))               Quick3way.sort(a);
-        else if (alg.equals("QuickSentinels"))          Sentinels.sort(a);
-        else if (alg.equals("MedianOf3Partitioning"))   MedianOf3Partitioning.sort(a);
-        else if (alg.equals("NonrecursiveQuicksort"))   NonrecursiveQuicksort.sort(a);
-        else if (alg.equals("IgnoreSmallSubarrays"))    IgnoreSmallSubarrays.sort(a);
-        else if (alg.equals("QuickX"))                  QuickX.sort(a);
-        else if (alg.equals("Heap"))                    Heap.sort(a);
+        switch (alg) {
+            case "Insertion" -> Insertion.sort(a);
+            case "InsertionX" -> InsertionX.sort(a);
+            case "BinaryInsertion" -> BinaryInsertion.sort(a);
+            case "Selection" -> Selection.sort(a);
+            case "Bubble" -> BubbleSort.sort(a);
+            case "Shell" -> Shell.sort(a);
+            case "Merge" -> Merge.sort(a);
+            case "MergeCount" -> MergeCount.sort(a);
+            case "MergeSlow" -> MergeSlow.sort(a);
+            case "MergeX" -> MergeX.sort(a);
+            case "MergeBU" -> MergeBU.sort(a);
+            case "FasterMerge" -> FasterMerge.sort(a);
+            case "Quick" -> Quick.sort(a);
+            case "Quick3way" -> Quick3way.sort(a);
+            case "QuickSentinels" -> Sentinels.sort(a);
+            case "MedianOf3Partitioning" -> MedianOf3Partitioning.sort(a);
+            case "NonrecursiveQuicksort" -> NonrecursiveQuicksort.sort(a);
+            case "IgnoreSmallSubarrays" -> IgnoreSmallSubarrays.sort(a);
+            case "QuickX" -> QuickX.sort(a);
+            case "Heap" -> Heap.sort(a);
+
         /*
                 Java’s systems programmers have chosen to use quicksort (with 3-way partitioning)
         to implement the primitive-type methods, and mergesort for reference-type methods.
@@ -80,8 +82,9 @@ public class SortCompare {
 
         From JDK 1.7 Arrays.sort - uses TimSort!
          */
-        else if (alg.equals("System"))                  Arrays.sort(a);
-        else throw new IllegalArgumentException("Invalid algorithm: " + alg);
+            case "System" -> Arrays.sort(a);
+            default -> throw new IllegalArgumentException("Invalid algorithm: " + alg);
+        }
         return sw.elapsedTime();
     }
 
