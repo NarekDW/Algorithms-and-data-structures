@@ -70,3 +70,7 @@ with the upper bound 6N*lg(N).
 2.2.7 Show that the number of compares used by merge sort is monotonically increasing
 (C(N+1) > C(N) for all N > 0).  
 [Implementation: CountMerge.java](./exercises/CountMerge.java)
+
+2.2.8 Suppose that Algorithm 2.4 is modified to skip the call on merge() whenever a[mid] <= a[mid+1].
+Prove that the number of compares used to merge sort a sorted array is linear.
+[Implementation: LinearCompares.java](./exercises/LinearCompares.java)

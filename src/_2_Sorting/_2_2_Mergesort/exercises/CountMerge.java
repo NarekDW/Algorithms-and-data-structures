@@ -75,6 +75,10 @@ public class CountMerge {
             }
     }
 
+    public static void plot(Integer[] x, List<Function<Integer, Double>> theoreticalFunction) {
+        plot(x, null, theoreticalFunction);
+    }
+
     public static void plot(Integer[] x, Integer[] y, List<Function<Integer, Double>> theoreticalFunction) {
         int xMax = getXAxisMax(x);
         int yMax = getYAxisMax(x, y);
@@ -93,8 +97,10 @@ public class CountMerge {
         for (int i = 1; i < xMax; i++) {
             StdDraw.setPenColor(Color.BLUE);
             StdDraw.line(i - 1, x[i - 1], i, x[i]);
-            StdDraw.setPenColor(Color.RED);
-            StdDraw.line(i - 1, y[i - 1], i, y[i]);
+            if (y != null) {
+                StdDraw.setPenColor(Color.RED);
+                StdDraw.line(i - 1, y[i - 1], i, y[i]);
+            }
 
             StdDraw.setPenColor(Color.GREEN);
             for (Function<Integer, Double> integerDoubleFunction : theoreticalFunction) {
@@ -113,9 +119,10 @@ public class CountMerge {
             if (arr1[i] > max)
                 max = arr1[i];
 
-        for (Integer integer : arr2)
-            if (integer > max)
-                max = integer;
+        if (arr2 != null)
+            for (Integer integer : arr2)
+                if (integer > max)
+                    max = integer;
 
         return max;
     }
