@@ -4,6 +4,8 @@ import common.StdDraw;
 import common.StdRandom;
 
 import java.awt.*;
+import java.util.List;
+import java.util.function.Function;
 
 import static common.SortUtils.less;
 
@@ -13,14 +15,17 @@ import static common.SortUtils.less;
  * top-down mergesort and by bottom-up mergesort.
  * Use your program to plot the values for N from 1 to 512, and to compare the exact values
  * with the upper bound 6N*lg(N).
- *
+ * <p>
+ * 2.2.7 Show that the number of compares used by merge sort is monotonically increasing
+ * (C(N+1) > C(N) for all N > 0).
  ****************************************************************************************************/
 @SuppressWarnings("rawtypes")
 public class CountMerge {
 
     private Comparable[] aux;
 
-    private int count = 0;
+    private int arrayAccessCount = 0;
+    private int comparesCount = 0;
 
     public void sort(Comparable[] a) {
         int n = a.length;
@@ -49,26 +54,28 @@ public class CountMerge {
         int i = lo, j = mid + 1;
         for (int k = lo; k <= hi; k++) {
             aux[k] = a[k];
-            count += 2;
+            arrayAccessCount += 2;
         }
 
         for (int k = lo; k <= hi; k++)
             if (j > hi) {
                 a[k] = aux[i++];
-                count += 2;
+                arrayAccessCount += 2;
             } else if (i > mid) {
                 a[k] = aux[j++];
-                count += 2;
+                arrayAccessCount += 2;
             } else if (less(aux[j], aux[i])) {
+                comparesCount++;
                 a[k] = aux[j++];
-                count += 4;
+                arrayAccessCount += 4;
             } else {
+                comparesCount++;
                 a[k] = aux[i++];
-                count += 2;
+                arrayAccessCount += 2;
             }
     }
 
-    public static void plot(Integer[] x, Integer[] y) {
+    public static void plot(Integer[] x, Integer[] y, List<Function<Integer, Double>> theoreticalFunction) {
         int xMax = getXAxisMax(x);
         int yMax = getYAxisMax(x, y);
 
@@ -90,7 +97,9 @@ public class CountMerge {
             StdDraw.line(i - 1, y[i - 1], i, y[i]);
 
             StdDraw.setPenColor(Color.GREEN);
-            StdDraw.line(i - 1, (6 * i * Math.log(i) / Math.log(2)), i, (6 * (i + 1) * Math.log(i + 1) / Math.log(2)));
+            for (Function<Integer, Double> integerDoubleFunction : theoreticalFunction) {
+                StdDraw.line(i - 1, integerDoubleFunction.apply(i), i, integerDoubleFunction.apply(i + 1));
+            }
         }
     }
 
@@ -113,6 +122,11 @@ public class CountMerge {
 
 
     public static void main(String[] args) {
+        showNumberOfArrayAccesses();
+        showNumberOfCompares();
+    }
+
+    private static void showNumberOfArrayAccesses() {
         Integer[] counts = new Integer[512];
         Integer[] countsBU = new Integer[512];
         for (int i = 1; i <= 512; i++) {
@@ -124,14 +138,47 @@ public class CountMerge {
 
             CountMerge merge = new CountMerge();
             merge.sort(x);
-            counts[i - 1] = merge.count;
+            counts[i - 1] = merge.arrayAccessCount;
 
             CountMerge mergeBU = new CountMerge();
             mergeBU.sortBU(y);
-            countsBU[i - 1] = mergeBU.count;
+            countsBU[i - 1] = mergeBU.arrayAccessCount;
 
-            System.out.println(merge.count + " : " + mergeBU.count);
+            System.out.println(merge.arrayAccessCount + " : " + mergeBU.arrayAccessCount);
         }
-        plot(counts, countsBU);
+
+        Function<Integer, Double> theoreticalFunction = i -> 6 * (i + 1) * Math.log(i + 1) / Math.log(2);
+        List<Function<Integer, Double>> singleTheoreticalFunction = List.of(theoreticalFunction);
+
+        plot(counts, countsBU, singleTheoreticalFunction);
+    }
+
+    private static void showNumberOfCompares() {
+        Integer[] counts = new Integer[512];
+        Integer[] countsBU = new Integer[512];
+        for (int i = 1; i <= 512; i++) {
+            Double[] x = new Double[i];
+            Double[] y = new Double[i];
+            for (int k = 0; k < x.length; k++)
+                x[k] = StdRandom.uniform();
+            System.arraycopy(x, 0, y, 0, x.length);
+
+            CountMerge merge = new CountMerge();
+            merge.sort(x);
+            counts[i - 1] = merge.comparesCount;
+
+            CountMerge mergeBU = new CountMerge();
+            mergeBU.sortBU(y);
+            countsBU[i - 1] = mergeBU.comparesCount;
+
+            System.out.println(merge.comparesCount + " : " + mergeBU.comparesCount);
+        }
+
+        Function<Integer, Double> theoreticalFunctionLowerBound = i -> ((i + 1) / 2) * Math.log(i + 1) / Math.log(2);
+        Function<Integer, Double> theoreticalFunctionUpperBound = i -> (i * Math.log(i + 1) / Math.log(2));
+        List<Function<Integer, Double>> theoreticalFunctions =
+                List.of(theoreticalFunctionLowerBound, theoreticalFunctionUpperBound);
+
+        plot(counts, countsBU, theoreticalFunctions);
     }
 }

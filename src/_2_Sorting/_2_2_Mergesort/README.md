@@ -66,3 +66,7 @@ top-down mergesort and by bottom-up mergesort.
 Use your program to plot the values for N from 1 to 512, and to compare the exact values
 with the upper bound 6N*lg(N).
 [Implementation: CountMerge.java](./exercises/CountMerge.java)
+
+2.2.7 Show that the number of compares used by merge sort is monotonically increasing
+(C(N+1) > C(N) for all N > 0).  
+[Implementation: CountMerge.java](./exercises/CountMerge.java)
