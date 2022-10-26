@@ -52,6 +52,17 @@ The result follows from the same argument as for Proposition F.
 ***
 
 ### Improvements
-- Use insertion sort for small subarrays. 
+
+- Use insertion sort for small subarrays.
 - Test whether the array is already in order. (a[mid] <= a[mid + 1])
 - Eliminate the copy to the auxiliary array.
+
+# Exercise:
+
+## Done:
+
+2.2.6 Write a program to compute the exact value of the number of array accesses used by
+top-down mergesort and by bottom-up mergesort.
+Use your program to plot the values for N from 1 to 512, and to compare the exact values
+with the upper bound 6N*lg(N).
+[Implementation: CountMerge.java](./exercises/CountMerge.java)

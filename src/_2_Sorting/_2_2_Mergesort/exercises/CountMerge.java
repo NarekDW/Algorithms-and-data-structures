@@ -7,7 +7,15 @@ import java.awt.*;
 
 import static common.SortUtils.less;
 
-@SuppressWarnings("Duplicates")
+/*****************************************************************************************************
+ * <p>
+ * 2.2.6 Write a program to compute the exact value of the number of array accesses used by
+ * top-down mergesort and by bottom-up mergesort.
+ * Use your program to plot the values for N from 1 to 512, and to compare the exact values
+ * with the upper bound 6N*lg(N).
+ *
+ ****************************************************************************************************/
+@SuppressWarnings("rawtypes")
 public class CountMerge {
 
     private Comparable[] aux;
@@ -47,23 +55,35 @@ public class CountMerge {
         for (int k = lo; k <= hi; k++)
             if (j > hi) {
                 a[k] = aux[i++];
-                count++;
+                count += 2;
             } else if (i > mid) {
                 a[k] = aux[j++];
-                count++;
+                count += 2;
             } else if (less(aux[j], aux[i])) {
                 a[k] = aux[j++];
                 count += 4;
             } else {
                 a[k] = aux[i++];
-                count++;
+                count += 2;
             }
     }
 
     public static void plot(Integer[] x, Integer[] y) {
-        StdDraw.setXscale(0, 550);
-        StdDraw.setYscale(0, 30_000);
-        for (int i = 1; i < x.length; i++) {
+        int xMax = getXAxisMax(x);
+        int yMax = getYAxisMax(x, y);
+
+        double x0 = xMax / -5.0;
+        double xn = xMax * 1.2;
+        StdDraw.setXscale(x0, xn);
+        double y0 = yMax / -5.0;
+        double yn = yMax * 1.2;
+        StdDraw.setYscale(y0, yn);
+        StdDraw.line(x0, 0, xn, 0);
+        StdDraw.line(0, y0, 0, yn);
+        StdDraw.text(x0 * 0.5, yn * 0.9, String.valueOf((int) yMax));
+        StdDraw.text(xn * 0.9, y0 * 0.3, String.valueOf((int) xMax));
+
+        for (int i = 1; i < xMax; i++) {
             StdDraw.setPenColor(Color.BLUE);
             StdDraw.line(i - 1, x[i - 1], i, x[i]);
             StdDraw.setPenColor(Color.RED);
@@ -74,22 +94,40 @@ public class CountMerge {
         }
     }
 
+    private static Integer getXAxisMax(Integer[] arr) {
+        return arr.length;
+    }
+
+    private static Integer getYAxisMax(Integer[] arr1, Integer[] arr2) {
+        Integer max = arr1[0];
+        for (int i = 1; i < arr1.length; i++)
+            if (arr1[i] > max)
+                max = arr1[i];
+
+        for (Integer integer : arr2)
+            if (integer > max)
+                max = integer;
+
+        return max;
+    }
+
 
     public static void main(String[] args) {
         Integer[] counts = new Integer[512];
         Integer[] countsBU = new Integer[512];
         for (int i = 1; i <= 512; i++) {
             Double[] x = new Double[i];
-            for (int k = 0; k < x.length; k++) {
+            Double[] y = new Double[i];
+            for (int k = 0; k < x.length; k++)
                 x[k] = StdRandom.uniform();
-            }
+            System.arraycopy(x, 0, y, 0, x.length);
 
             CountMerge merge = new CountMerge();
             merge.sort(x);
             counts[i - 1] = merge.count;
 
             CountMerge mergeBU = new CountMerge();
-            mergeBU.sortBU(x);
+            mergeBU.sortBU(y);
             countsBU[i - 1] = mergeBU.count;
 
             System.out.println(merge.count + " : " + mergeBU.count);
