@@ -1,16 +1,17 @@
 package _2_Sorting._2_2_Mergesort.creative;
 
-import static common.SortUtils.less;
-import static common.SortUtils.show;
+import static common.SortUtils.*;
 
 /*****************************************************************************************************
- *
+ * <p>
  * 2.2.10 Faster merge. Implement a version of merge() that copies the second half of
- * a[] to aux[] in decreasing order and then does the merge back to a[] . This change al-
- * lows you to remove the code to test that each of the halves has been exhausted from the
- * inner loop. Note: The resulting sort is not stable (see page 341).
+ * a[] to aux[] in decreasing order and then does the merge back to a[] .
+ * This change allows you to remove the code to test that each of the halves
+ * has been exhausted from the inner loop.
+ * Note: The resulting sort is not stable (see page 341).
  *
  ****************************************************************************************************/
+@SuppressWarnings("rawtypes")
 public class FasterMerge {
 
     private static Comparable[] aux;
@@ -30,6 +31,7 @@ public class FasterMerge {
     }
 
     private static void merge(Comparable[] a, int lo, int mid, int hi) {
+        //noinspection ManualArrayCopy
         for (int k = lo; k <= mid; k++)
             aux[k] = a[k];
 
@@ -39,8 +41,8 @@ public class FasterMerge {
 
         int l = lo, h = hi;
         for (int k = lo; k <= hi; k++)
-            if (less(aux[l], aux[h]))  a[k] = aux[l++];
-            else                       a[k] = aux[h--];
+            if (less(aux[l], aux[h])) a[k] = aux[l++];
+            else a[k] = aux[h--];
     }
 
 
@@ -48,6 +50,15 @@ public class FasterMerge {
         String[] input = "MERGESORTEXAMPLE".split("");
         sort(input);
         show(input);
+        testRandomArray();
     }
 
+    private static void testRandomArray() {
+        for (int i = 0; i < 10; i++) {
+            Double[] doubles = generateArrayDouble(1_000_000);
+            sort(doubles);
+            if (!isSorted(doubles))
+                throw new RuntimeException();
+        }
+    }
 }

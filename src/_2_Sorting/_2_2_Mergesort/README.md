@@ -74,3 +74,16 @@ with the upper bound 6N*lg(N).
 2.2.8 Suppose that Algorithm 2.4 is modified to skip the call on merge() whenever a[mid] <= a[mid+1].
 Prove that the number of compares used to merge sort a sorted array is linear.
 [Implementation: LinearCompares.java](./exercises/LinearCompares.java)
+
+2.2.10 Faster merge. Implement a version of merge() that copies the second half of
+a[] to aux[] in decreasing order and then does the merge back to a[] .
+This change allows you to remove the code to test that each of the halves
+has been exhausted from the inner loop.
+Note: The resulting sort is not stable (see page 341).  
+[Implementation: FasterMerge.java](./creative/FasterMerge.java)
+
+
+## Not covered/ TODO (numbers)
+
+- 2.2.9
+- 

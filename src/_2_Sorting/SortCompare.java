@@ -417,9 +417,9 @@ public class SortCompare {
         Heap : 18.772000000000407
         For 10000 random Doubles Quick is 1.262 times faster than Heap
          */
-        run("Heap", "Quick", 10_000, 10_000, false);
-        run("Heap", "Quick", 10_000, 10_000, false);
-        run("Quick", "Heap", 10_000, 10_000, false);
+//        run("Heap", "Quick", 10_000, 10_000, false);
+//        run("Heap", "Quick", 10_000, 10_000, false);
+//        run("Quick", "Heap", 10_000, 10_000, false);
 
     }
 
@@ -435,7 +435,7 @@ public class SortCompare {
             System.out.println(alg2 + " : " + time2);
         }
 
-        StdOut.printf("For %d random Doubles\n    %s is", n, alg1);
+        StdOut.printf("For %d random Doubles %s is", n, alg1);
         double comp = time2 / time1;
         StdOut.printf(" %.3f times faster than %s\n", comp, alg2);
         return comp;
