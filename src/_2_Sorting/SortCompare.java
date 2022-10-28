@@ -441,43 +441,11 @@ public class SortCompare {
         return comp;
     }
 
-    public static void run(String alg, int n, int trials) {
+    public static void run(String alg, int n, int trials, boolean displayTime) {
         double time1 = timeRandomInput(alg, n, trials);   // Total for alg1.
-
-//        StdOut.printf("For %d random Doubles\n    %s is ", n, alg);
-//        StdOut.printf("time is %.3f  \n", time1);
-    }
-
-    private static void plotSortedCount() {
-        int max = 0;
-        int x = 0;
-        int y = 0;
-        StdDraw.setCanvasSize(1748, 1000);
-        StdDraw.setYscale(-50, 1000);
-        StdDraw.setXscale(-400_000, 10_000_000);
-
-        for (int i = 0; i <= 1000; i+=50)
-            StdDraw.text(-200_000, i, i + "");
-
-
-        for (int i = 5_000; i <= 10_000_000; i += 5_000) {
-            run("MergeX", i, 1);
-            int sortedCnt = MergeX.sortedCnt;
-            System.out.println(i + " : " + sortedCnt);
-            StdDraw.line(x, y, i, sortedCnt);
-            x = i;
-            y = sortedCnt;
-
-            if (i % 500_000 == 0)
-                StdDraw.text(i, -30, String.valueOf(i / 1_000_000.0));
-
-
-//            if (sortedCnt > max) {
-//                StdDraw.text(i, -30, String.valueOf(i / 1_000));
-//                max = sortedCnt;
-//            }
+        if (displayTime) {
+            StdOut.printf("For %d random Doubles\n    %s is ", n, alg);
+            StdOut.printf("time is %.3f  \n", time1);
         }
-
-
     }
 }

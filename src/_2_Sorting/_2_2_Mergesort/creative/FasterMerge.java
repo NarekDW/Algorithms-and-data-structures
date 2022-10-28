@@ -1,5 +1,7 @@
 package _2_Sorting._2_2_Mergesort.creative;
 
+import common.SortUtils;
+
 import static common.SortUtils.*;
 
 /*****************************************************************************************************
@@ -50,15 +52,6 @@ public class FasterMerge {
         String[] input = "MERGESORTEXAMPLE".split("");
         sort(input);
         show(input);
-        testRandomArray();
-    }
-
-    private static void testRandomArray() {
-        for (int i = 0; i < 10; i++) {
-            Double[] doubles = generateArrayDouble(1_000_000);
-            sort(doubles);
-            if (!isSorted(doubles))
-                throw new RuntimeException();
-        }
+        SortUtils.testRandomArray(FasterMerge::sort, 10, 1_000_000);
     }
 }

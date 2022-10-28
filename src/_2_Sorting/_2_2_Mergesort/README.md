@@ -79,8 +79,15 @@ Prove that the number of compares used to merge sort a sorted array is linear.
 a[] to aux[] in decreasing order and then does the merge back to a[] .
 This change allows you to remove the code to test that each of the halves
 has been exhausted from the inner loop.
-Note: The resulting sort is not stable (see page 341).  
+Note: The resulting sort is not stable (see page 341).      
 [Implementation: FasterMerge.java](./creative/FasterMerge.java)
+
+2.2.11 Improvements.
+Implement the three improvements to mergesort that are described in the text on page 275:
+Add a cutoff for small subarrays, test whether the array is already in order, and avoid
+the copy by switching arguments in the recursive code.  
+[Implementation: MergeX.java](./creative/MergeX.java)
+
 
 
 ## Not covered/ TODO (numbers)

@@ -1,5 +1,7 @@
 package common;
 
+import java.util.function.Consumer;
+
 public class SortUtils {
 
     public static void exch(Comparable<?>[] a, int i, int j) {
@@ -36,5 +38,21 @@ public class SortUtils {
         for (int i = 0; i < size; i++)
             arr[i] = StdRandom.uniform(size);
         return arr;
+    }
+
+    public static Integer[] generateArrayInteger(int size) {
+        Integer[] arr = new Integer[size];
+        for (int i = 0; i < size; i++)
+            arr[i] = StdRandom.uniform(size);
+        return arr;
+    }
+
+    public static void testRandomArray(Consumer<Double[]> sortFunction, int tries, int arraySize) {
+        for (int i = 0; i < tries; i++) {
+            Double[] doubles = generateArrayDouble(arraySize);
+            sortFunction.accept(doubles);
+            if (!isSorted(doubles))
+                throw new RuntimeException();
+        }
     }
 }

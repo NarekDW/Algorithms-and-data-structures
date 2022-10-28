@@ -1,71 +1,65 @@
 package _2_Sorting._2_2_Mergesort.creative;
 
-import static common.SortUtils.exch;
+import _2_Sorting._2_1_Elementary_Sorts.Insertion;
+import common.SortUtils;
+import common.StdRandom;
+
 import static common.SortUtils.less;
-import static common.SortUtils.show;
+
 
 /*****************************************************************************************************
- *
- * 2.2.11 Improvements. Implement the three improvements to mergesort that are de-
- * scribed in the text on page 275: Add a cutoff for small subarrays, test whether the array is
- * already in order, and avoid the copy by switching arguments in the recursive code.
+ * <p>
+ * 2.2.11 Improvements.
+ * Implement the three improvements to mergesort that are described in the text on page 275:
+ * Add a cutoff for small subarrays, test whether the array is already in order, and avoid
+ * the copy by switching arguments in the recursive code.
  *
  ****************************************************************************************************/
-
-@SuppressWarnings("ALL")
+@SuppressWarnings("rawtypes")
 public class MergeX {
-
-    public static int CUTT_OFF = 10;
+    private static final int CUT_OFF = 10;
     public static int sortedCnt = 0;
 
-    public static void sort(Comparable[] a) {
+    public static void sort(Comparable[] array) {
         sortedCnt = 0;
-        Comparable[] dst = a.clone();
-        int n = a.length;
-        sort(a, dst, 0, n - 1);
+        Comparable[] copy = array.clone();
+        sort(copy, array, 0, array.length - 1);
     }
 
-    private static void sort(Comparable[] src, Comparable[] dst,  int lo, int hi) {
-        if (hi - lo < CUTT_OFF) {
-            insertionSort(dst, lo, hi);
+    private static void sort(Comparable[] source, Comparable[] copy, int lo, int hi) {
+        if (hi - lo < CUT_OFF) {
+            Insertion.sort(copy, lo, hi);
             return;
         }
 
         int mid = lo + (hi - lo) / 2;
-        sort(dst, src, lo, mid);
-        sort(dst, src, mid + 1, hi);
+        sort(copy, source, lo, mid);
+        sort(copy, source, mid + 1, hi);
 
-        if (less(src[mid], src[mid + 1])){
+        if (less(source[mid], source[mid + 1])) {
             sortedCnt++;
-            for (int k = lo; k <= hi; k++)
-                dst[k] = src[k];
+            System.arraycopy(source, lo, copy, lo, hi + 1 - lo);
             return;
         }
 
-        merge(src, dst, lo, mid, hi);
+        merge(source, copy, lo, mid, hi);
     }
 
-    public static void merge(Comparable[] src, Comparable[] dst, int lo, int mid, int hi) {
-        // Merge src[lo..mid] with src[mid+1..hi].
+    public static void merge(Comparable[] source, Comparable[] destination, int lo, int mid, int hi) {
+        // Merge a[lo..mid] with a[mid+1..hi].
         int i = lo, j = mid + 1;
         for (int k = lo; k <= hi; k++)
-            if (j > hi)                     dst[k] = src[i++];
-            else if (i > mid)               dst[k] = src[j++];
-            else if (less(src[j], src[i]))  dst[k] = src[j++];
-            else                            dst[k] = src[i++];
-    }
-
-    private static void insertionSort(Comparable[] a, int l, int h) {
-        for (int i = l + 1; i <= h; i++)
-            for (int j = i; j > l && less(a[j], a[j - 1]); j--)
-                exch(a, j, j - 1);
+            if (j > hi)                             destination[k] = source[i++];
+            else if (i > mid)                       destination[k] = source[j++];
+            else if (less(source[j], source[i]))    destination[k] = source[j++];
+            else                                    destination[k] = source[i++];
     }
 
 
     public static void main(String[] args) {
-        String[] input = "MERGESORTEXAMPLE".split("");
-        sort(input);
-        show(input);
+        for (int i = 0; i < 1000; i++) {
+            int arraySize = StdRandom.uniform(10_000, 100_000);
+            SortUtils.testRandomArray(MergeX::sort, 2, arraySize);
+        }
     }
-
 }
