@@ -1,5 +1,6 @@
 package common;
 
+import _1_Fundamentals._1_3_Bags_Queues_and_Stacks.Queue;
 import _2_Sorting._2_2_Mergesort.creative.MergeX;
 
 import java.util.function.Consumer;
@@ -25,6 +26,20 @@ public class SortUtils {
     public static <T> boolean isSorted(Comparable<T>[] a) {
         for (int i = 1; i < a.length; i++)
             if (less(a[i], a[i - 1])) return false;
+        return true;
+    }
+
+    public static <T extends Comparable<T>> boolean isSorted(Queue<T> queue) {
+        if (queue.isEmpty())
+            return true;
+
+        T prev = queue.dequeue();
+        while (!queue.isEmpty()) {
+            T curr = queue.dequeue();
+            if (less(curr, prev))
+                return false;
+            prev = curr;
+        }
         return true;
     }
 

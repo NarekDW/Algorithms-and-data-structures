@@ -5,8 +5,7 @@ import common.StdRandom;
 
 import java.util.function.BiFunction;
 
-import static common.SortUtils.generateArrayDouble;
-import static common.SortUtils.less;
+import static common.SortUtils.*;
 
 /*****************************************************************************************************
  * <p>
@@ -112,13 +111,8 @@ public class MergingSortedQueues {
     }
 
     private static void checkOrdering(Queue<Double> queue) {
-        Double prev = queue.dequeue();
-        while (!queue.isEmpty()) {
-            Double curr = queue.dequeue();
-            if (prev > curr)
-                throw new RuntimeException();
-            prev = curr;
-        }
+        if (!isSorted(queue))
+            throw new RuntimeException();
     }
 
     private static void checkSize(Queue<Double> result, int expected) {
