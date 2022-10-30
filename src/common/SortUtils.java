@@ -74,4 +74,12 @@ public class SortUtils {
                 throw new RuntimeException();
         }
     }
+
+    @SuppressWarnings("unused")
+    public static <T> void showQueue(Queue<T> queue) {
+        for (T a : queue) {
+            System.out.print(a + " ");
+        }
+        System.out.println();
+    }
 }

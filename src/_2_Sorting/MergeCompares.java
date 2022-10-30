@@ -10,14 +10,21 @@ public class MergeCompares {
     /**
      * For 1_000_000 items:
      * <p>
-     *     MergeX      ~ 18.8 sec.
-     *     FasterMerge ~ 28.5
-     *     Merge       ~ 29.0 sec.
-     *     MergeBU     ~ 30.7 sec.
+     *     MergeX               ~ 18.8 sec.
+     *     FasterMerge          ~ 28.5
+     *     Merge                ~ 29.0 sec.
+     *     MergeBU              ~ 30.7 sec.
+     *     NaturalMergesort     ~ MergeBU
      *
      */
     public static void main(String[] args) {
-        plotSortedCount();
+        mergeBUvsNaturalMergesort();
+    }
+
+    private static void mergeBUvsNaturalMergesort() {
+        // For 1000000 random Doubles NaturalMergesort is 0.926 times faster than MergeBU
+        // For 1000000 sorted Doubles NaturalMergesort is 124.584 times faster than MergeBU
+        run("NaturalMergesort", "MergeBU", 1_000_000, 50, false);
     }
 
     private static void mergeVsMergeX() {

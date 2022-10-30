@@ -100,6 +100,15 @@ Then repeatedly apply the merging operation of Exercise 2.2.14 to the first two 
 reinsert the merged queue at the end. Repeat until the queue of queues contains only one queue.  
 [Implementation: BottomUpQueueMergeSort.java](./creative/BottomUpQueueMergeSort.java)
 
+2.2.16 Natural mergesort. Write a version of bottom-up mergesort that takes advantage of order
+in the array by proceeding as follows each time it needs to find two arrays to merge:
+find a sorted subarray (by incrementing a pointer until finding an entry that is smaller than
+its predecessor in the array), then find the next, then merge them.
+Analyze the running time of this algorithm in terms of the array size and the number of
+maximal increasing sequences in the array.  
+[Implementation: NaturalMergesort.java](./creative/NaturalMergesort.java)
+
+
 ## Not covered/ TODO (numbers)
 
 - 2.2.9

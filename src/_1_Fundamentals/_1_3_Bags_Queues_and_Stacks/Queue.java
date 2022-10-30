@@ -64,6 +64,13 @@ public class Queue<Item> implements Iterable<Item> {
         return item;
     }
 
+    public Item peek() {
+        if (isEmpty()){
+            return null;
+        }
+        return first.item;
+    }
+
     public boolean isEmpty() {
         return first == null;
     }

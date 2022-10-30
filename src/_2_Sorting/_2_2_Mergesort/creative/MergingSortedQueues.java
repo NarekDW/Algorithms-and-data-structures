@@ -120,11 +120,4 @@ public class MergingSortedQueues {
             throw new RuntimeException();
     }
 
-    @SuppressWarnings("unused")
-    private static void showQueue(Queue<Double> queue) {
-        for (Double a : queue) {
-            System.out.print(a + " ");
-        }
-        System.out.println();
-    }
 }
