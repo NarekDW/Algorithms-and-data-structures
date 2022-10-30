@@ -71,7 +71,7 @@ public class ShellSortWithArray {
     public static void main(String[] args) {
         testCalculateHArraySize();
         int size = 100_000;
-        Double[] doubles = SortUtils.generateArrayDouble(size);
+        Double[] doubles = SortUtils.generateArrayDouble(size, false);
         sort(doubles);
         if (!SortUtils.isSorted(doubles))
             throw new RuntimeException();

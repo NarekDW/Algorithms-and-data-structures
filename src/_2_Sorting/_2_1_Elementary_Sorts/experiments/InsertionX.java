@@ -55,7 +55,7 @@ public class InsertionX {
      */
     private static void compareOriginalVsSentinel() {
         int size = 100_000;
-        Double[] array = SortUtils.generateArrayDouble(size);
+        Double[] array = SortUtils.generateArrayDouble(size, false);
         Double[] arrayCopy = new Double[size];
         System.arraycopy(array, 0, arrayCopy, 0, size);
 

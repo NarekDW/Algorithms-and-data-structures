@@ -32,7 +32,7 @@ public class Plot {
         for (Double size : sizes) {
             double time = 0.0;
             for (int i = 0; i < numberOfTrials; i++) {
-                Double[] doubles = SortUtils.generateArrayDouble(size.intValue());
+                Double[] doubles = SortUtils.generateArrayDouble(size.intValue(), false);
                 StopwatchCPU stopwatchCPU = new StopwatchCPU();
                 algorithm.accept(doubles);
                 time += stopwatchCPU.elapsedTime();

@@ -24,7 +24,7 @@ public class BottomUpQueueMergeSort {
         }
 
         while (queue.size() > 1) {
-            Queue<Comparable> merged = MergingSortedQueues.merge(queue.dequeue(), queue.dequeue());
+            Queue<Comparable> merged = MergingSortedQueues.mergeRecursive(queue.dequeue(), queue.dequeue());
             queue.enqueue(merged);
         }
 

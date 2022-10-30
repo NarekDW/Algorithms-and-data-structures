@@ -1,5 +1,7 @@
 package common;
 
+import _2_Sorting._2_2_Mergesort.creative.MergeX;
+
 import java.util.function.Consumer;
 
 public class SortUtils {
@@ -22,14 +24,16 @@ public class SortUtils {
 
     public static <T> boolean isSorted(Comparable<T>[] a) {
         for (int i = 1; i < a.length; i++)
-            if (less(a[i], a[i-1])) return false;
+            if (less(a[i], a[i - 1])) return false;
         return true;
     }
 
-    public static Double[] generateArrayDouble(int size) {
+    public static Double[] generateArrayDouble(int size, boolean sorted) {
         Double[] arr = new Double[size];
         for (int i = 0; i < size; i++)
             arr[i] = StdRandom.uniform();
+        if (sorted)
+            MergeX.sort(arr);
         return arr;
     }
 
@@ -49,7 +53,7 @@ public class SortUtils {
 
     public static void testRandomArray(Consumer<Double[]> sortFunction, int tries, int arraySize) {
         for (int i = 0; i < tries; i++) {
-            Double[] doubles = generateArrayDouble(arraySize);
+            Double[] doubles = generateArrayDouble(arraySize, false);
             sortFunction.accept(doubles);
             if (!isSorted(doubles))
                 throw new RuntimeException();
