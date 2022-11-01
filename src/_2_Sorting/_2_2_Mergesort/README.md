@@ -72,7 +72,7 @@ with the upper bound 6N*lg(N).
 [Implementation: CountMerge.java](./exercises/CountMerge.java)
 
 2.2.8 Suppose that Algorithm 2.4 is modified to skip the call on merge() whenever a[mid] <= a[mid+1].
-Prove that the number of compares used to merge sort a sorted array is linear.
+Prove that the number of compares used to merge sort a sorted array is linear.  
 [Implementation: LinearCompares.java](./exercises/LinearCompares.java)
 
 2.2.10 Faster merge. Implement a version of merge() that copies the second half of
@@ -129,7 +129,11 @@ the array, but returns an int[] array perm such that perm[i] is the index of the
 i th smallest entry in the array.
 [Implementation: IndirectSort.java](./creative/IndirectSort.java)
 
+2.2.21 Triplicates. Given three lists of N names each, devise a linearithmic algorithm
+to determine if there is any name common to all three lists, and if so, return the first
+such name.  
+[Implementation: Triplicates.java](./creative/Triplicates.java)
+
 ## Not covered/ TODO (numbers)
 
 - 2.2.9
-- 

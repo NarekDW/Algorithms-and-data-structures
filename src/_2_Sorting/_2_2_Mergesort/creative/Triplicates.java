@@ -3,7 +3,7 @@ package _2_Sorting._2_2_Mergesort.creative;
 import _2_Sorting._2_2_Mergesort.Merge;
 
 /*****************************************************************************************************
- *
+ * <p>
  * 2.2.21 Triplicates. Given three lists of N names each, devise a linearithmic algorithm
  * to determine if there is any name common to all three lists, and if so, return the first
  * such name.
