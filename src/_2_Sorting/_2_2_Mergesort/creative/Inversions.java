@@ -1,9 +1,11 @@
 package _2_Sorting._2_2_Mergesort.creative;
 
+import common.In;
+
 import static common.SortUtils.less;
 
 /*****************************************************************************************************
- *
+ * <p>
  * 2.2.19 Inversions. Develop and implement a linearithmic algorithm for computing
  * the number of inversions in a given array (the number of exchanges that would be
  * performed by insertion sort for that array—see Section 2.1). This quantity is related
@@ -13,14 +15,15 @@ import static common.SortUtils.less;
 
 public class Inversions {
 
-    public static long count(Comparable[] a) {
-        Comparable[] clone = a.clone();
-        Comparable[] aux = new Comparable[a.length];
+    public static <T extends Comparable<T>> long count(Comparable<T>[] a) {
+        Comparable<T>[] clone = a.clone();
+        //noinspection unchecked
+        Comparable<T>[] aux = new Comparable[a.length];
 
         return count(clone, aux, 0, a.length - 1);
     }
 
-    private static long count(Comparable[] a, Comparable[] aux, int lo, int hi) {
+    private static <T extends Comparable<T>> long count(Comparable<T>[] a, Comparable<T>[] aux, int lo, int hi) {
         long inversions = 0;
         if (lo >= hi) return 0;
         int mid = lo + (hi - lo) / 2;
@@ -31,7 +34,7 @@ public class Inversions {
         return inversions;
     }
 
-    private static long merge(Comparable[] a, Comparable[] aux, int lo, int mid, int hi) {
+    private static <T extends Comparable<T>> long merge(Comparable<T>[] a, Comparable<T>[] aux, int lo, int mid, int hi) {
         long inversions = 0;
 
         int i = lo, j = mid + 1;
@@ -41,7 +44,7 @@ public class Inversions {
         for (int k = lo; k <= hi; k++)
             if (j > hi)                     a[k] = aux[i++];
             else if (i > mid)               a[k] = aux[j++];
-            else if (less(aux[j], aux[i])) {a[k] = aux[j++]; inversions += mid - i + 1;} // ???
+            else if (less(aux[j], aux[i])) {a[k] = aux[j++]; inversions += mid - i + 1;}
             else                            a[k] = aux[i++];
 
         return inversions;
