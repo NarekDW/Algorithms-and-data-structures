@@ -85,6 +85,16 @@ public class DoubleLinked<T> {
         return this;
     }
 
+    public boolean contains(T element) {
+        DoubleNode tmp = first;
+        while (tmp != null) {
+            if (tmp.item.equals(element))
+                return true;
+            tmp = tmp.next;
+        }
+        return false;
+    }
+
     @Override
     public String toString() {
         return first.toString();

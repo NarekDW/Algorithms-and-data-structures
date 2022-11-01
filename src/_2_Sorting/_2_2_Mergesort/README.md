@@ -113,6 +113,11 @@ method of choice for sorting linked lists because it uses no extra space and is 
 to be linearithmic.)  
 [Implementation: LinkedListSort.java](./creative/LinkedListSort.java)
 
+2.2.18 Shuffling a linked list. Develop and implement a divide-and-conquer
+algorithm that randomly shuffles a linked list in linearithmic time and
+logarithmic extra space.  
+[Implementation: ShufflingLinkedList.java](./creative/ShufflingLinkedList.java)
+
 ## Not covered/ TODO (numbers)
 
 - 2.2.9
