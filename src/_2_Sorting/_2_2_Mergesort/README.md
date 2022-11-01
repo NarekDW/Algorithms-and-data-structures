@@ -108,6 +108,10 @@ Analyze the running time of this algorithm in terms of the array size and the nu
 maximal increasing sequences in the array.  
 [Implementation: NaturalMergesort.java](./creative/NaturalMergesort.java)
 
+2.2.17 Linked-list sort. Implement a natural mergesort for linked lists. (This is the
+method of choice for sorting linked lists because it uses no extra space and is guaranteed
+to be linearithmic.)  
+[Implementation: LinkedListSort.java](./creative/LinkedListSort.java)
 
 ## Not covered/ TODO (numbers)
 

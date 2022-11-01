@@ -1,6 +1,7 @@
 package common;
 
 import _1_Fundamentals._1_3_Bags_Queues_and_Stacks.Queue;
+import _1_Fundamentals._1_3_Bags_Queues_and_Stacks.exercises.DoubleLinked;
 import _2_Sorting._2_2_Mergesort.creative.MergeX;
 
 import java.util.function.Consumer;
@@ -40,6 +41,26 @@ public class SortUtils {
                 return false;
             prev = curr;
         }
+        return true;
+    }
+
+    public static <T extends Comparable<T>> boolean isSorted(DoubleLinked<T> linked) {
+        DoubleLinked<T>.DoubleNode first = linked.first;
+        if (first == null)
+            return true;
+
+        while (first.prev != null)
+            first = first.prev;
+
+        T prev = first.item;
+        while (first.next != null) {
+            first = first.next;
+            T current = first.item;
+            if (less(current, prev))
+                return false;
+            prev = current;
+        }
+
         return true;
     }
 
