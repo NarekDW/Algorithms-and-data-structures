@@ -124,6 +124,11 @@ performed by insertion sort for that array—see Section 2.1). This quantity is 
 to the Kendall tau distance; see Section 2.5.  
 [Implementation: Inversions.java](./creative/Inversions.java)
 
+2.2.20 Indirect sort. Develop and implement a version of mergesort that does not rearrange
+the array, but returns an int[] array perm such that perm[i] is the index of the
+i th smallest entry in the array.
+[Implementation: IndirectSort.java](./creative/IndirectSort.java)
+
 ## Not covered/ TODO (numbers)
 
 - 2.2.9
