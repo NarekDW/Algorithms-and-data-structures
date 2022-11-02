@@ -1,7 +1,5 @@
 package _2_Sorting._2_2_Mergesort.creative;
 
-import common.In;
-
 import static common.SortUtils.less;
 
 /*****************************************************************************************************
@@ -12,7 +10,6 @@ import static common.SortUtils.less;
  * to the Kendall tau distance; see Section 2.5.
  *
  ****************************************************************************************************/
-
 public class Inversions {
 
     public static <T extends Comparable<T>> long count(Comparable<T>[] a) {

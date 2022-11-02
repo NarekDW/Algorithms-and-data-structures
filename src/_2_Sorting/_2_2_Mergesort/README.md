@@ -134,6 +134,23 @@ to determine if there is any name common to all three lists, and if so, return t
 such name.  
 [Implementation: Triplicates.java](./creative/Triplicates.java)
 
+2.2.22 3-way mergesort. Suppose instead of dividing in half at each step, you divide
+into thirds, sort each third, and combine using a 3-way merge. What is the order of
+growth of the overall running time of this algorithm?  
+[Implementation: MergeSort3Way.java](./creative/MergeSort3Way.java)
+
+2.2.25 Multiway mergesort. Develop a mergesort implementation based on the idea of
+doing k-way merges (rather than 2-way merges).
+Analyze your algorithm, develop a hypothesis regarding the best value of k, and
+run experiments to validate your hypothesis.  
+[Implementation: MultiwayMergesort.java](./experiments/MultiwayMergesort.java)
+
 ## Not covered/ TODO (numbers)
 
 - 2.2.9
+- 2.2.23
+- 2.2.24
+- 2.2.26
+- 2.2.27
+- 2.2.28
+- 2.2.29

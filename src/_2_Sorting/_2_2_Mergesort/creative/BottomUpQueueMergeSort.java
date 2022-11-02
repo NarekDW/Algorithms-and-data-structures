@@ -15,7 +15,6 @@ import common.StdRandom;
  * reinsert the merged queue at the end. Repeat until the queue of queues contains only one queue.
  *
  ****************************************************************************************************/
-
 public class BottomUpQueueMergeSort {
 
     public static <T extends Comparable<T>> Queue<T> sort(T[] a) {
