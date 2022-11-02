@@ -21,6 +21,7 @@ package _2_Sorting;
  *
  ******************************************************************************/
 
+import _2_Sorting._2_2_Mergesort.creative.MergeSort3Way;
 import _2_Sorting._2_2_Mergesort.creative.NaturalMergesort;
 import common.Stopwatch;
 import _2_Sorting._2_1_Elementary_Sorts.Insertion;
@@ -67,6 +68,7 @@ public class SortCompare {
             case "MergeBU" -> MergeBU.sort(a);
             case "NaturalMergesort" -> NaturalMergesort.sort(a);
             case "FasterMerge" -> FasterMerge.sort(a);
+            case "MergeSort3Way" -> MergeSort3Way.sort(a);
             case "Quick" -> Quick.sort(a);
             case "Quick3way" -> Quick3way.sort(a);
             case "QuickSentinels" -> Sentinels.sort(a);

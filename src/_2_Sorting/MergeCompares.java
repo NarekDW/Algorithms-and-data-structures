@@ -3,22 +3,30 @@ package _2_Sorting;
 import _2_Sorting._2_2_Mergesort.creative.MergeX;
 import common.StdDraw;
 
+import java.awt.*;
+
 import static _2_Sorting.SortCompare.run;
+import static _2_Sorting.SortCompare.timeRandomInput;
 
 public class MergeCompares {
 
     /**
      * For 1_000_000 items:
      * <p>
-     *     MergeX               ~ 18.8 sec.
-     *     FasterMerge          ~ 28.5
-     *     Merge                ~ 29.0 sec.
-     *     MergeBU              ~ 30.7 sec.
-     *     NaturalMergesort     ~ MergeBU
-     *
+     * MergeX               ~ 18.8 sec.
+     * FasterMerge          ~ 28.5
+     * Merge                ~ 29.0 sec.
+     * MergeBU              ~ 30.7 sec.
+     * NaturalMergesort     ~ MergeBU
      */
     public static void main(String[] args) {
-        mergeBUvsNaturalMergesort();
+        mergeVsMergeSort3Way();
+//        plotSortTimes("MergeSort3Way", "Merge");
+    }
+
+    private static void mergeVsMergeSort3Way() {
+        // For 1000000 random Doubles MergeSort3Way is 1.901 times faster than Merge
+        run("MergeSort3Way", "Merge", 30_000_000, 3, false);
     }
 
     private static void mergeBUvsNaturalMergesort() {
@@ -49,7 +57,7 @@ public class MergeCompares {
         StdDraw.setYscale(-50, 350);
         StdDraw.setXscale(-100_000, 2_200_000);
 
-        for (int i = 0; i <= 350; i+=50)
+        for (int i = 0; i <= 350; i += 50)
             StdDraw.text(-50_000, i, i + "");
 
         for (int i = 5_000; i <= 2_000_000; i += 5_000) {
@@ -65,5 +73,24 @@ public class MergeCompares {
         }
 
         StdDraw.save("./src/resources/sort/merge/AlreadySortedSubArraysCount.png");
+    }
+
+    private static void plotSortTimes(String arg1, String arg2) {
+        int maxSize = 1_000_000;
+        StdDraw.setXscale(-maxSize * 0.1, maxSize * 1.1);
+        StdDraw.setYscale(-0.1, 1);
+
+        for (int i = 0; i <= maxSize; i = i + maxSize / 10) {
+            StdDraw.text(i, -0.05, String.valueOf(i / 100_000));
+        }
+
+        for (int i = 100_000; i < maxSize; i+=5000) {
+            StdDraw.setPenColor(Color.GREEN);
+            double time1 = timeRandomInput(arg1, i, 1);
+            StdDraw.point(i, time1);
+            StdDraw.setPenColor(Color.RED);
+            double time2 = timeRandomInput(arg2, i, 1);
+            StdDraw.point(i, time2);
+        }
     }
 }
