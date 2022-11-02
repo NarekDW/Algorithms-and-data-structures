@@ -4,11 +4,11 @@ import static common.SortUtils.less;
 
 public class BinarySearch {
 
-    public static <T extends Comparable> int rank(Comparable[] a, Comparable key) {
+    public static <T extends Comparable<T>> int rank(T[] a, T key) {
         return rank(a, key, 0, a.length - 1);
     }
 
-    public static <T extends Comparable> int rank(Comparable[] a, Comparable key, int lo, int hi) {
+    public static <T extends Comparable<T>> int rank(T[] a, T key, int lo, int hi) {
         if (lo > hi) return -1;
         int mid = lo + (hi - lo) / 2;
         if (less(key, a[mid])) return rank(a, key, lo, mid - 1);
