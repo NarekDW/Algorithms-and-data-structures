@@ -80,3 +80,6 @@ most computers for most applications than will any other compare-based sorting m
 Give six arrays of ten elements for which Quick.sort() uses the worst-case number of compares.  
 [Implementation: QuickSortCompareCounter.java](./exercises/QuickSortCompareCounter.java)
 
+2.3.5 Give a code fragment that sorts an array that is known to consist of items having
+just two distinct keys.  
+[Implementation: TwoDistinctKeys.java](./exercises/TwoDistinctKeys.java)
