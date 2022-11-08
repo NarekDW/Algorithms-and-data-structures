@@ -83,3 +83,7 @@ Give six arrays of ten elements for which Quick.sort() uses the worst-case numbe
 2.3.5 Give a code fragment that sorts an array that is known to consist of items having
 just two distinct keys.  
 [Implementation: TwoDistinctKeys.java](./exercises/TwoDistinctKeys.java)
+
+2.3.6 Write a program to compute the exact value of C N , and compare the exact value
+with the approximation 2N ln N, for N = 100, 1,000, and 10,000.  
+[Implementation: ComparesCount.java](./exercises/ComparesCount.java)
