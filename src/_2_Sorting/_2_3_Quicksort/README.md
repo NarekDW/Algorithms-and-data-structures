@@ -71,3 +71,12 @@ Note that H = lg N when the keys are all distinct (all the probabilities are 1/N
 
 **A carefully tuned version of quicksort is likely to run significantly faster on
 most computers for most applications than will any other compare-based sorting method.**
+
+# Exercise:
+
+## Done:
+
+2.3.4 Suppose that the initial random shuffle is omitted.
+Give six arrays of ten elements for which Quick.sort() uses the worst-case number of compares.  
+[Implementation: QuickSortCompareCounter.java](./exercises/QuickSortCompareCounter.java)
+
