@@ -5,16 +5,16 @@ import static common.StdRandom.shuffle;
 
 public class Quick3way {
 
-    public static void sort(Comparable[] a) {
+    public static <T extends Comparable<T>> void sort(T[] a) {
         shuffle(a);
         sort(a, 0, a.length - 1);
     }
 
-    private static void sort(Comparable[] a, int lo, int hi) {
+    private static <T extends Comparable<T>> void sort(T[] a, int lo, int hi) {
         // See page 289 for public sort() that calls this method.
         if (hi <= lo) return;
         int lt = lo, i = lo + 1, gt = hi;
-        Comparable v = a[lo];
+        T v = a[lo];
         while (i <= gt) {
             int cmp = a[i].compareTo(v);
             if (cmp < 0) exch(a, lt++, i++);
