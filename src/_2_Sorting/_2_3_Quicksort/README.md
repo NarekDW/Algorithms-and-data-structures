@@ -87,3 +87,14 @@ just two distinct keys.
 2.3.6 Write a program to compute the exact value of C N , and compare the exact value
 with the approximation 2N ln N, for N = 100, 1,000, and 10,000.  
 [Implementation: ComparesCount.java](./exercises/ComparesCount.java)
+
+2.3.8 About how many compares will Quick.sort() make when sorting an array of N 
+items that are all equal?  
+Answer: ~ log(N) * (N + 2) / 2
+
+## Not covered/ TODO (numbers)
+
+- 2.3.7
+- 2.3.10
+- 2.3.11
+- 2.3.14
