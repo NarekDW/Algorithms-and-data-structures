@@ -88,9 +88,16 @@ just two distinct keys.
 with the approximation 2N ln N, for N = 100, 1,000, and 10,000.  
 [Implementation: ComparesCount.java](./exercises/ComparesCount.java)
 
-2.3.8 About how many compares will Quick.sort() make when sorting an array of N 
+2.3.8 About how many compares will Quick.sort() make when sorting an array of N
 items that are all equal?  
 Answer: ~ log(N) * (N + 2) / 2
+
+2.3.15 Nuts and bolts. (G. J. E. Rawlins) You have a mixed pile of N nuts and N bolts
+and need to quickly find the corresponding pairs of nuts and bolts. Each nut matches
+exactly one bolt, and each bolt matches exactly one nut. By fitting a nut and bolt together,
+you can see which is bigger, but it is not possible to directly compare two nuts or
+two bolts. Give an efficient method for solving the problem.  
+[Implementation: NutsAndBolts.java](./creative/NutsAndBolts.java)
 
 ## Not covered/ TODO (numbers)
 
