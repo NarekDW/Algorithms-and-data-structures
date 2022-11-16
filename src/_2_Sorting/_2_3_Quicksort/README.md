@@ -148,4 +148,7 @@ when the array does not fit in the cache.
 - 2.3.23 Java system sort.
 - 2.3.24 Samplesort
 - 2.3.26 Subarray sizes.
-- 
+- 2.3.28 Recursion depth.
+- 2.3.29 Randomization.
+- 2.3.30 Corner cases.
+- 2.3.31 Histogram of running times.
