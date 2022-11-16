@@ -119,6 +119,15 @@ subarrays are pushed onto the stack. Note : Push the larger of the subarrays ont
 the stack first, which guarantees that the stack will have at most lg N entries.  
 [Implementation: NonrecursiveQuicksort.java](./creative/NonrecursiveQuicksort.java)
 
+2.3.25 Cutoff to insertion sort. Implement quicksort with a cutoff to insertion sort
+for subarrays with less than M elements, and empirically determine the value of M for
+which quicksort runs fastest in your computing environment to sort random arrays
+of N doubles, for N = 10^3 , 10^4 , 10^5 , and 10^6 . Plot average running times for M from 0
+to 30 for each value of M. Note : You need to add a three-argument sort() method to
+Algorithm 2.2 for sorting subarrays such that the call Insertion.sort(a, lo, hi)
+sorts the subarray a[lo..hi] .  
+[Implementation: QuickVsQuickX.java](./experiments/QuickVsQuickX.java)
+
 ## Not covered/ TODO (numbers)
 
 - 2.3.7
@@ -127,3 +136,6 @@ the stack first, which guarantees that the stack will have at most lg N entries.
 - 2.3.14
 - 2.3.16
 - 2.3.19 Median-of-5 partitioning.
+- 2.3.22 Fast 3-way partitioning.
+- 2.3.23 Java system sort.
+- 2.3.24 Samplesort
