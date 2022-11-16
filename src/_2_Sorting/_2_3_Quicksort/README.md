@@ -128,6 +128,14 @@ Algorithm 2.2 for sorting subarrays such that the call Insertion.sort(a, lo, hi)
 sorts the subarray a[lo..hi] .  
 [Implementation: QuickVsQuickX.java](./experiments/QuickVsQuickX.java)
 
+2.3.27 Ignore small subarrays. Run experiments to compare the following strategy for
+dealing with small subarrays with the approach described in Exercise 2.3.25: Simply
+ignore the small subarrays in quicksort, then run a single insertion sort after the quick-
+sort completes. Note : You may be able to estimate the size of your computer’s cache
+memory with these experiments, as the performance of this method is likely to degrade
+when the array does not fit in the cache.  
+[Implementation: IgnoreSmallSubarrays.java](./experiments/IgnoreSmallSubarrays.java)
+
 ## Not covered/ TODO (numbers)
 
 - 2.3.7
@@ -139,3 +147,5 @@ sorts the subarray a[lo..hi] .
 - 2.3.22 Fast 3-way partitioning.
 - 2.3.23 Java system sort.
 - 2.3.24 Samplesort
+- 2.3.26 Subarray sizes.
+- 

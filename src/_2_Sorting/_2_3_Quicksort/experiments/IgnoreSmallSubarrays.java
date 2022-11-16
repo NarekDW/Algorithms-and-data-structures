@@ -7,7 +7,7 @@ import static common.SortUtils.less;
 import static common.StdRandom.shuffle;
 
 /*****************************************************************************************************
- *
+ * <p>
  * 2.3.27 Ignore small subarrays. Run experiments to compare the following strategy for
  * dealing with small subarrays with the approach described in Exercise 2.3.25: Simply
  * ignore the small subarrays in quicksort, then run a single insertion sort after the quick-
@@ -16,27 +16,26 @@ import static common.StdRandom.shuffle;
  * when the array does not fit in the cache.
  *
  ****************************************************************************************************/
-@SuppressWarnings("Duplicates")
 public class IgnoreSmallSubarrays {
 
     private static final int M = 20;
 
-    public static void sort(Comparable[] a) {
+    public static <T extends Comparable<T>> void sort(T[] a) {
         shuffle(a);
         sort(a, 0, a.length - 1);
         Insertion.sort(a);
     }
 
-    public static void sort(Comparable[] a, int lo, int hi) {
+    public static <T extends Comparable<T>> void sort(T[] a, int lo, int hi) {
         if (hi <= lo + M) return;
         int j = partition(a, lo, hi);
         sort(a, lo, j - 1);
         sort(a, j + 1, hi);
     }
 
-    private static int partition(Comparable[] a, int lo, int hi) {
+    private static <T extends Comparable<T>> int partition(T[] a, int lo, int hi) {
         int i = lo, j = hi + 1;
-        Comparable v = a[lo];
+        T v = a[lo];
         while (true) {
             while (less(a[++i], v)) if (i == hi) break;
             while (less(v, a[--j])) if (j == lo) break;
@@ -52,7 +51,7 @@ public class IgnoreSmallSubarrays {
         /*
         Quick : 14.531999999999877
         IgnoreSmallSubarrays : 13.45199999999962
-        For 10000 random Doubles Quick is 0.926 times faster than IgnoreSmallSubarrays
+        For 10_000 random Doubles Quick is 0.926 times faster than IgnoreSmallSubarrays
          */
 //        SortCompare.run("Quick", "IgnoreSmallSubarrays", 10_000, 10_000, false);
 //        SortCompare.run("Quick", "IgnoreSmallSubarrays", 10_000, 10_000, false);
@@ -61,7 +60,7 @@ public class IgnoreSmallSubarrays {
         /*
         Quick : 22.65599999999977
         IgnoreSmallSubarrays : 22.47399999999984
-        For 100000 random Doubles Quick is 0.992 times faster than IgnoreSmallSubarrays
+        For 100_000 random Doubles Quick is 0.992 times faster than IgnoreSmallSubarrays
          */
 //        SortCompare.run("Quick", "IgnoreSmallSubarrays", 100_000, 1_000, false);
 //        SortCompare.run("Quick", "IgnoreSmallSubarrays", 100_000, 1_000, false);
@@ -69,7 +68,7 @@ public class IgnoreSmallSubarrays {
         /*
         IgnoreSmallSubarrays : 53.003999999999984
         QuickX : 47.58399999999999
-        For 1000000 random Doubles IgnoreSmallSubarrays is 0.898 times faster than QuickX
+        For 1_000_000 random Doubles IgnoreSmallSubarrays is 0.898 times faster than QuickX
          */
 //        SortCompare.run("IgnoreSmallSubarrays", "QuickX", 1_000_000, 100, false);
 //        SortCompare.run("IgnoreSmallSubarrays", "QuickX", 1_000_000, 100, false);
@@ -77,7 +76,7 @@ public class IgnoreSmallSubarrays {
         /*
         IgnoreSmallSubarrays : 52.68200000000001
         Quick : 48.50099999999998
-        For 1000000 random Doubles IgnoreSmallSubarrays is 0.921 times faster than Quick
+        For 1_000_000 random Doubles IgnoreSmallSubarrays is 0.921 times faster than Quick
          */
 //        SortCompare.run("IgnoreSmallSubarrays", "Quick", 1_000_000, 100, false);
 //        SortCompare.run("IgnoreSmallSubarrays", "Quick", 1_000_000, 100, false);
