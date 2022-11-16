@@ -5,7 +5,15 @@ import static _2_Sorting.SortCompare.run;
 public class QuickCompares {
 
     public static void main(String[] args) {
-        quickVsMedianOf3Partitioning();
+        quickVsNonrecursiveQuicksort();
+    }
+
+    private static void quickVsNonrecursiveQuicksort() {
+        // For 10000000 random Doubles NonrecursiveQuicksort is 1.047 times faster than Quick
+//        run("NonrecursiveQuicksort", "Quick", 10_000_000, 5, false);
+
+        // For 10000 random Doubles NonrecursiveQuicksort is 0.888 times faster than Quick
+        run("NonrecursiveQuicksort", "Quick", 10_000, 10_000, false);
     }
 
     private static void quickVsMedianOf3Partitioning() {

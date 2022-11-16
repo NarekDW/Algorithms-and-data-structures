@@ -8,68 +8,51 @@ import static common.SortUtils.*;
 import static common.StdRandom.shuffle;
 
 /*****************************************************************************************************
- *
+ * <p>
  * 2.3.20 Nonrecursive quicksort. Implement a nonrecursive version of quicksort based
- * on a main loop where a subarray is popped from a stack to be partitioned, and the re-
- * sulting subarrays are pushed onto the stack. Note : Push the larger of the subarrays onto
+ * on a main loop where a subarray is popped from a stack to be partitioned, and the resulting
+ * subarrays are pushed onto the stack. Note : Push the larger of the subarrays onto
  * the stack first, which guarantees that the stack will have at most lg N entries.
  *
  ****************************************************************************************************/
-@SuppressWarnings("Duplicates")
 public class NonrecursiveQuicksort {
 
     private static final int M = 10;
 
-    public static void sort(Comparable[] a) {
-        shuffle(a);
-        sort(a, 0, a.length - 1);
-    }
+    public static <T extends Comparable<T>> void sort(T[] a) {
+        if (a.length < 2)
+            return;
 
-    public static void sort(Comparable[] a, int lo, int hi) {
+        shuffle(a);
         Stack<Integer> bounds = new Stack<>();
-        bounds.push(lo);
-        bounds.push(hi);
+        bounds.push(0);
+        bounds.push(a.length - 1);
 
         while (!bounds.isEmpty()) {
-            Integer l = bounds.pop();
-            Integer h = bounds.pop();
+            Integer hi = bounds.pop();
+            Integer lo = bounds.pop();
+            if (lo >= hi) continue;
 
-            if (h <= l + M) {
+            if (hi <= lo + M) {
                 Insertion.sort(a, lo, hi);
-                break;
+                continue;
             }
 
-            int j = partition(a, l, h);
+            int j = partition(a, lo, hi);
 
-            if (h - j > j - l) {
-                if (j + 1 < h) {
-                    bounds.push(j + 1);
-                    bounds.push(h);
-                }
+            // put [lo, j - 1] to the stack
+            bounds.push(lo);
+            bounds.push(j - 1);
 
-                if (j - 1 > l) {
-                    bounds.push(l);
-                    bounds.push(j - 1);
-                }
-
-            } else {
-                if (j - 1 > l) {
-                    bounds.push(l);
-                    bounds.push(j - 1);
-                }
-
-                if (j + 1 < h) {
-                    bounds.push(j + 1);
-                    bounds.push(h);
-                }
-            }
-
+            // put [j + 1, hi] to the stack
+            bounds.push(j + 1);
+            bounds.push(hi);
         }
     }
 
-    private static int partition(Comparable[] a, int lo, int hi) {
+    private static <T extends Comparable<T>> int partition(T[] a, int lo, int hi) {
         int i = lo, j = hi + 1;
-        Comparable v = a[lo];
+        T v = a[lo];
         while (true) {
             while (less(a[++i], v)) if (i == hi) break;
             while (less(v, a[--j])) if (j == lo) break;
@@ -94,7 +77,6 @@ public class NonrecursiveQuicksort {
                 show(x);
                 throw new RuntimeException();
             }
-
         }
     }
 }

@@ -113,6 +113,12 @@ serves as a sentinel for the right end of the subarray.
 in the text (see page 296). Run doubling tests to determine the effectiveness of the change.  
 [Implementation: MedianOf3Partitioning.java](./creative/MedianOf3Partitioning.java)
 
+2.3.20 Nonrecursive quicksort. Implement a nonrecursive version of quicksort based
+on a main loop where a subarray is popped from a stack to be partitioned, and the resulting
+subarrays are pushed onto the stack. Note : Push the larger of the subarrays onto
+the stack first, which guarantees that the stack will have at most lg N entries.  
+[Implementation: NonrecursiveQuicksort.java](./creative/NonrecursiveQuicksort.java)
+
 ## Not covered/ TODO (numbers)
 
 - 2.3.7
@@ -120,3 +126,4 @@ in the text (see page 296). Run doubling tests to determine the effectiveness of
 - 2.3.11
 - 2.3.14
 - 2.3.16
+- 2.3.19 Median-of-5 partitioning.
