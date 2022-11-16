@@ -5,7 +5,12 @@ import static _2_Sorting.SortCompare.run;
 public class QuickCompares {
 
     public static void main(String[] args) {
-        quickVsQuickSentinels();
+        quickVsMedianOf3Partitioning();
+    }
+
+    private static void quickVsMedianOf3Partitioning() {
+        // For 1000000 random Doubles MedianOf3Partitioning is 0.899 times faster than Quick
+        run("MedianOf3Partitioning", "Quick", 1_000_000, 50, false);
     }
 
     private static void quickVsQuick3Way() {

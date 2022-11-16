@@ -109,6 +109,10 @@ Note : When sorting interior subarrays, the leftmost entry in the subarray to th
 serves as a sentinel for the right end of the subarray.  
 [Implementation: Sentinels.java](./creative/Sentinels.java)
 
+2.3.18 Median-of-3 partitioning. Add median-of-3 partitioning to quicksort, as described
+in the text (see page 296). Run doubling tests to determine the effectiveness of the change.  
+[Implementation: MedianOf3Partitioning.java](./creative/MedianOf3Partitioning.java)
+
 ## Not covered/ TODO (numbers)
 
 - 2.3.7
