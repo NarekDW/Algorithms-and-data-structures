@@ -1,6 +1,5 @@
 package _2_Sorting._2_4_Priority_Queues;
 
-import common.StdIn;
 import common.StdOut;
 
 public class Heap {
@@ -12,8 +11,9 @@ public class Heap {
      * Rearranges the array in ascending order, using the natural order.
      * @param pq the array to be sorted
      */
-    public static void sort(Comparable[] pq) {
+    public static <T extends Comparable<T>> void sort(T[] pq) {
         int n = pq.length;
+        // The for loop constructs the heap
         for (int k = n/2; k >= 1; k--)
             sink(pq, k, n);
         /*
@@ -26,6 +26,7 @@ public class Heap {
          */
         while (n > 1) {
             exch(pq, 1, n--);
+            // we can avoid that sink, just select the next max child
             sink(pq, 1, n);
         }
     }
@@ -34,11 +35,11 @@ public class Heap {
      * Helper functions to restore the heap invariant.
      ***************************************************************************/
 
-    private static void sink(Comparable[] pq, int k, int n) {
+    private static <T extends Comparable<T>> void sink(T[] pq, int k, int n) {
         /*****************************************************************************************************
-         *
+         * <p>
          * 2.4.13 Describe a way to avoid the j < N test in sink() .
-         *
+         * <p>
          * Answer: change 2*k <= n to 2*k < n
          ****************************************************************************************************/
         while (2*k <= n) {
