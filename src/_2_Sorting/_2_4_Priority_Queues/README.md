@@ -75,3 +75,7 @@ large numbers of insert and remove the maximum operations are intermixed.
 using the bottom-up heap construction method described on page 323 in the text.  
 [Implementation: MaxPQ.java](./MaxPQ.java)
 
+2.4.22 Array resizing. Add array resizing to MaxPQ, and prove bounds like those
+of Proposition Q for array accesses, in an amortized sense.  
+[Implementation: MaxPQ.java](./MaxPQ.java)
+
