@@ -59,7 +59,16 @@ However, it is rarely used in typical applications on modern systems because
 array entries, so the number of cache misses is far higher than for quicksort,
 mergesort, and even shellsort, where most compares are with nearby entries.
 
-On the other hand, the use of heaps to implement priority queues plays an 
-increasingly important role in modern applications, because it provides an 
-easy way to guarantee logarithmic running time for **dynamic situations** where 
+On the other hand, the use of heaps to implement priority queues plays an
+increasingly important role in modern applications, because it provides an
+easy way to guarantee logarithmic running time for **dynamic situations** where
 large numbers of insert and remove the maximum operations are intermixed.
+
+# Exercise:
+
+## Done:
+
+2.4.13 Describe a way to avoid the j < N test in sink() .  
+[Implementation: Heap.java](./Heap.java)
+
+
