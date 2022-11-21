@@ -1,5 +1,11 @@
 package _2_Sorting._2_4_Priority_Queues;
 
+/*****************************************************************************************************
+ * <p>
+ * 2.4.19 Implement the constructor for MaxPQ that takes an array of items as argument,
+ * using the bottom-up heap construction method described on page 323 in the text.
+ *
+ ****************************************************************************************************/
 public class MaxPQ<Key extends Comparable<Key>> {
 
     private Key[] pq;       // heap-ordered complete binary tree
@@ -9,12 +15,6 @@ public class MaxPQ<Key extends Comparable<Key>> {
         pq = (Key[]) new Comparable[maxN + 1];
     }
 
-    /*****************************************************************************************************
-     *
-     * 2.4.19 Implement the constructor for MaxPQ that takes an array of items as argument,
-     * using the bottom-up heap construction method described on page 323 in the text.
-     *
-     ****************************************************************************************************/
     public MaxPQ(Key[] pq) {
         this.pq = pq;
         for (int i = 2; i < pq.length; i++)

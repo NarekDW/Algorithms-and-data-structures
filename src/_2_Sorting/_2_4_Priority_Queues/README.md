@@ -71,4 +71,7 @@ large numbers of insert and remove the maximum operations are intermixed.
 2.4.13 Describe a way to avoid the j < N test in sink() .  
 [Implementation: Heap.java](./Heap.java)
 
+2.4.19 Implement the constructor for MaxPQ that takes an array of items as argument,
+using the bottom-up heap construction method described on page 323 in the text.  
+[Implementation: MaxPQ.java](./MaxPQ.java)
 
