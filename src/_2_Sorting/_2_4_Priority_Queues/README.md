@@ -79,3 +79,14 @@ using the bottom-up heap construction method described on page 323 in the text.
 of Proposition Q for array accesses, in an amortized sense.  
 [Implementation: MaxPQ.java](./MaxPQ.java)
 
+2.4.24 Priority queue with explicit links. Implement a priority queue using a
+heap-ordered binary tree, but use a triply linked structure instead of an array.
+You will need three links per node: two to traverse down the tree and one to
+traverse up the tree. Your implementation should guarantee logarithmic running
+time per operation, even if no maximum priority-queue size is known ahead of time.  
+[Implementation: LinkedListPQ.java](./creative/LinkedListPQ.java)
+
+## Not covered/ TODO (numbers)
+
+- 2.4.23 Multiway heaps.
+- 
