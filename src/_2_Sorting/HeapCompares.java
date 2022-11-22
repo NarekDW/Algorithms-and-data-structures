@@ -5,10 +5,19 @@ import _2_Sorting._2_4_Priority_Queues.creative.LinkedListPQ;
 import common.SortUtils;
 import common.StopwatchCPU;
 
+import static _2_Sorting.SortCompare.run;
+
 public class HeapCompares {
 
     public static void main(String[] args) {
-        maxPQvsLinkedListPQ();
+        heapVsHeapWithoutExchanges();
+    }
+
+    private static void heapVsHeapWithoutExchanges() {
+        // HeapWithoutExchanges : 7.659000000000001
+        // Heap : 9.305
+        // For 1000000 random Doubles HeapWithoutExchanges is 1.215 times faster than Heap
+        run("HeapWithoutExchanges", "Heap", 1_000_000, 10, false);
     }
 
     private static void maxPQvsLinkedListPQ() {

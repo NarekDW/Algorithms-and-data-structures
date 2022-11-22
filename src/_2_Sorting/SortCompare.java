@@ -23,6 +23,7 @@ package _2_Sorting;
 
 import _2_Sorting._2_2_Mergesort.creative.MergeSort3Way;
 import _2_Sorting._2_2_Mergesort.creative.NaturalMergesort;
+import _2_Sorting._2_4_Priority_Queues.creative.HeapWithoutExchanges;
 import common.Stopwatch;
 import _2_Sorting._2_1_Elementary_Sorts.Insertion;
 import _2_Sorting._2_1_Elementary_Sorts.Selection;
@@ -77,6 +78,7 @@ public class SortCompare {
             case "IgnoreSmallSubarrays" -> IgnoreSmallSubarrays.sort(a);
             case "QuickX" -> QuickX.sort(a);
             case "Heap" -> Heap.sort(a);
+            case "HeapWithoutExchanges" -> HeapWithoutExchanges.sort(a);
 
         /*
                 Java’s systems programmers have chosen to use quicksort (with 3-way partitioning)

@@ -4,7 +4,7 @@ import _2_Sorting._2_4_Priority_Queues.MinPQ;
 import common.StdOut;
 
 /*****************************************************************************************************
- *
+ * <p>
  * 2.4.25 Computational number theory. Write a program CubeSum.java that prints out
  * all integers of the form a^3 + b^3 where a and b are integers between 0 and N in sorted
  * order, without using excessive space. That is, instead of computing an array of the N^2
@@ -29,6 +29,7 @@ public class CubeSum implements Comparable<CubeSum> {
 
     @Override
     public int compareTo(CubeSum o) {
+        //noinspection UseCompareMethod
         if (o.sum > this.sum) return -1;
         if (o.sum < this.sum) return 1;
         return 0;
@@ -40,8 +41,7 @@ public class CubeSum implements Comparable<CubeSum> {
 
 
     public static void main(String[] args) {
-
-        int n = 1_000_000;
+        int n = 10;
 
         // initialize priority queue
         MinPQ<CubeSum> pq = new MinPQ<>();
