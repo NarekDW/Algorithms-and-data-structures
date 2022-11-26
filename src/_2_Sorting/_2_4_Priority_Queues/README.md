@@ -104,4 +104,18 @@ implementations that avoid this inefficiency, a la insertion sort (see Exercise 
 ## Not covered/ TODO (numbers)
 
 - 2.4.23 Multiway heaps.
-- 
+- 2.4.27 Find the minimum.
+- 2.4.28 Selection filter.
+- 2.4.29 Min/max priority queue.
+- 2.4.30 Dynamic median-finding.
+- 2.4.31 Fast insert.
+- 2.4.32 Lower bound.
+- 2.4.35 Sampling from a discrete probability distribution.
+- 2.4.36 Performance driver I.
+- 2.4.37 Performance driver II.
+- 2.4.38 Exercise driver. 
+- 2.4.39 Cost of construction. 
+- 2.4.40 Floyd’s method.
+- 2.4.41 Multiway heaps.
+- 2.4.42 Preorder heaps.
+
