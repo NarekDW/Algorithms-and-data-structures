@@ -77,3 +77,6 @@ that possibility, as with quicksort.
 two-word compound words in the list. For example, if after , thought , and afterthought
 are in the list, then afterthought is a compound word.  
 [Implementation: CompoundWords.java](./exercises/CompoundWords.java)
+
+2.5.6 Implement a recursive version of select()  
+[Implementation: KSmallest.java](./exercises/KSmallest.java)
