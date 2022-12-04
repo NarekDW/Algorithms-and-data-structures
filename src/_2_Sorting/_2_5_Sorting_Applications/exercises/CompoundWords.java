@@ -4,11 +4,11 @@ import _1_Fundamentals._1_4_Analysis_of_Algorithms.BinarySearch;
 import _2_Sorting._2_3_Quicksort.Quick;
 
 /*****************************************************************************************************
- *
- * 2.5.2 Write a program that reads a list of words from standard input and prints all two-
- * word compound words in the list. For example, if after , thought , and afterthought
+ * <p>
+ * 2.5.2 Write a program that reads a list of words from standard input and prints all
+ * two-word compound words in the list. For example, if after , thought , and afterthought
  * are in the list, then afterthought is a compound word.
- *
+ * <p>
  * Complexity of this Algorithm is ~ N^2 * log(N)
  *
  ****************************************************************************************************/

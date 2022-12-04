@@ -68,3 +68,12 @@ For example, this formula says that finding the median (k = N/2) requires
 Note that the worst case is quadratic but randomization protects against
 that possibility, as with quicksort.
 ***
+
+# Exercise:
+
+## Done:
+
+2.5.2 Write a program that reads a list of words from standard input and prints all
+two-word compound words in the list. For example, if after , thought , and afterthought
+are in the list, then afterthought is a compound word.  
+[Implementation: CompoundWords.java](./exercises/CompoundWords.java)
