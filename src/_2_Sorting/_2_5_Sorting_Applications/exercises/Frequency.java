@@ -3,10 +3,10 @@ package _2_Sorting._2_5_Sorting_Applications.exercises;
 import _2_Sorting._2_3_Quicksort.Quick;
 
 /*****************************************************************************************************
- *
+ * <p>
  * 2.5.8 Write a program Frequency that reads strings from standard input and prints
  * the number of times each string occurs, in descending order of frequency.
- *
+ * <p>
  * Complexity is ~ 2 * N * log(N) + N ~~ N * log(N)
  * And it uses ~ N extra space
  *
@@ -35,7 +35,7 @@ public class Frequency {
             System.out.println(arr[i]);
     }
 
-    class WordFreq implements Comparable<WordFreq> {
+    static class WordFreq implements Comparable<WordFreq> {
         String word;
         int frequency;
 
@@ -56,9 +56,7 @@ public class Frequency {
         // Reversed
         @Override
         public int compareTo(WordFreq that) {
-            if (this.frequency > that.frequency) return -1;
-            else if (this.frequency < that.frequency) return 1;
-            else return 0;
+            return Integer.compare(that.frequency, this.frequency);
         }
     }
 

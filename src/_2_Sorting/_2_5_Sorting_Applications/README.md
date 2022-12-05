@@ -80,3 +80,7 @@ are in the list, then afterthought is a compound word.
 
 2.5.6 Implement a recursive version of select()  
 [Implementation: KSmallest.java](./exercises/KSmallest.java)
+
+2.5.8 Write a program Frequency that reads strings from standard input and prints
+the number of times each string occurs, in descending order of frequency.  
+[Implementation: Frequency.java](./exercises/Frequency.java)
