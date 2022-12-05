@@ -78,9 +78,19 @@ two-word compound words in the list. For example, if after , thought , and after
 are in the list, then afterthought is a compound word.  
 [Implementation: CompoundWords.java](./exercises/CompoundWords.java)
 
+2.5.4 Implement a method String[] dedup(String[] a) that returns the objects in a[] in 
+sorted order, with duplicates removed.  
+[Implementation: RemoveDuplicates.java](./exercises/RemoveDuplicates.java)
+
 2.5.6 Implement a recursive version of select()  
 [Implementation: KSmallest.java](./exercises/KSmallest.java)
 
 2.5.8 Write a program Frequency that reads strings from standard input and prints
 the number of times each string occurs, in descending order of frequency.  
 [Implementation: Frequency.java](./exercises/Frequency.java)
+
+## Not covered/ TODO (numbers)
+
+- 2.5.9
+- 2.5.10
+- 2.5.11

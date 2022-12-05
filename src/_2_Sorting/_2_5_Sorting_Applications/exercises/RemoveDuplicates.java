@@ -3,10 +3,10 @@ package _2_Sorting._2_5_Sorting_Applications.exercises;
 import _2_Sorting._2_3_Quicksort.Quick;
 
 /*****************************************************************************************************
- *
+ * <p>
  * 2.5.4 Implement a method String[] dedup(String[] a) that returns the objects in
  * a[] in sorted order, with duplicates removed.
- *
+ * <p>
  * Complexity of this Algorithm is ~ N * log(N) + 2 * N ~~ N * log(N)
  * And it uses ~ N extra space
  *
