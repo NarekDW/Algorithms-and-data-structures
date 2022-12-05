@@ -78,7 +78,7 @@ two-word compound words in the list. For example, if after , thought , and after
 are in the list, then afterthought is a compound word.  
 [Implementation: CompoundWords.java](./exercises/CompoundWords.java)
 
-2.5.4 Implement a method String[] dedup(String[] a) that returns the objects in a[] in 
+2.5.4 Implement a method String[] dedup(String[] a) that returns the objects in a[] in
 sorted order, with duplicates removed.  
 [Implementation: RemoveDuplicates.java](./exercises/RemoveDuplicates.java)
 
@@ -89,8 +89,16 @@ sorted order, with duplicates removed.
 the number of times each string occurs, in descending order of frequency.  
 [Implementation: Frequency.java](./exercises/Frequency.java)
 
+2.5.18 Force stability. Write a wrapper method that makes any sort stable by
+creating a new key type that allows you to append each key’s index to the key,
+call sort(), then restore the original key after the sort.  
+[Implementation: ForceStability.java](./creative/ForceStability.java)
+
 ## Not covered/ TODO (numbers)
 
 - 2.5.9
 - 2.5.10
 - 2.5.11
+- 2.5.12-16 (already solved on the web page)
+- 2.5.17
+- 
