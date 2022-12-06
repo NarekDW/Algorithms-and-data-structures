@@ -94,6 +94,13 @@ creating a new key type that allows you to append each key’s index to the key,
 call sort(), then restore the original key after the sort.  
 [Implementation: ForceStability.java](./creative/ForceStability.java)
 
+2.5.21 Multidimensional sort. Write a Vector data type for use in having the sorting
+methods sort multidimensional vectors of d integers, putting the vectors in order
+by first component, those with equal first component in order by second component,
+those with equal first and second components in order by third component, and so
+forth.  
+[Implementation: Vector.java](./creative/Vector.java)
+
 ## Not covered/ TODO (numbers)
 
 - 2.5.9
@@ -101,4 +108,5 @@ call sort(), then restore the original key after the sort.
 - 2.5.11
 - 2.5.12-16 (already solved on the web page)
 - 2.5.17
+- 2.5.20
 - 

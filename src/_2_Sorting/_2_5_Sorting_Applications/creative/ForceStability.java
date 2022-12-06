@@ -14,7 +14,7 @@ public class ForceStability {
 
     public static <T extends Comparable<T>> void wrapper(T[] arr, Function<Comparable[], Void> sortFunction) {
         int n = arr.length;
-        StableSortEntity<T>[] stableClone = new StableSortEntity<>[n];
+        StableSortEntity<T>[] stableClone = new StableSortEntity[n];
         for (int i = 0; i < n; i++) {
             stableClone[i] = new StableSortEntity<>(arr[i], i);
         }
