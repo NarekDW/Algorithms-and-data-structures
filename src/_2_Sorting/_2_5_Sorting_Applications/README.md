@@ -105,6 +105,14 @@ forth.
 returns duplicate keys in the same order in which they were inserted).  
 [Implementation: StablePriorityQueue.java](./creative/StablePriorityQueue.java)
 
+2.5.27 Sorting parallel arrays. When sorting parallel arrays, it is useful to have a version
+of a sorting routine that returns a permutation, say index[] , of the indices in sorted
+order. Add a method indirectSort() to Insertion that takes an array of Comparable
+objects a[] as argument, but instead of rearranging the entries of a[] returns an integer
+array index[] so that a[index[0]] through a[index[N-1]] are the items in ascending
+order.  
+[Implementation: Insertion.java](./creative/Insertion.java)
+
 ## Not covered/ TODO (numbers)
 
 - 2.5.9
@@ -115,4 +123,7 @@ returns duplicate keys in the same order in which they were inserted).
 - 2.5.20
 - 2.5.22 Stock market trading
 - 2.5.23
-- 
+- 2.5.25
+- 2.5.26
+- 2.5.28
+- 2.5.29

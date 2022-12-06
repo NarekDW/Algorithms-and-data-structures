@@ -3,7 +3,7 @@ package _2_Sorting._2_5_Sorting_Applications.creative;
 import static common.SortUtils.less;
 
 /*****************************************************************************************************
- *
+ * <p>
  * 2.5.27 Sorting parallel arrays. When sorting parallel arrays, it is useful to have a version
  * of a sorting routine that returns a permutation, say index[] , of the indices in sorted
  * order. Add a method indirectSort() to Insertion that takes an array of Comparable
@@ -14,7 +14,7 @@ import static common.SortUtils.less;
  ****************************************************************************************************/
 public class Insertion {
 
-    public static int[] indirectSort(Comparable[] a) {
+    public static <T extends Comparable<T>> int[] indirectSort(T[] a) {
         int length = a.length;
         int[] index = new int[length];
         for (int i = 0; i < length; i++)
