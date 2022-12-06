@@ -101,6 +101,10 @@ those with equal first and second components in order by third component, and so
 forth.  
 [Implementation: Vector.java](./creative/Vector.java)
 
+2.5.24 Stable priority queue. Develop a stable priority-queue implementation (which
+returns duplicate keys in the same order in which they were inserted).  
+[Implementation: StablePriorityQueue.java](./creative/StablePriorityQueue.java)
+
 ## Not covered/ TODO (numbers)
 
 - 2.5.9
@@ -109,4 +113,6 @@ forth.
 - 2.5.12-16 (already solved on the web page)
 - 2.5.17
 - 2.5.20
+- 2.5.22 Stock market trading
+- 2.5.23
 - 

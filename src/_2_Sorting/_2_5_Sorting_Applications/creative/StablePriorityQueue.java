@@ -3,20 +3,20 @@ package _2_Sorting._2_5_Sorting_Applications.creative;
 import common.StdOut;
 
 /*****************************************************************************************************
- *
+ * <p>
  * 2.5.24 Stable priority queue. Develop a stable priority-queue implementation (which
  * returns duplicate keys in the same order in which they were inserted).
  *
  ****************************************************************************************************/
-@SuppressWarnings("Duplicates")
 public class StablePriorityQueue<Key extends Comparable<Key>> {
 
-    private Key[] pq;
+    private final Key[] pq;
     private int n = 0;
-    private int[] time;
+    private final int[] time;
     private int timestamp = 1;
 
     public StablePriorityQueue(int capacity) {
+        //noinspection unchecked
         pq = (Key[]) new Comparable[capacity + 1];
         time = new int[capacity + 1];
     }
@@ -57,7 +57,7 @@ public class StablePriorityQueue<Key extends Comparable<Key>> {
         int c = pq[i].compareTo(pq[j]);
         if (c < 0) return true;
         if (c > 0) return false;
-        return time[i] < time[j];
+        return time[j] < time[i];
     }
 
     private void exch(int i, int j) {
@@ -74,11 +74,10 @@ public class StablePriorityQueue<Key extends Comparable<Key>> {
         return n == 0;
     }
 
-
     // Test
     private static final class Tuple implements Comparable<Tuple> {
-        private String name;
-        private int id;
+        private final String name;
+        private final int id;
 
         private Tuple(String name, int id) {
             this.name = name;
@@ -94,9 +93,9 @@ public class StablePriorityQueue<Key extends Comparable<Key>> {
         }
     }
 
+
     // test client
     public static void main(String[] args) {
-
         // insert a bunch of strings
         String text = "it was the best of times it was the worst of times it was the "
                 + "age of wisdom it was the age of foolishness it was the epoch "
@@ -111,13 +110,11 @@ public class StablePriorityQueue<Key extends Comparable<Key>> {
             pq.insert(new Tuple(strings[i], i));
         }
 
-
         // delete and print each key
         while (!pq.isEmpty()) {
             StdOut.println(pq.delMax());
         }
         StdOut.println();
-
     }
 
 }
