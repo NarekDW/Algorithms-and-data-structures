@@ -4,7 +4,7 @@ package _3_Searching;
  *  Compilation:  javac FrequencyCounter.java
  *  Execution:    java FrequencyCounter L < input.txt
  *  Dependencies: ST.java StdIn.java StdOut.java
- *  Data files:   https://algs4.cs.princeton.edu/31elementary/tnyTale.txt
+ *  Data files:   https://algs4.cs.princeton.edu/31elementary/tinyTale.txt
  *                https://algs4.cs.princeton.edu/31elementary/tale.txt
  *                https://algs4.cs.princeton.edu/31elementary/leipzig100K.txt
  *                https://algs4.cs.princeton.edu/31elementary/leipzig300K.txt
@@ -23,18 +23,13 @@ package _3_Searching;
  *  % java FrequencyCounter 10 < leipzig1M.txt
  *  government 24763
  *
- * /home/narek/Desktop/algorithms/leipzig1M.txt
  *
  ******************************************************************************/
 
-
-import common.Stopwatch;
-import _3_Searching._3_4_Hash_Tables.SeparateChainingHashST;
+import _3_Searching._3_1_Elementary_Symbol_Tables.SequentialSearchST;
+import common.In;
 import common.StdIn;
 import common.StdOut;
-
-import java.io.FileInputStream;
-import java.io.IOException;
 
 /**
  * The {@code FrequencyCounter} class provides a client for
@@ -63,64 +58,35 @@ public class FrequencyCounter {
      *
      * @param args the command-line arguments
      */
-    public static void main(String[] args) throws IOException {
-
-        Stopwatch stopwatch = new Stopwatch();
-
+    public static void main(String[] args) {
         int distinct = 0, words = 0;
-        int minlen = Integer.parseInt(args[0]);
-//        SequentialSearchST<String, Integer> st = new SequentialSearchST<>();
-//        BST<String, Integer> st = new BST<>();
-//        RedBlackBSTOrigin<String, Integer> st = new RedBlackBSTOrigin<>();
-        SeparateChainingHashST<String, Integer> st = new SeparateChainingHashST<>();
-//        LinearProbingHashST<String, Integer> st = new LinearProbingHashST<>(3610829);
-        /*
-        BST
-        --------------------------------------------------------------------------------------------------------
-        Gutenberg-tm 5  3
-        distinct = 4266
-        words    = 6695
-        time: 0.345
+        int minlen = 3;
+        SequentialSearchST<String, Integer> st = new SequentialSearchST<>();
 
-        government 24763
-        distinct = 165555
-        words    = 1610829
-        time: 12.024
+        String[] filesUrl = {
+                "https://algs4.cs.princeton.edu/31elementary/tinyTale.txt",
+                "https://algs4.cs.princeton.edu/31elementary/tale.txt",
+                "https://algs4.cs.princeton.edu/31elementary/leipzig100K.txt",
+                "https://algs4.cs.princeton.edu/31elementary/leipzig300K.txt",
+                "https://algs4.cs.princeton.edu/31elementary/leipzig1M.txt"
+        };
 
-        ArrayRepresentationBST:
-        --------------------------------------------------------------------------------------------------------
-        Gutenberg-tm 53
-        distinct = 4266
-        words    = 6695
-        time: 0.356
+        In in = new In(filesUrl[2]);
+        String[] text = in.readAll().split("\s");
 
-        government 24763
-        distinct = 165555
-        words    = 1610829
-        time: 12.503
-         */
-//        ArrayRepresentationBST<String, Integer> st = new ArrayRepresentationBST<>(1610829);
-
-        if (args.length > 1)
-            System.setIn(new FileInputStream(args[1]));
-
-        Stopwatch put = new Stopwatch();
-        // compute frequency counts
-        while (!StdIn.isEmpty()) {
-            String key = StdIn.readString();
+        System.out.println("Start put");
+        for (String key : text) {
             if (key.length() < minlen) continue;
             words++;
             if (st.contains(key)) {
-//                st.put(key, st.getLastValue() + 1);
                 st.put(key, st.get(key) + 1);
             } else {
                 st.put(key, 1);
                 distinct++;
             }
         }
-        System.out.println("PUT: " + put.elapsedTime());
+        System.out.println("End put");
 
-        Stopwatch get = new Stopwatch();
         // find a key with the highest frequency count
         String max = "";
         st.put(max, 0);
@@ -129,17 +95,8 @@ public class FrequencyCounter {
                 max = word;
         }
 
-        System.out.println("GET: " + get.elapsedTime());
-
         StdOut.println(max + " " + st.get(max));
         StdOut.println("distinct = " + distinct);
         StdOut.println("words    = " + words);
-
-        double t = stopwatch.elapsedTime();
-        System.out.println("time: " + t);
-
-        System.out.println("Pirson: " + st.pirson());
     }
-
 }
-
