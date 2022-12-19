@@ -89,6 +89,19 @@ than all keys in the table takes constant time (so that building a table by call
 for keys that are in order takes linear time).  
 [Implementation: BinarySearchST.java](./BinarySearchST.java)
 
+3.1.33 Driver for self-organizing search. Write a driver program for self-organizing
+search implementations (see Exercise 3.1.22) that uses get() to fill a symbol table
+with N keys, then does 10 N successful searches according to a predefined probability
+distribution. Use this driver to compare the running time of your implementation from
+Exercise 3.1.22 with BinarySearchST for N = 10 3 , 10 4 , 10 5 , and 10 6 using the
+probability distribution where search hits the i th smallest key with probability 1/2^i .  
+[Implementation: DriverForSelfOrganizingSearch.java](./experiments/DriverForSelfOrganizingSearch.java)
+
+3.1.35 Performance validation I. Run doubling tests that use the first N words of Tale of
+Two Cities for various values of N to test the hypothesis that the running time of FrequencyCounter
+is quadratic when it uses SequentialSearchST for its symbol table.  
+[Implementation: PerformanceValidation.java](./experiments/PerformanceValidation.java)
+
 ## Not covered/ TODO (numbers)
 
 - 3.1.24 Interpolation search.
@@ -96,3 +109,7 @@ for keys that are in order takes linear time).
 - 3.1.26 Frequency count from a dictionary.
 - 3.1.27 Small tables.
 - 3.1.30 Certification.
+- 3.1.31 Performance driver.
+- 3.1.32 Exercise driver.
+- 3.1.37-41
+

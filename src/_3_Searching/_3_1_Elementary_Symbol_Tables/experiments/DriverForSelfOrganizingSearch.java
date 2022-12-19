@@ -6,14 +6,14 @@ import _3_Searching._3_1_Elementary_Symbol_Tables.creative.ArrayST;
 import common.StdRandom;
 
 /*****************************************************************************************************
- *
+ * <p>
  * 3.1.33 Driver for self-organizing search. Write a driver program for self-organizing
  * search implementations (see Exercise 3.1.22) that uses get() to fill a symbol table
  * with N keys, then does 10 N successful searches according to a predefined probability
  * distribution. Use this driver to compare the running time of your implementation from
  * Exercise 3.1.22 with BinarySearchST for N = 10 3 , 10 4 , 10 5 , and 10 6 using the prob-
  * ability distribution where search hits the i th smallest key with probability 1/2 i .
- *
+ * <p>
  *
  * Notes:
  *  Pareto distribution gives almost equal times (on Small N)
