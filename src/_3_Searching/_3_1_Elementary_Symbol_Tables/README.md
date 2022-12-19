@@ -75,3 +75,24 @@ list as the underlying data structure to implement our ordered symbol-table API.
 keys and values, rather than two parallel arrays. Add a constructor that takes an array of
 Item values as argument and uses mergesort to sort the array.  
 [Implementation: ItemBinarySearchST.java](./exercises/ItemBinarySearchST.java)
+
+3.1.22 Self-organizing search. A self-organizing search algorithm is one that rearranges
+items to make those that are accessed frequently likely to be found early in the search.
+Modify your search implementation for Exercise 3.1.2 to perform the following action
+on every search hit: move the key-value pair found to the beginning of the list, moving
+all pairs between the beginning of the list and the vacated position to the right one
+position. This procedure is called the move-to-front heuristic.  
+[Implementation: ArrayST.java](./creative/ArrayST.java)
+
+3.1.28 Ordered insertions. Modify BinarySearchST so that inserting a key that is larger
+than all keys in the table takes constant time (so that building a table by calling put()
+for keys that are in order takes linear time).  
+[Implementation: BinarySearchST.java](./BinarySearchST.java)
+
+## Not covered/ TODO (numbers)
+
+- 3.1.24 Interpolation search.
+- 3.1.25 Software caching.
+- 3.1.26 Frequency count from a dictionary.
+- 3.1.27 Small tables.
+- 3.1.30 Certification.
