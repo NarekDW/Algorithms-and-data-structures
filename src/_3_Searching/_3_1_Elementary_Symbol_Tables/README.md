@@ -59,3 +59,7 @@ an initially empty table uses ~ N 2 array accesses in the worst case.
 3.1.2 Develop a symbol-table implementation ArrayST that uses an (unordered) array as the
 underlying data structure to implement our basic symbol-table API.  
 [Implementation: ArrayST.java](./exercises/ArrayST.java)
+
+3.1.3 Develop a symbol-table implementation OrderedSequentialSearchST that uses an ordered linked
+list as the underlying data structure to implement our ordered symbol-table API.  
+[Implementation: OrderedSequentialSearchST.java](./exercises/OrderedSequentialSearchST.java)

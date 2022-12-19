@@ -1,6 +1,7 @@
 package _3_Searching._3_1_Elementary_Symbol_Tables.exercises;
 
 import _3_Searching._3_1_Elementary_Symbol_Tables.SymbolTable;
+import _3_Searching._3_1_Elementary_Symbol_Tables.SymbolTableTest;
 
 import java.util.Iterator;
 
@@ -101,36 +102,6 @@ public class ArrayST<Key extends Comparable<Key>, Value> implements SymbolTable<
 
     public static void main(String[] args) {
         SymbolTable<Integer, String> st = new ArrayST<>(10);
-
-        for (int i = 1; i <= 10; i++)
-            st.put(i, "text " + i);
-
-        for (int i = 1; i <= 10; i++)
-            if (!st.contains(i))
-                throw new RuntimeException();
-
-        st.delete(5);
-        String absent = st.get(5);
-        if (absent != null)
-            throw new RuntimeException();
-
-        st.delete(6);
-        st.delete(7);
-        st.delete(8);
-        st.delete(4);
-        st.delete(3);
-        st.delete(2);
-
-        if (st.size() != 3)
-            throw new RuntimeException();
-
-        st.keys().forEach(System.out::println);
-
-        st.delete(1);
-        st.delete(9);
-        st.delete(10);
-
-        if (!st.isEmpty())
-            throw new RuntimeException();
+        SymbolTableTest.testST(st);
     }
 }

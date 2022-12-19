@@ -1,5 +1,7 @@
 package _3_Searching._3_1_Elementary_Symbol_Tables;
 
+import _3_Searching._3_1_Elementary_Symbol_Tables.exercises.OrderedSequentialSearchST;
+
 public interface SymbolTable<Key extends Comparable<Key>, Value> {
     void put(Key key, Value val);
 
