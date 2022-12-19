@@ -63,3 +63,15 @@ underlying data structure to implement our basic symbol-table API.
 3.1.3 Develop a symbol-table implementation OrderedSequentialSearchST that uses an ordered linked
 list as the underlying data structure to implement our ordered symbol-table API.  
 [Implementation: OrderedSequentialSearchST.java](./exercises/OrderedSequentialSearchST.java)
+
+3.1.5 Implement size(), delete(), and keys() for SequentialSearchST.    
+[Implementation: SequentialSearchST.java](./SequentialSearchST.java)
+
+3.1.16 Implement the delete() method for BinarySearchST.  
+3.1.17 Implement the floor() method for BinarySearchST.  
+[Implementation: BinarySearchST.java](./BinarySearchST.java)
+
+3.1.12 Modify BinarySearchST to maintain one array of Item objects that contain
+keys and values, rather than two parallel arrays. Add a constructor that takes an array of
+Item values as argument and uses mergesort to sort the array.  
+[Implementation: ItemBinarySearchST.java](./exercises/ItemBinarySearchST.java)

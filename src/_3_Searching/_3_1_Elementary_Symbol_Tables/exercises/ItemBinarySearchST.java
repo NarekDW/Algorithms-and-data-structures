@@ -1,21 +1,25 @@
 package _3_Searching._3_1_Elementary_Symbol_Tables.exercises;
 
 import _2_Sorting._2_2_Mergesort.Merge;
+import _3_Searching._3_1_Elementary_Symbol_Tables.SymbolTable;
+import _3_Searching._3_1_Elementary_Symbol_Tables.SymbolTableTest;
+
+import java.util.Iterator;
 
 /*****************************************************************************************************
- *
+ * <p>
  * 3.1.12 Modify BinarySearchST to maintain one array of Item objects that contain
  * keys and values, rather than two parallel arrays. Add a constructor that takes an array of
  * Item values as argument and uses mergesort to sort the array.
  *
  ****************************************************************************************************/
-@SuppressWarnings("Duplicates")
-public class ItemBinarySearchST<Key extends Comparable<Key>, Value> {
+public class ItemBinarySearchST<Key extends Comparable<Key>, Value> implements SymbolTable<Key, Value> {
 
-    private Item[] items;
+    private final Item[] items;
     private int n;
 
     public ItemBinarySearchST(int capacity) {
+        //noinspection unchecked
         items = new ItemBinarySearchST.Item[capacity];
     }
 
@@ -26,6 +30,23 @@ public class ItemBinarySearchST<Key extends Comparable<Key>, Value> {
 
     public int size() {
         return n;
+    }
+
+    @Override
+    public Iterable<Key> keys() {
+        return () -> new Iterator<>() {
+            int i = 0;
+
+            @Override
+            public boolean hasNext() {
+                return i < n;
+            }
+
+            @Override
+            public Key next() {
+                return items[i++].key;
+            }
+        };
     }
 
     public boolean isEmpty() {
@@ -39,6 +60,23 @@ public class ItemBinarySearchST<Key extends Comparable<Key>, Value> {
             return items[i].value;
         else
             return null;
+    }
+
+    @Override
+    public void delete(Key key) {
+        int i = rank(key);
+        if (i < n && items[i].compareTo(key) == 0) {
+            for (int j = i; j < n - 1; j++) {
+                items[j] = items[j + 1];
+            }
+            items[n - 1] = null;
+            n--;
+        }
+    }
+
+    @Override
+    public boolean contains(Key key) {
+        return get(key) != null;
     }
 
     public void put(Key key, Value value) {
@@ -86,17 +124,19 @@ public class ItemBinarySearchST<Key extends Comparable<Key>, Value> {
 
 
     public static void main(String[] args) {
-        ItemBinarySearchST<Integer, String> x = new ItemBinarySearchST<>(3);
-        System.out.println(x.get(1));
-        x.put(1, "a");
-        x.put(2, "b");
-        x.put(3, "c");
+        ItemBinarySearchST<Integer, String> st = new ItemBinarySearchST<>(10);
+        SymbolTableTest.testST(st);
 
-        System.out.println(x.get(1));
-        System.out.println(x.get(2));
-        System.out.println(x.get(3));
+        System.out.println(st.get(1));
+        st.put(1, "a");
+        st.put(2, "b");
+        st.put(3, "c");
 
-        x.put(2, "z");
-        System.out.println(x.get(2));
+        System.out.println(st.get(1));
+        System.out.println(st.get(2));
+        System.out.println(st.get(3));
+
+        st.put(2, "z");
+        System.out.println(st.get(2));
     }
 }
