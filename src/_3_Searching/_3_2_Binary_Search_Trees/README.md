@@ -41,3 +41,10 @@ linear time and space proportional to the height), and a method
 like size() that adds a field to each node in the tree (and takes
 linear space and constant time per query).  
 [Implementation: BST.java](./BST.java)
+
+3.2.7 Add to BST a recursive method avgCompares() that computes the average number of
+compares required by a random search hit in a given BST (the internal path length of the
+tree divided by its size, plus one). Develop two implementations: a recursive method
+(which takes linear time and space proportional to the height), and a method like size()
+that adds a field to each node in the tree (and takes linear space and constant time per query).  
+[Implementation: BST.java](./BST.java)

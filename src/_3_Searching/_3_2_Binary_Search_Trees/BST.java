@@ -130,7 +130,7 @@ public class BST<Key extends Comparable<Key>, Value> {
         else x.value = value;
         x.n = size(x.left) + size(x.right) + 1;
         x.h = 1 + Math.max(computeHeight(x.left), computeHeight(x.right));
-        x.p = internalPath(x.left) + internalPath(x.right) + x.n - 1;
+        x.p = internalPath(x.left) + internalPath(x.right) + 1;
         return x;
     }
     // -----------------------------------------------------------------------------------------------------------
@@ -440,38 +440,33 @@ public class BST<Key extends Comparable<Key>, Value> {
     }
 
     /*****************************************************************************************************
-     *
-     * 3.2.7 Add to BST a recursive method avgCompares() that computes the average num-
-     * ber of compares required by a random search hit in a given BST (the internal path
-     * length of the tree divided by its size, plus one). Develop two implementations: a re-
-     * cursive method (which takes linear time and space proportional to the height), and a
-     * method like size() that adds a field to each node in the tree (and takes linear space and
-     * constant time per query).
+     * <p>
+     * 3.2.7 Add to BST a recursive method avgCompares() that computes the average number of
+     * compares required by a random search hit in a given BST (the internal path length of the
+     * tree divided by its size, plus one). Develop two implementations: a recursive method
+     * (which takes linear time and space proportional to the height), and a method like size()
+     * that adds a field to each node in the tree (and takes linear space and constant time per query).
      *
      ****************************************************************************************************/
     public int avgCompares() {
-        return root.p / root.n + 1;
+        return root.p / root.h + 1;
     }
 
-//    public int avgCompares() {
-//        return internalPath(root) / root.n + 1;
-//    }
+    public int computeAvgCompares() {
+        return internalPath(root) / computeHeight(root) + 1;
+    }
 
     public int internalPath() {
         return internalPath(root);
     }
 
-    // ???
+    // The number of compares used for a search hit ending at a given node is 1 plus the depth.
+    // Adding the depths of all nodes, we get a quantity known as the internal path length of the tree.
     private int internalPath(Node x) {
         if (x == null) return 0;
         if (x.left == null && x.right == null) return 0;
         return internalPath(x.left) + internalPath(x.right) + 1;
     }
-
-//    private int internalPath(Node x) {
-//        if (x == null) return 0;
-//        return internalPath(x.left) + internalPath(x.right) + x.n - 1;
-//    }
 
     public int size(Key lo, Key hi) {
         if (lo == null) throw new IllegalArgumentException("first argument to size() is null");
@@ -525,6 +520,7 @@ public class BST<Key extends Comparable<Key>, Value> {
 
     public static void main(String[] args) {
         testHeight();
+        testAvgCompares();
     }
 
     private static void testHeight() {
@@ -536,6 +532,18 @@ public class BST<Key extends Comparable<Key>, Value> {
             }
 
             if (bst.height() != bst.computeHeight()) throw new RuntimeException();
+        }
+    }
+
+    private static void testAvgCompares() {
+        for (int j = 0; j < 100; j++) {
+            BST<Integer, Integer> bst = new BST<>();
+            for (int i = 0; i < 100; i++) {
+                int x = StdRandom.uniform(100);
+                bst.put(x, x);
+            }
+
+            if (bst.avgCompares() != bst.computeAvgCompares()) throw new RuntimeException();
         }
     }
 }
