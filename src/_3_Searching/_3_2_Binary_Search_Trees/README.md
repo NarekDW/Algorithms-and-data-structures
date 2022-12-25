@@ -48,3 +48,14 @@ tree divided by its size, plus one). Develop two implementations: a recursive me
 (which takes linear time and space proportional to the height), and a method like size()
 that adds a field to each node in the tree (and takes linear space and constant time per query).  
 [Implementation: BST.java](./BST.java)
+
+3.2.10 Write a test client TestBST.java for use in testing the implementations of
+min() , max() , floor() , ceiling() , select() , rank() , delete() , deleteMin() ,
+deleteMax() , and keys() that are given in the text. Start with the standard indexing
+client given on page 370. Add code to take additional command-line arguments, as appropriate.  
+[Implementation: TestBST.java](./exercises/TestBST.java)
+
+## Not covered/ TODO (numbers)
+
+- 3.2.8
+- 
