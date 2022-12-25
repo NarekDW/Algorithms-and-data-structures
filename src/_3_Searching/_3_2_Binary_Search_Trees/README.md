@@ -18,3 +18,26 @@ require ~ 2 ln N (about 1.39 lg N) compares, on the average.
 **Proposition D**. Insertions and search misses in a BST built from N
 random keys require ~ 2 ln N (about 1.39 lg N) compares,
 on the average.
+
+![img.png](../../resources/deletion_in_BST.png)
+
+___
+**Proposition E**. In a BST,all operations take time proportional to
+the height of the tree, in the worst case.
+
+**Proof**: All of these methods go down one or two paths in the tree.
+The length of any path is no more than the height, by definition.
+***
+
+![img.png](../../resources/BST_summary.png)
+
+# Exercise:
+
+## Done:
+
+3.2.6 Add to BST a method height() that computes the height of the
+tree. Develop two implementations: a recursive method (which takes
+linear time and space proportional to the height), and a method
+like size() that adds a field to each node in the tree (and takes
+linear space and constant time per query).  
+[Implementation: BST.java](./BST.java)

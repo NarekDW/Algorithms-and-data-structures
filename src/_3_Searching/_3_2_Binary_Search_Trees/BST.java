@@ -2,6 +2,7 @@ package _3_Searching._3_2_Binary_Search_Trees;
 
 import _1_Fundamentals._1_3_Bags_Queues_and_Stacks.Queue;
 import common.StdOut;
+import common.StdRandom;
 
 public class BST<Key extends Comparable<Key>, Value> {
 
@@ -17,7 +18,7 @@ public class BST<Key extends Comparable<Key>, Value> {
         Value value;
         Node left, right;
         int n;
-        int h;
+        int h; // height
         int p;
 
         public Node(Key key, Value value, int n) {
@@ -32,10 +33,8 @@ public class BST<Key extends Comparable<Key>, Value> {
     }
 
     private int size(Node x) {
-        if (x == null)
-            return 0;
-        else
-            return x.n;
+        if (x == null) return 0;
+        else return x.n;
     }
 
     public boolean isEmpty() {
@@ -43,97 +42,97 @@ public class BST<Key extends Comparable<Key>, Value> {
     }
 
 
-    /*****************************************************************************************************
-     *
-     * 3.2.13 Give nonrecursive implementations of get() and put() for BST .
-     *
-     ****************************************************************************************************/
-    public Value get(Key key) {
-        Node x = root;
-        while (x != null) {
-            int cmp = key.compareTo(x.key);
-            if (cmp < 0) x = x.left;
-            else if (cmp > 0) x = x.right;
-            else {
-                last = x;
-                return x.value;
-            }
-        }
-        return null;
-    }
-
-    public void put(Key key, Value value) {
-        Node x = root;
-
-        // If key exists, we change the value, but not the count(n)
-        while (x != null) {
-            int cmp = key.compareTo(x.key);
-            if (cmp < 0) x = x.left;
-            else if (cmp > 0) x = x.right;
-            else {
-                x.value = value;
-                last = x;
-                return;
-            }
-        }
-
-        x = root;
-        while (x != null) {
-            int cmp = key.compareTo(x.key);
-            x.n = x.n + 1;
-//            x.h = Math.max(height(x.left), height(x.right));
-            if (cmp < 0) {
-                if (x.left == null) {
-                    x.left = new Node(key, value, 1);
-                    last = x.left;
-//                    x.h = Math.max(height(x.left), height(x.right));
-                    return;
-                }
-                x = x.left;
-            } else if (cmp > 0) {
-                if (x.right == null) {
-                    x.right = new Node(key, value, 1);
-                    last = x.right;
-//                    x.h = Math.max(height(x.left), height(x.right));
-                    return;
-                }
-                x = x.right;
-            }
-
-        }
-
-        root = new Node(key, value, 1);
-    }
+//    /*****************************************************************************************************
+//     *
+//     * 3.2.13 Give nonrecursive implementations of get() and put() for BST .
+//     *
+//     ****************************************************************************************************/
+//    public Value get(Key key) {
+//        Node x = root;
+//        while (x != null) {
+//            int cmp = key.compareTo(x.key);
+//            if (cmp < 0) x = x.left;
+//            else if (cmp > 0) x = x.right;
+//            else {
+//                last = x;
+//                return x.value;
+//            }
+//        }
+//        return null;
+//    }
+//
+//    public void put(Key key, Value value) {
+//        Node x = root;
+//
+//        // If key exists, we change the value, but not the count(n)
+//        while (x != null) {
+//            int cmp = key.compareTo(x.key);
+//            if (cmp < 0) x = x.left;
+//            else if (cmp > 0) x = x.right;
+//            else {
+//                x.value = value;
+//                last = x;
+//                return;
+//            }
+//        }
+//
+//        x = root;
+//        while (x != null) {
+//            int cmp = key.compareTo(x.key);
+//            x.n = x.n + 1;
+////            x.h = Math.max(height(x.left), height(x.right));
+//            if (cmp < 0) {
+//                if (x.left == null) {
+//                    x.left = new Node(key, value, 1);
+//                    last = x.left;
+////                    x.h = Math.max(height(x.left), height(x.right));
+//                    return;
+//                }
+//                x = x.left;
+//            } else if (cmp > 0) {
+//                if (x.right == null) {
+//                    x.right = new Node(key, value, 1);
+//                    last = x.right;
+////                    x.h = Math.max(height(x.left), height(x.right));
+//                    return;
+//                }
+//                x = x.right;
+//            }
+//
+//        }
+//
+//        root = new Node(key, value, 1);
+//    }
 
     // Recursive solution
     // -----------------------------------------------------------------------------------------------------------
-//    public Value get(Key key) {
-//        return get(root, key);
-//    }
+    public Value get(Key key) {
+        return get(root, key);
+    }
 
-//    private Value get(Node x, Key key) {
-//        if (x == null) return null;
-//        int cmp = key.compareTo(x.key);
-//        if (cmp < 0) return get(x.left, key);
-//        else if (cmp > 0) return get(x.right, key);
-//        else return x.value;
-//    }
+    private Value get(Node x, Key key) {
+        if (x == null) return null;
+        int cmp = key.compareTo(x.key);
+        if (cmp < 0) return get(x.left, key);
+        else if (cmp > 0) return get(x.right, key);
+        else return x.value;
+    }
 
-//    public void put(Key key, Value value) {
-//        root = put(root, key, value);
-//    }
-//
-//    private Node put(Node x, Key key, Value value) {
-//        if (x == null) return new Node(key, value, 1);
-//        int cmp = key.compareTo(x.key);
-//        if (cmp < 0) x.left = put(x.left, key, value);
-//        else if (cmp > 0) x.right = put(x.right, key, value);
-//        else x.value = value;
-//        x.n = size(x.left) + size(x.right) + 1;
-//        x.h = Math.max(height(x.left), height(x.right));
-//        x.p = internalPath(x.left) + internalPath(x.right) + x.n - 1;
-//        return x;
-//    }
+    public void put(Key key, Value value) {
+        root = put(root, key, value);
+    }
+
+    private Node put(Node x, Key key, Value value) {
+        if (x == null) return new Node(key, value, 1);
+        int cmp = key.compareTo(x.key);
+        if (cmp < 0) x.left = put(x.left, key, value);
+        else if (cmp > 0) x.right = put(x.right, key, value);
+        else x.value = value;
+        x.n = size(x.left) + size(x.right) + 1;
+        x.h = 1 + Math.max(computeHeight(x.left), computeHeight(x.right));
+        x.p = internalPath(x.left) + internalPath(x.right) + x.n - 1;
+        return x;
+    }
     // -----------------------------------------------------------------------------------------------------------
 
 
@@ -153,8 +152,7 @@ public class BST<Key extends Comparable<Key>, Value> {
 
     private Node min(Node x) {
         if (x == null) return null;
-        while (x.left != null)
-            x = x.left;
+        while (x.left != null) x = x.left;
         return x;
     }
 
@@ -179,8 +177,7 @@ public class BST<Key extends Comparable<Key>, Value> {
 
     private Node max(Node x) {
         if (x == null) return null;
-        while (x.right != null)
-            x = x.right;
+        while (x.right != null) x = x.right;
         return x;
     }
 
@@ -289,8 +286,7 @@ public class BST<Key extends Comparable<Key>, Value> {
             else if (t < k) {
                 x = x.right;
                 k = k - t - 1;
-            } else
-                return x;
+            } else return x;
         }
 
         return null;
@@ -317,8 +313,7 @@ public class BST<Key extends Comparable<Key>, Value> {
             else if (cmp > 0) {
                 res = res + 1 + size(x.left);
                 x = x.right;
-            } else
-                return res + size(x.left);
+            } else return res + size(x.left);
         }
 
         return res;
@@ -424,7 +419,7 @@ public class BST<Key extends Comparable<Key>, Value> {
     }
 
     /*****************************************************************************************************
-     *
+     * <p>
      * 3.2.6 Add to BST a method height() that computes the height of the tree. Develop two
      * implementations: a recursive method (which takes linear time and space proportional
      * to the height), and a method like size() that adds a field to each node in the tree (and
@@ -435,13 +430,13 @@ public class BST<Key extends Comparable<Key>, Value> {
         return root.h;
     }
 
-//    public int height() {
-//        return height(root);
-//    }
+    public int computeHeight() {
+        return computeHeight(root);
+    }
 
-    private int height(Node x) {
+    private int computeHeight(Node x) {
         if (x == null) return -1;
-        return 1 + Math.max(height(x.left), height(x.right));
+        return 1 + Math.max(computeHeight(x.left), computeHeight(x.right));
     }
 
     /*****************************************************************************************************
@@ -528,5 +523,19 @@ public class BST<Key extends Comparable<Key>, Value> {
     }
 
 
+    public static void main(String[] args) {
+        testHeight();
+    }
 
+    private static void testHeight() {
+        for (int j = 0; j < 100; j++) {
+            BST<Integer, Integer> bst = new BST<>();
+            for (int i = 0; i < 100; i++) {
+                int x = StdRandom.uniform(100);
+                bst.put(x, x);
+            }
+
+            if (bst.height() != bst.computeHeight()) throw new RuntimeException();
+        }
+    }
 }
