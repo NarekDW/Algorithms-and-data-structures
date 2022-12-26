@@ -72,8 +72,15 @@ sequence of compares done in the search for any key in the BST is the same as th
 of compares used by binary search for the same set of keys.  
 [Implementation: PerfectBalance.java](./creative/PerfectBalance.java)
 
+3.2.28 Sofware caching. Modify BST to keep the most recently accessed Node in an instance
+variable so that it can be accessed in constant time if the next put() or get() uses the
+same key (see Exercise 3.1.25).  
+[Implementation: BST.java](./BST.java)
+
 ## Not covered/ TODO (numbers)
 
 - 3.2.8
 - 3.2.12
 - 3.2.17-24
+- 3.2.26
+- 3.2.27

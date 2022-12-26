@@ -53,6 +53,8 @@ public class BST<Key extends Comparable<Key>, Value> {
 
     // Recursive solution
     public Value get(Key key) {
+        if (last != null && last.key.compareTo(key) == 0)
+            return last.value;
         return get(root, key);
     }
 
@@ -65,6 +67,8 @@ public class BST<Key extends Comparable<Key>, Value> {
     }
 
     public void put(Key key, Value value) {
+        if (last != null && last.key.compareTo(key) == 0)
+            last.value = value;
         root = put(root, key, value);
     }
 

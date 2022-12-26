@@ -1,7 +1,6 @@
 package _3_Searching._3_2_Binary_Search_Trees.exercises;
 
 import _3_Searching._3_2_Binary_Search_Trees.BST;
-import _3_Searching._3_2_Binary_Search_Trees.BSTNonRecursive;
 import common.StdOut;
 
 /*****************************************************************************************************
