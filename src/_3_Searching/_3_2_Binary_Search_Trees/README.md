@@ -55,7 +55,13 @@ deleteMax() , and keys() that are given in the text. Start with the standard ind
 client given on page 370. Add code to take additional command-line arguments, as appropriate.  
 [Implementation: TestBST.java](./exercises/TestBST.java)
 
+3.2.13 Give nonrecursive implementations of get() and put() for BST.  
+[Implementation: BSTNonRecursive.java](./BSTNonRecursive.java)
+
+3.2.14 Give nonrecursive implementations of min(), max(), floor(), ceiling(), rank(), and select().
+[Implementation: BSTNonRecursive.java](./BSTNonRecursive.java)
+
 ## Not covered/ TODO (numbers)
 
 - 3.2.8
-- 
+- 3.2.12

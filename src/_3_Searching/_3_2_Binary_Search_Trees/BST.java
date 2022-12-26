@@ -41,71 +41,7 @@ public class BST<Key extends Comparable<Key>, Value> {
         return root == null;
     }
 
-
-//    /*****************************************************************************************************
-//     *
-//     * 3.2.13 Give nonrecursive implementations of get() and put() for BST .
-//     *
-//     ****************************************************************************************************/
-//    public Value get(Key key) {
-//        Node x = root;
-//        while (x != null) {
-//            int cmp = key.compareTo(x.key);
-//            if (cmp < 0) x = x.left;
-//            else if (cmp > 0) x = x.right;
-//            else {
-//                last = x;
-//                return x.value;
-//            }
-//        }
-//        return null;
-//    }
-//
-//    public void put(Key key, Value value) {
-//        Node x = root;
-//
-//        // If key exists, we change the value, but not the count(n)
-//        while (x != null) {
-//            int cmp = key.compareTo(x.key);
-//            if (cmp < 0) x = x.left;
-//            else if (cmp > 0) x = x.right;
-//            else {
-//                x.value = value;
-//                last = x;
-//                return;
-//            }
-//        }
-//
-//        x = root;
-//        while (x != null) {
-//            int cmp = key.compareTo(x.key);
-//            x.n = x.n + 1;
-////            x.h = Math.max(height(x.left), height(x.right));
-//            if (cmp < 0) {
-//                if (x.left == null) {
-//                    x.left = new Node(key, value, 1);
-//                    last = x.left;
-////                    x.h = Math.max(height(x.left), height(x.right));
-//                    return;
-//                }
-//                x = x.left;
-//            } else if (cmp > 0) {
-//                if (x.right == null) {
-//                    x.right = new Node(key, value, 1);
-//                    last = x.right;
-////                    x.h = Math.max(height(x.left), height(x.right));
-//                    return;
-//                }
-//                x = x.right;
-//            }
-//
-//        }
-//
-//        root = new Node(key, value, 1);
-//    }
-
     // Recursive solution
-    // -----------------------------------------------------------------------------------------------------------
     public Value get(Key key) {
         return get(root, key);
     }
@@ -133,63 +69,28 @@ public class BST<Key extends Comparable<Key>, Value> {
         x.p = internalPath(x.left) + internalPath(x.right) + 1;
         return x;
     }
-    // -----------------------------------------------------------------------------------------------------------
 
 
-    /*****************************************************************************************************
-     *
-     * 3.2.14 Give nonrecursive implementations of min() , max() , floor() , ceiling() ,
-     * rank() , and select() .
-     *
-     ****************************************************************************************************/
     public Key min() {
-        Node min = min(root);
-        if (min != null) {
-            last = min;
-            return min.key;
-        } else return null;
+        return min(root).key;
     }
 
     private Node min(Node x) {
-        if (x == null) return null;
-        while (x.left != null) x = x.left;
-        return x;
+        if (x.left == null)
+            return x;
+        else
+            return min(x.left);
     }
 
-//    public Key min() {
-//        return min(root).key;
-//    }
-
-//    private Node min(Node x) {
-//        if (x.left == null)
-//            return x;
-//        else
-//            return min(x.left);
-//    }
-
     public Key max() {
-        Node max = max(root);
-        if (max != null) {
-            last = max;
-            return max.key;
-        } else return null;
+        return max(root).key;
     }
 
     private Node max(Node x) {
-        if (x == null) return null;
-        while (x.right != null) x = x.right;
-        return x;
+        if (x.right == null)
+            return x;
+        else return max(x.right);
     }
-
-//    public Key max() {
-//        return max(root).key;
-//    }
-
-//    private Node max(Node x) {
-//        if (x.right == null)
-//            return x;
-//        else return max(x.right);
-//    }
 
     public Key floor(Key key) {
         Node x = floor(root, key);
@@ -201,28 +102,13 @@ public class BST<Key extends Comparable<Key>, Value> {
 
     private Node floor(Node x, Key key) {
         if (x == null) return null;
-        Node prev = null;
-        while (x != null) {
-            int cmp = key.compareTo(x.key);
-            if (cmp > 0) prev = x;
-            if (cmp == 0) return x;
-            else if (cmp < 0) x = x.left;
-            else x = x.right;
-        }
-
-        return prev;
+        int cmp = key.compareTo(x.key);
+        if (cmp == 0) return x;
+        if (cmp < 0) return floor(x.left, key);
+        Node t = floor(x.right, key);
+        if (t != null) return t;
+        else return x;
     }
-
-    // ------------------------------------------------------------------------------------------------
-//    private Node floor(Node x, Key key) {
-//        if (x == null) return null;
-//        int cmp = key.compareTo(x.key);
-//        if (cmp == 0) return x;
-//        if (cmp < 0) return floor(x.left, key);
-//        Node t = floor(x.right, key);
-//        if (t != null) return t;
-//        else return x;
-//    }
 
     public Key floor2(Key key) {
         return floor2(root, key, null);
@@ -236,7 +122,6 @@ public class BST<Key extends Comparable<Key>, Value> {
         else return x.key;
     }
 
-    // ------------------------------------------------------------------------------------------------
     public Key ceiling(Key key) {
         Node x = ceiling(root, key);
         if (x != null) {
@@ -248,27 +133,13 @@ public class BST<Key extends Comparable<Key>, Value> {
 
     private Node ceiling(Node x, Key key) {
         if (x == null) return null;
-        Node prev = null;
-        while (x != null) {
-            int cmp = key.compareTo(x.key);
-            if (cmp < 0) prev = x;
-            if (cmp == 0) return x;
-            else if (cmp > 0) x = x.right;
-            else x = x.left;
-        }
-
-        return prev;
+        int cmp = key.compareTo(x.key);
+        if (cmp == 0) return x;
+        if (cmp > 0) return ceiling(x.right, key);
+        Node t = ceiling(x.left, key);
+        if (t != null) return t;
+        else return x;
     }
-
-//    private Node ceiling(Node x, Key key) {
-//        if (x == null) return null;
-//        int cmp = key.compareTo(x.key);
-//        if (cmp == 0) return x;
-//        if (cmp > 0) return ceiling(x.right, key);
-//        Node t = ceiling(x.left, key);
-//        if (t != null) return t;
-//        else return x;
-//    }
 
     public Key select(int k) {
         Node x = select(root, k);
@@ -280,25 +151,11 @@ public class BST<Key extends Comparable<Key>, Value> {
 
     private Node select(Node x, int k) {
         if (x == null) return null;
-        while (x != null) {
-            int t = size(x.left);
-            if (t > k) x = x.left;
-            else if (t < k) {
-                x = x.right;
-                k = k - t - 1;
-            } else return x;
-        }
-
-        return null;
+        int t = size(x.left);
+        if (t > k) return select(x.left, k);
+        else if (t < k) return select(x.right, k - t - 1);
+        else return x;
     }
-
-//    private Node select(Node x, int k) {
-//        if (x == null) return null;
-//        int t = size(x.left);
-//        if (t > k) return select(x.left, k);
-//        else if (t < k) return select(x.right, k - t - 1);
-//        else return x;
-//    }
 
     public int rank(Key key) {
         return rank(key, root);
@@ -306,26 +163,11 @@ public class BST<Key extends Comparable<Key>, Value> {
 
     private int rank(Key key, Node x) {
         if (x == null) return 0;
-        int res = 0;
-        while (x != null) {
-            int cmp = key.compareTo(x.key);
-            if (cmp < 0) x = x.left;
-            else if (cmp > 0) {
-                res = res + 1 + size(x.left);
-                x = x.right;
-            } else return res + size(x.left);
-        }
-
-        return res;
+        int cmp = key.compareTo(x.key);
+        if (cmp < 0) return rank(key, x.left);
+        else if (cmp > 0) return 1 + size(x.left) + rank(key, x.right);
+        else return size(x.left);
     }
-
-//    private int rank(Key key, Node x) {
-//        if (x == null) return 0;
-//        int cmp = key.compareTo(x.key);
-//        if (cmp < 0) return rank(key, x.left);
-//        else if (cmp > 0) return 1 + size(x.left) + rank(key, x.right);
-//        else return size(x.left);
-//    }
 
     /*****************************************************************************************************
      *
@@ -525,25 +367,24 @@ public class BST<Key extends Comparable<Key>, Value> {
 
     private static void testHeight() {
         for (int j = 0; j < 100; j++) {
-            BST<Integer, Integer> bst = new BST<>();
-            for (int i = 0; i < 100; i++) {
-                int x = StdRandom.uniform(100);
-                bst.put(x, x);
-            }
-
+            BST<Integer, Integer> bst = createRandomBST();
             if (bst.height() != bst.computeHeight()) throw new RuntimeException();
         }
     }
 
     private static void testAvgCompares() {
         for (int j = 0; j < 100; j++) {
-            BST<Integer, Integer> bst = new BST<>();
-            for (int i = 0; i < 100; i++) {
-                int x = StdRandom.uniform(100);
-                bst.put(x, x);
-            }
-
+            BST<Integer, Integer> bst = createRandomBST();
             if (bst.avgCompares() != bst.computeAvgCompares()) throw new RuntimeException();
         }
+    }
+
+    private static BST<Integer, Integer> createRandomBST() {
+        BST<Integer, Integer> bst = new BST<>();
+        for (int i = 0; i < 100; i++) {
+            int x = StdRandom.uniform(100);
+            bst.put(x, x);
+        }
+        return bst;
     }
 }
