@@ -84,6 +84,12 @@ Note : This check also ensures that the data structure has no cycles and is ther
 binary tree(!).  
 [Implementation: BST.java](./BST.java)
 
+3.2.30 Order check. Write a recursive method isOrdered() that takes a Node and two
+keys min and max as arguments and returns true if all the keys in the tree are between
+min and max ; min and max are indeed the smallest and largest keys in the tree,
+respectively; and the BST ordering property holds for all keys in the tree; false otherwise.  
+[Implementation: BST.java](./BST.java)
+
 ## Not covered/ TODO (numbers)
 
 - 3.2.8
