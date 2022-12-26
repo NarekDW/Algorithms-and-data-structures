@@ -4,11 +4,11 @@ import _2_Sorting._2_3_Quicksort.Quick;
 import _3_Searching._3_2_Binary_Search_Trees.BST;
 
 /*****************************************************************************************************
- *
- * 3.2.25 Perfect balance. Write a program that inserts a set of keys into an initially emp-
- * ty BST such that the tree produced is equivalent to binary search, in the sense that the
- * sequence of compares done in the search for any key in the BST is the same as the se-
- * quence of compares used by binary search for the same set of keys.x
+ * <p>
+ * 3.2.25 Perfect balance. Write a program that inserts a set of keys into an initially empty
+ * BST such that the tree produced is equivalent to binary search, in the sense that the
+ * sequence of compares done in the search for any key in the BST is the same as the sequence
+ * of compares used by binary search for the same set of keys.
  *
  ****************************************************************************************************/
 public class PerfectBalance {
@@ -31,5 +31,7 @@ public class PerfectBalance {
         String[] words = {"P", "E", "R", "F", "C", "T", "B", "I", "N", "A", "R", "Y", "S", "R", "H"};
         BST<String, Integer> bst = new BST<>();
         perfect(bst, words);
+        System.out.println("\n" + bst.height());
+        System.out.println(bst);
     }
 }

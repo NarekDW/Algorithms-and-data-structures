@@ -26,6 +26,16 @@ public class BST<Key extends Comparable<Key>, Value> {
             this.value = value;
             this.n = n;
         }
+
+        @Override
+        public String toString() {
+            return "{k=" + key + ", v=" + value + ", l=" + left + ", r=" + right + '}';
+        }
+    }
+
+    @Override
+    public String toString() {
+        return root.toString();
     }
 
     public int size() {

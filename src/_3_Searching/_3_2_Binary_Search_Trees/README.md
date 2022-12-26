@@ -66,6 +66,12 @@ the paths from the root to all null links. Prove that the difference between the
 and internal path lengths in any binary tree with N nodes is 2N (see Proposition C).  
 [Implementation: BST.java](./BST.java)
 
+3.2.25 Perfect balance. Write a program that inserts a set of keys into an initially empty
+BST such that the tree produced is equivalent to binary search, in the sense that the
+sequence of compares done in the search for any key in the BST is the same as the sequence
+of compares used by binary search for the same set of keys.  
+[Implementation: PerfectBalance.java](./creative/PerfectBalance.java)
+
 ## Not covered/ TODO (numbers)
 
 - 3.2.8
