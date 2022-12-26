@@ -1,6 +1,7 @@
 package _3_Searching._3_2_Binary_Search_Trees.exercises;
 
 import _3_Searching._3_2_Binary_Search_Trees.BST;
+import _3_Searching._3_2_Binary_Search_Trees.BSTNonRecursive;
 import common.StdOut;
 
 /*****************************************************************************************************
@@ -18,6 +19,7 @@ public class TestBST {
         String[] keys = test.split(" ");
         int n = keys.length;
         BST<String, Integer> st = new BST<>();
+//        BSTNonRecursive<String, Integer> st = new BSTNonRecursive<>();
         for (int i = 0; i < n; i++)
             st.put(keys[i], i);
 

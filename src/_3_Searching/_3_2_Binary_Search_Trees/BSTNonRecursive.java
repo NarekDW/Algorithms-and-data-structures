@@ -115,6 +115,18 @@ public class BSTNonRecursive<Key extends Comparable<Key>, Value> implements Symb
         return prev;
     }
 
+    public Key floor2(Key key) {
+        return floor2(root, key, null);
+    }
+
+    private Key floor2(Node x, Key key, Key best) {
+        if (x == null) return best;
+        int cmp = key.compareTo(x.key);
+        if (cmp < 0) return floor2(x.left, key, best);
+        else if (cmp > 0) return floor2(x.right, key, x.key);
+        else return x.key;
+    }
+
     public Key ceiling(Key key) {
         Node x = ceiling(root, key);
         if (x != null)
@@ -174,6 +186,36 @@ public class BSTNonRecursive<Key extends Comparable<Key>, Value> implements Symb
         }
 
         return res;
+    }
+
+    public int size(Key lo, Key hi) {
+        if (lo == null) throw new IllegalArgumentException("first argument to size() is null");
+        if (hi == null) throw new IllegalArgumentException("second argument to size() is null");
+
+        if (lo.compareTo(hi) > 0) return 0;
+        if (contains(hi)) return rank(hi) - rank(lo) + 1;
+        else return rank(hi) - rank(lo);
+    }
+
+    public int internalPath() {
+        return internalPath(root);
+    }
+
+    // The number of compares used for a search hit ending at a given node is 1 plus the depth.
+    // Adding the depths of all nodes, we get a quantity known as the internal path length of the tree.
+    private int internalPath(Node x) {
+        if (x == null) return 0;
+        if (x.left == null && x.right == null) return 0;
+        return internalPath(x.left) + internalPath(x.right) + 1;
+    }
+
+    public int externalPath() {
+        return externalPath(root);
+    }
+
+    private int externalPath(Node x) {
+        if (x == null) return 0;
+        return externalPath(x.left) + externalPath(x.right) + x.n - 1;
     }
 
     public void deleteMin() {
