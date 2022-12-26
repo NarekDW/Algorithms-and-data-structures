@@ -61,7 +61,13 @@ client given on page 370. Add code to take additional command-line arguments, as
 3.2.14 Give nonrecursive implementations of min(), max(), floor(), ceiling(), rank(), and select().
 [Implementation: BSTNonRecursive.java](./BSTNonRecursive.java)
 
+3.2.16 Define the external path length of a tree to be the sum of the number of nodes on
+the paths from the root to all null links. Prove that the difference between the external
+and internal path lengths in any binary tree with N nodes is 2N (see Proposition C).  
+[Implementation: BST.java](./BST.java)
+
 ## Not covered/ TODO (numbers)
 
 - 3.2.8
 - 3.2.12
+- 3.2.17-24

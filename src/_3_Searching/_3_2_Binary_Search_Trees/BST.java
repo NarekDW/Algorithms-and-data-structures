@@ -170,7 +170,7 @@ public class BST<Key extends Comparable<Key>, Value> {
     }
 
     /*****************************************************************************************************
-     *
+     * <p>
      * 3.2.16 Define the external path length of a tree to be the sum of the number of nodes on
      * the paths from the root to all null links. Prove that the difference between the external
      * and internal path lengths in any binary tree with N nodes is 2N (see Proposition C).
