@@ -394,10 +394,31 @@ public class BST<Key extends Comparable<Key>, Value> {
         return hasNoDuplicates(node.left, root) && hasNoDuplicates(node, root.right);
     }
 
+    /*****************************************************************************************************
+     * <p>
+     * 3.2.32 Certification. Write a method isBST() that takes a Node as argument and returns true
+     * if the argument node is the root of a binary search tree, false otherwise.
+     * Hint : This task is also more difficult than it might seem, because the order in which you
+     * call the methods in the previous three exercises is important.
+     *
+     ****************************************************************************************************/
+    private boolean isBST() {
+        if (!isBinaryTree()) return false;
+        if (!isOrdered(root, min(), max())) return false;
+        return !hasNoDuplicates(root);
+    }
+
     public static void main(String[] args) {
         testHeight();
         testAvgCompares();
         testHasNoDuplicates();
+        testIsBST();
+    }
+
+    private static void testIsBST() {
+        BST<Integer, Integer> bst = createRandomBST();
+        if (!bst.isBST())
+            throw new RuntimeException();
     }
 
     private static void testHasNoDuplicates() {

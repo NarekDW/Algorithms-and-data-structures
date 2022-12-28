@@ -95,6 +95,12 @@ returns true if there are no equal keys in the binary tree rooted at the argumen
 otherwise. Assume that the test of the previous exercise has passed.  
 [Implementation: BST.java](./BST.java)
 
+3.2.32 Certification. Write a method isBST() that takes a Node as argument and returns true
+if the argument node is the root of a binary search tree, false otherwise.
+Hint : This task is also more difficult than it might seem, because the order in which you
+call the methods in the previous three exercises is important.  
+[Implementation: BST.java](./BST.java)
+
 ## Not covered/ TODO (numbers)
 
 - 3.2.8
@@ -102,3 +108,6 @@ otherwise. Assume that the test of the previous exercise has passed.
 - 3.2.17-24
 - 3.2.26
 - 3.2.27
+- 3.2.33 Select/rank check.
+- 3.2.34 Threading.
+- 3.2.35 Refined analysis. 
