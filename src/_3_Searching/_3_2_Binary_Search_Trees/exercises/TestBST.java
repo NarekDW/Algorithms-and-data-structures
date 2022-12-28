@@ -25,6 +25,7 @@ public class TestBST {
         StdOut.println("size = " + st.size());
         StdOut.println("min  = " + st.min());
         StdOut.println("max  = " + st.max());
+        StdOut.println("isOrdered = " + st.isOrdered("A", "Z"));
         StdOut.println();
 
 

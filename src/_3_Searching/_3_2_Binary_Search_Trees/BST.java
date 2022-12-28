@@ -368,15 +368,78 @@ public class BST<Key extends Comparable<Key>, Value> {
 
     private boolean isOrdered(Node x, Key min, Key max) {
         if (x == null) return true;
-        if (min != null && x.key.compareTo(min) <= 0) return false;
-        if (max != null && x.key.compareTo(max) >= 0) return false;
+        if (min != null && x.key.compareTo(min) < 0) return false;
+        if (max != null && x.key.compareTo(max) > 0) return false;
         return isOrdered(x.left, min, x.key) && isOrdered(x.right, x.key, max);
     }
 
+    /*****************************************************************************************************
+     * <p>
+     * 3.2.31 Equal key check. Write a method hasNoDuplicates() that takes a Node as argument and
+     * returns true if there are no equal keys in the binary tree rooted at the argument node, false
+     * otherwise. Assume that the test of the previous exercise has passed.
+     *
+     ****************************************************************************************************/
+    public boolean hasNoDuplicates(Node node) {
+        return hasNoDuplicates(node, root);
+    }
+
+    private boolean hasNoDuplicates(Node node, Node root) {
+        if (node == null || root == null) return true;
+        Key nodeKey = node.key;
+        Key rootKey = root.key;
+        int cmp = nodeKey.compareTo(rootKey);
+        if (cmp == 0) return false;
+        if (cmp < 0) return hasNoDuplicates(node, root.left) && hasNoDuplicates(node.right, root);
+        return hasNoDuplicates(node.left, root) && hasNoDuplicates(node, root.right);
+    }
 
     public static void main(String[] args) {
         testHeight();
         testAvgCompares();
+        testHasNoDuplicates();
+    }
+
+    private static void testHasNoDuplicates() {
+        BST<Integer, Integer> bst = new BST<>();
+        int testValue = -1;
+        bst.put(5, testValue);
+        bst.put(4, testValue);
+        bst.put(3, testValue);
+        bst.put(2, testValue);
+        bst.put(0, testValue);
+        bst.put(7, testValue);
+        bst.put(6, testValue);
+        bst.put(9, testValue);
+        bst.put(11, testValue);
+
+        BST<Integer, Integer> bst2 = new BST<>();
+        bst2.put(55, testValue);
+        bst2.put(44, testValue);
+        bst2.put(33, testValue);
+        bst2.put(22, testValue);
+        bst2.put(-1, testValue);
+        bst2.put(77, testValue);
+        bst2.put(66, testValue);
+        bst2.put(99, testValue);
+        bst2.put(11, testValue);
+
+        if (bst.hasNoDuplicates(bst2.root))
+            throw new RuntimeException();
+
+        BST<Integer, Integer> bst3 = new BST<>();
+        bst3.put(55, testValue);
+        bst3.put(44, testValue);
+        bst3.put(33, testValue);
+        bst3.put(22, testValue);
+        bst3.put(-1, testValue);
+        bst3.put(77, testValue);
+        bst3.put(66, testValue);
+        bst3.put(99, testValue);
+        bst3.put(111, testValue);
+
+        if (!bst.hasNoDuplicates(bst3.root))
+            throw new RuntimeException();
     }
 
     private static void testHeight() {

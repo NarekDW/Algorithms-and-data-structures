@@ -90,6 +90,11 @@ min and max ; min and max are indeed the smallest and largest keys in the tree,
 respectively; and the BST ordering property holds for all keys in the tree; false otherwise.  
 [Implementation: BST.java](./BST.java)
 
+3.2.31 Equal key check. Write a method hasNoDuplicates() that takes a Node as argument and
+returns true if there are no equal keys in the binary tree rooted at the argument node, false
+otherwise. Assume that the test of the previous exercise has passed.  
+[Implementation: BST.java](./BST.java)
+
 ## Not covered/ TODO (numbers)
 
 - 3.2.8
