@@ -107,6 +107,12 @@ from the root, with nodes on each level in order from left to right).
 Hint : Use a Queue.  
 [Implementation: BST.java](./BST.java)
 
+3.2.40 Height. Run empirical studies to estimate average BST height by running 100
+trials of the experiment of inserting N random keys into an initially empty tree, for
+N = 10^4 , 10^5 , and 10^6 . Compare your results against the 2.99 lg N estimate that
+is described in the text.  
+[Implementation: AvgHeight.java](./experiments/AvgHeight.java)
+
 ## Not covered/ TODO (numbers)
 
 - 3.2.8
@@ -118,3 +124,4 @@ Hint : Use a Queue.
 - 3.2.34 Threading.
 - 3.2.35 Refined analysis.
 - 3.2.36 Iterator.
+- 3.2.39 Average case.

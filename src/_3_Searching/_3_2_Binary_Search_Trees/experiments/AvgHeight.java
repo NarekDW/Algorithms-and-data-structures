@@ -4,11 +4,11 @@ import _3_Searching._3_2_Binary_Search_Trees.BST;
 import common.StdRandom;
 
 /*****************************************************************************************************
- *
+ * <p>
  * 3.2.40 Height. Run empirical studies to estimate average BST height by running 100
- * trials of the experiment of inserting N random keys into an initially empty tree, for N =
- * 10 4 , 10 5 , and 10 6 . Compare your results against the 2.99 lg N estimate that is described
- * in the text.
+ * trials of the experiment of inserting N random keys into an initially empty tree, for
+ * N = 10^4 , 10^5 , and 10^6 . Compare your results against the 2.99 lg N estimate that
+ * is described in the text.
  *
  ****************************************************************************************************/
 public class AvgHeight {
