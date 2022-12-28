@@ -101,6 +101,12 @@ Hint : This task is also more difficult than it might seem, because the order in
 call the methods in the previous three exercises is important.  
 [Implementation: BST.java](./BST.java)
 
+3.2.37 Level-order traversal. Write a method printLevel() that takes a Node as argument and
+prints the keys in the subtree rooted at that node in level order (in order of their distance
+from the root, with nodes on each level in order from left to right).
+Hint : Use a Queue.  
+[Implementation: BST.java](./BST.java)
+
 ## Not covered/ TODO (numbers)
 
 - 3.2.8
@@ -110,4 +116,5 @@ call the methods in the previous three exercises is important.
 - 3.2.27
 - 3.2.33 Select/rank check.
 - 3.2.34 Threading.
-- 3.2.35 Refined analysis. 
+- 3.2.35 Refined analysis.
+- 3.2.36 Iterator.

@@ -3,6 +3,11 @@ package _3_Searching._3_2_Binary_Search_Trees;
 import _1_Fundamentals._1_3_Bags_Queues_and_Stacks.Queue;
 import common.StdOut;
 import common.StdRandom;
+import common.Tuple2;
+
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class BST<Key extends Comparable<Key>, Value> {
 
@@ -408,11 +413,93 @@ public class BST<Key extends Comparable<Key>, Value> {
         return !hasNoDuplicates(root);
     }
 
+    /*****************************************************************************************************
+     * <p>
+     * 3.2.37 Level-order traversal. Write a method printLevel() that takes a Node as argument and
+     * prints the keys in the subtree rooted at that node in level order (in order of their distance
+     * from the root, with nodes on each level in order from left to right).
+     * Hint : Use a Queue.
+     *
+     ****************************************************************************************************/
+    public void printLevel(Node node) {
+        Collection<Tuple2<Key, Integer>> level = collectLevel(node, 1, new ArrayList<>());
+        Map<Integer, List<Key>> map = level.stream()
+                .collect(Collectors.toMap(Tuple2::getY,
+                        o -> Collections.singletonList(o.getX()),
+                        (l1, l2) -> {
+                            ArrayList<Key> res = new ArrayList<>(l1);
+                            res.addAll(l2);
+                            res.sort(Comparable::compareTo);
+                            return res;
+                        }));
+
+        for (Map.Entry<Integer, List<Key>> entry : map.entrySet()) {
+            List<Key> keys = entry.getValue();
+            keys.forEach(key -> System.out.print(key + " "));
+            System.out.println();
+        }
+    }
+
+    public Collection<Tuple2<Key, Integer>> collectLevel(Node node, int level,
+                                                         Collection<Tuple2<Key, Integer>> result) {
+        if (node == null)
+            return result;
+        result.add(new Tuple2<>(node.key, level++));
+        collectLevel(node.left, level, result);
+        collectLevel(node.right, level, result);
+        return result;
+    }
+
+    // Non-recursive !!!
+    public void printLevel2(Node node) {
+        if (node == null) return;
+        int lvl = 1;
+        Map<Integer, List<Node>> map = new HashMap<>();
+        map.put(lvl++, List.of(node));
+
+        List<Node> nodes = List.of(node);
+        while (true) {
+            nodes = nodes.stream().flatMap(n -> Stream.of(n.left, n.right))
+                    .filter(Objects::nonNull)
+                    .sorted(Comparator.comparing((Node o) -> o.key))
+                    .collect(Collectors.toList());
+
+            if (nodes.isEmpty()) break;
+            map.put(lvl++, nodes);
+        }
+
+        for (Map.Entry<Integer, List<Node>> entry : map.entrySet()) {
+            List<Node> keys = entry.getValue();
+            keys.forEach(n -> System.out.print(n.key + " "));
+            System.out.println();
+        }
+    }
+
+
     public static void main(String[] args) {
         testHeight();
         testAvgCompares();
         testHasNoDuplicates();
         testIsBST();
+        testPrintLevel();
+    }
+
+    private static void testPrintLevel() {
+        BST<Integer, Integer> bst = new BST<>();
+        int testValue = -1;
+        bst.put(5, testValue);
+        bst.put(4, testValue);
+        bst.put(3, testValue);
+        bst.put(2, testValue);
+        bst.put(0, testValue);
+        bst.put(7, testValue);
+        bst.put(6, testValue);
+        bst.put(9, testValue);
+        bst.put(11, testValue);
+        System.out.println("Recursive implementation of print levels:");
+        bst.printLevel(bst.root);
+        System.out.println("\nNon-Recursive implementation of print levels:");
+        bst.printLevel2(bst.root);
     }
 
     private static void testIsBST() {
