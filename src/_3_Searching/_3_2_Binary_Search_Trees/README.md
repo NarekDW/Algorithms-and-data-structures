@@ -125,3 +125,4 @@ is described in the text.
 - 3.2.35 Refined analysis.
 - 3.2.36 Iterator.
 - 3.2.39 Average case.
+- 3.2.38 Tree drawing.
