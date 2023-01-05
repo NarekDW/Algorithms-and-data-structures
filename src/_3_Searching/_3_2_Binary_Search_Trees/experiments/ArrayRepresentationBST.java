@@ -3,22 +3,22 @@ package _3_Searching._3_2_Binary_Search_Trees.experiments;
 import _1_Fundamentals._1_3_Bags_Queues_and_Stacks.Queue;
 
 /*****************************************************************************************************
- *
+ * <p>
  * 3.2.41 Array representation. Develop a BST implementation that represents the BST
  * with three arrays (preallocated to the maximum size given in the constructor): one with
  * the keys, one with array indices corresponding to left links, and one with array indices
  * corresponding to right links. Compare the performance of your program with that of
  * the standard implementation.
  *
- * A little bit slower than BST!
  ****************************************************************************************************/
 public class ArrayRepresentationBST<Key extends Comparable<Key>, Value> {
-    private Key[] keys;
-    private Value[] values;
-    private int[] left;
-    private int[] right;
+    private final Key[] keys;
+    private final Value[] values;
+    private final int[] left;
+    private final int[] right;
     private int n;
 
+    @SuppressWarnings("unchecked")
     public ArrayRepresentationBST(int size) {
         keys = (Key[]) new Comparable[size + 1];
         values = (Value[]) new Object[size + 1];

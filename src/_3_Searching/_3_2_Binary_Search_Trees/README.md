@@ -113,6 +113,13 @@ N = 10^4 , 10^5 , and 10^6 . Compare your results against the 2.99 lg N estimate
 is described in the text.  
 [Implementation: AvgHeight.java](./experiments/AvgHeight.java)
 
+3.2.41 Array representation. Develop a BST implementation that represents the BST
+with three arrays (preallocated to the maximum size given in the constructor): one with
+the keys, one with array indices corresponding to left links, and one with array indices
+corresponding to right links. Compare the performance of your program with that of
+the standard implementation.  
+[Implementation: ArrayRepresentationBST.java](./experiments/ArrayRepresentationBST.java)
+
 ## Not covered/ TODO (numbers)
 
 - 3.2.8

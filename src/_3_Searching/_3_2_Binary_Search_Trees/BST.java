@@ -1,6 +1,7 @@
 package _3_Searching._3_2_Binary_Search_Trees;
 
 import _1_Fundamentals._1_3_Bags_Queues_and_Stacks.Queue;
+import _3_Searching._3_1_Elementary_Symbol_Tables.SymbolTable;
 import common.StdOut;
 import common.StdRandom;
 import common.Tuple2;
@@ -9,7 +10,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class BST<Key extends Comparable<Key>, Value> {
+public class BST<Key extends Comparable<Key>, Value> implements SymbolTable<Key, Value> {
 
     private Node root;
 
