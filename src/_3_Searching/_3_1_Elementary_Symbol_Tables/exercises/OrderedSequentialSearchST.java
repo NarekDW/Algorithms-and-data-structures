@@ -1,7 +1,7 @@
 package _3_Searching._3_1_Elementary_Symbol_Tables.exercises;
 
-import _3_Searching._3_1_Elementary_Symbol_Tables.SymbolTable;
-import _3_Searching._3_1_Elementary_Symbol_Tables.SymbolTableTest;
+import _3_Searching.SymbolTable;
+import _3_Searching.SymbolTableTest;
 import common.SimpleNode;
 
 import java.util.Iterator;
@@ -117,6 +117,7 @@ public class OrderedSequentialSearchST<Key extends Comparable<Key>, Value> imple
             }
         };
     }
+
 
     public static void main(String[] args) {
         SymbolTable<Integer, String> st = new OrderedSequentialSearchST<>();

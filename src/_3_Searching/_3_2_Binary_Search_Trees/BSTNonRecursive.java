@@ -1,8 +1,8 @@
 package _3_Searching._3_2_Binary_Search_Trees;
 
 import _1_Fundamentals._1_3_Bags_Queues_and_Stacks.Queue;
-import _3_Searching._3_1_Elementary_Symbol_Tables.SymbolTable;
-import _3_Searching._3_1_Elementary_Symbol_Tables.SymbolTableTest;
+import _3_Searching.SymbolTable;
+import _3_Searching.SymbolTableTest;
 
 /*****************************************************************************************************
  * <p>

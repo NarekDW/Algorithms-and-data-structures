@@ -133,3 +133,4 @@ the standard implementation.
 - 3.2.36 Iterator.
 - 3.2.39 Average case.
 - 3.2.38 Tree drawing.
+- 3.2.42-47

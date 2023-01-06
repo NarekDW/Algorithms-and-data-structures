@@ -1,4 +1,4 @@
-package _3_Searching._3_1_Elementary_Symbol_Tables;
+package _3_Searching;
 
 import _3_Searching._3_1_Elementary_Symbol_Tables.exercises.OrderedSequentialSearchST;
 

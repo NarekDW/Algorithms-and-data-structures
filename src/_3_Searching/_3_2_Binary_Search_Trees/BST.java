@@ -1,7 +1,7 @@
 package _3_Searching._3_2_Binary_Search_Trees;
 
 import _1_Fundamentals._1_3_Bags_Queues_and_Stacks.Queue;
-import _3_Searching._3_1_Elementary_Symbol_Tables.SymbolTable;
+import _3_Searching.SymbolTable;
 import common.StdOut;
 import common.StdRandom;
 import common.Tuple2;
@@ -50,7 +50,7 @@ public class BST<Key extends Comparable<Key>, Value> implements SymbolTable<Key,
 
     private int size(Node x) {
         if (x == null) return 0;
-        else return x.n;
+        else return size(x.left) + size(x.right) + 1;
     }
 
     public boolean isEmpty() {
