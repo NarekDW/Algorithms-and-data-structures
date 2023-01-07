@@ -240,7 +240,7 @@ public class BST<Key extends Comparable<Key>, Value> implements SymbolTable<Key,
         if (x == null) return null;
         int cmp = key.compareTo(x.key);
         if (cmp < 0) x.left = delete(x.left, key);
-        if (cmp > 0) x.right = delete(x.right, key);
+        else if (cmp > 0) x.right = delete(x.right, key);
         else {
             if (x.right == null) return x.left;
             if (x.left == null) return x.right;

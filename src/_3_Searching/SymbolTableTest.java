@@ -4,6 +4,8 @@ package _3_Searching;
 import _3_Searching._3_1_Elementary_Symbol_Tables.exercises.ArrayST;
 import _3_Searching._3_1_Elementary_Symbol_Tables.exercises.ItemBinarySearchST;
 import _3_Searching._3_1_Elementary_Symbol_Tables.exercises.OrderedSequentialSearchST;
+import _3_Searching._3_2_Binary_Search_Trees.BST;
+import _3_Searching._3_2_Binary_Search_Trees.BSTNonRecursive;
 import _3_Searching._3_2_Binary_Search_Trees.experiments.ArrayRepresentationBST;
 
 public class SymbolTableTest {
@@ -70,9 +72,7 @@ public class SymbolTableTest {
         testST(new ArrayST<>(10));
         testST(new ItemBinarySearchST<>(10));
         testST(new OrderedSequentialSearchST<>());
-
-        // TODO: 06.01.2023 Fix size issue
-//        testST(new BST<>());
-//        testST(new BSTNonRecursive<>());
+        testST(new BST<>());
+        testST(new BSTNonRecursive<>());
     }
 }
