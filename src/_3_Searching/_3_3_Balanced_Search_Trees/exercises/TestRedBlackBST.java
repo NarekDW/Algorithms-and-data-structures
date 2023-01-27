@@ -1,25 +1,26 @@
 package _3_Searching._3_3_Balanced_Search_Trees.exercises;
 
 import _3_Searching._3_3_Balanced_Search_Trees.RedBlackBST;
+import _3_Searching._3_3_Balanced_Search_Trees.RedBlackBSTOrigin;
 import common.StdOut;
 import common.StdRandom;
 
 /******************************************************************************
+ * <p>
  *  Compilation:  javac TestRedBlackBST.java
  *  Execution:    java -ea TestRedBlackBST 10
  *  Dependencies: RedBlackBST.java
- *
+ * <p>
  *  Test client for RedBlackBST.java.
  *
  ******************************************************************************/
-
-@SuppressWarnings("Duplicates")
 public class TestRedBlackBST {
 
     public static void main(String[] args) {
 
         String test = "S E A R C H E X A M P L E";
         String[] keys = test.split(" ");
+//        RedBlackBSTOrigin<String, Integer> st = new RedBlackBSTOrigin<>();
         RedBlackBST<String, Integer> st = new RedBlackBST<>();
         for (int i = 0; i < keys.length; i++)
             st.put(keys[i], i);
@@ -76,16 +77,16 @@ public class TestRedBlackBST {
             StdOut.println(s + " " + st.get(s));
         StdOut.println();
 
-//        // delete all the remaining keys
+        // delete all the remaining keys
 //        while (!st.isEmpty()) {
 //            st.delete(st.select(st.size() / 2));
 //        }
-//        StdOut.println("After deleting the remaining keys");
-//        StdOut.println("--------------------------------");
-//        for (String s : st.keys())
-//            StdOut.println(s + " " + st.get(s));
-//        StdOut.println();
-//
+        StdOut.println("After deleting the remaining keys");
+        StdOut.println("--------------------------------");
+        for (String s : st.keys())
+            StdOut.println(s + " " + st.get(s));
+        StdOut.println();
+
 //        StdOut.println("After adding back n keys");
 //        StdOut.println("--------------------------------");
 //        for (int i = 0; i < keys.length; i++)

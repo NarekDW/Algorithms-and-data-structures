@@ -123,3 +123,14 @@ in the worst case: search, insertion, finding the minimum, finding the maximum, 
 ceiling, rank, select, delete the minimum, delete the maximum, delete, and range count.
 
 ![img.png](../../resources/red-black-bst-summary-compares.png)
+
+# Exercise:
+
+## Done:
+
+3.3.21 Create a test client TestRB.java, based on your solution to Exercise 3.2.10.  
+[Implementation: TestRedBlackBST.java](./exercises/TestRedBlackBST.java)
+
+## Not covered/ TODO (numbers)
+
+- 3.3.23 - 27
