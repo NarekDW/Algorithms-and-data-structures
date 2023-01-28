@@ -131,6 +131,28 @@ ceiling, rank, select, delete the minimum, delete the maximum, delete, and range
 3.3.21 Create a test client TestRB.java, based on your solution to Exercise 3.2.10.  
 [Implementation: TestRedBlackBST.java](./exercises/TestRedBlackBST.java)
 
+3.3.33 Certification. Add to RedBlackBST a method is23() to check that no node is
+connected to two red links and that there are no right-leaing red links and a method
+isBalanced() to check that all paths from the root to a null link have the same number
+of black links. Combine these methods with code from isBST() in Exercise 3.2.32 to
+create a method isRedBlackBST() that checks that the tree is a red-black BST.  
+[Implementation: RedBlackBSTOrigin.java](./RedBlackBSTOrigin.java)
+
+3.3.39 Delete the minimum. Implement the deleteMin() operation for red-black BSTs by
+maintaining the correspondence with the transformations given in the text for moving
+down the left spine of the tree while maintaining the invariant that the current node
+is not a 2-node.  
+[Implementation: RedBlackBSTOrigin.java](./RedBlackBSTOrigin.java)
+
+3.3.40 Delete the maximum. Implement the deleteMax() operation for red-black BSTs.
+Note that the transformations involved differ slightly from those in the previous
+exercise because red links are left-leaning.  
+[Implementation: RedBlackBSTOrigin.java](./RedBlackBSTOrigin.java)
+
+3.3.41 Delete. Implement the delete() operation for red-black BSTs, combining the
+methods of the previous two exercises with the delete() operation for BSTs.  
+[Implementation: RedBlackBSTOrigin.java](./RedBlackBSTOrigin.java)
+
 ## Not covered/ TODO (numbers)
 
 - 3.3.23 - 27
