@@ -70,3 +70,13 @@ less than one-half.
 3.4.19 Implement keys() for SeparateChainingHashST and LinearProbingHashST.  
 [Implementation: SeparateChainingHashST.java](./SeparateChainingHashST.java)  
 [Implementation: LinearProbingHashST.java](./LinearProbingHashST.java)
+
+3.4.26 Lazy delete for linear probing. Add to LinearProbingHashST a delete()
+method that deletes a key-value pair by setting the value to null (but not removing
+the key) and later removing the pair from the table in resize() . Your primary
+challenge is to decide when to call resize() .  
+Note : You should overwrite the null value if a subsequent put() operation associates
+a new value with the key. Make sure that your program takes into account the number
+of such tombstone items, as well as the number of empty positions, in making the decision
+whether to expand or contract the table.    
+[Implementation: LinearProbingHashST.java](./creative/LinearProbingHashST.java)  
