@@ -79,4 +79,13 @@ Note : You should overwrite the null value if a subsequent put() operation assoc
 a new value with the key. Make sure that your program takes into account the number
 of such tombstone items, as well as the number of empty positions, in making the decision
 whether to expand or contract the table.    
-[Implementation: LinearProbingHashST.java](./creative/LinearProbingHashST.java)  
+[Implementation: LinearProbingHashST.java](./creative/LinearProbingHashST.java)
+
+3.4.43 Parking problem. (D. Knuth) Run experimental studies to validate the hypothesis
+that the number of compares needed to insert M random keys into a linear-probing table of
+size M is ~cM^(3/2) , where c = sqrt(PI/2).  
+[Implementation: ParkingProblem.java](./experiments/ParkingProblem.java)
+
+## Not covered/ TODO (numbers)
+
+- 3.4.27 - 33
