@@ -3,14 +3,14 @@ package _3_Searching._3_5_Searching_Applications.creative;
 import java.util.HashMap;
 
 /*****************************************************************************************************
- *
- * Mathematical sets. Your goal is to develop an implementation of the following
+ * <p>
+ * 3.5.17 Mathematical sets. Your goal is to develop an implementation of the following
  * API MathSET for processing (mutable) mathematical sets:
  *
  ****************************************************************************************************/
 public class MathSET<Key> {
 
-    private HashMap<Key, Object> map;
+    private final HashMap<Key, Object> map;
     private static final Object PRESENT = new Object();
 
     MathSET(Key[] universe) {

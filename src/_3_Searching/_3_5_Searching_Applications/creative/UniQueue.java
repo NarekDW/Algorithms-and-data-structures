@@ -4,7 +4,7 @@ import _1_Fundamentals._1_3_Bags_Queues_and_Stacks.Queue;
 import _3_Searching._3_1_Elementary_Symbol_Tables.SequentialSearchST;
 
 /*****************************************************************************************************
- *
+ * <p>
  * 3.5.28 UniQueue. Create a data type that is a queue, except that an element may only
  * be inserted the queue once. Use an existence symbol table to keep track of all elements
  * that have ever been inserted and ignore requests to re-insert such items.

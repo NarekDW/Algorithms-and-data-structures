@@ -5,7 +5,7 @@ import _3_Searching._3_5_Searching_Applications.exercises.LinearProbingHashSTWit
 import java.util.Iterator;
 
 /*****************************************************************************************************
- *
+ * <p>
  * 3.5.27 List.
  * Hint : Use two symbol tables, one to find the i th item in the list efficiently, and the other
  * to efficiently search by item. (Java’s java.util.List interface contains methods like
@@ -15,11 +15,11 @@ import java.util.Iterator;
  ****************************************************************************************************/
 public class List<Item extends Comparable<Item>> implements Iterable<Item> {
 
-    private LinearProbingHashSTWithDuplicates<Item, Integer> items;
-    private LinearProbingHashSTWithDuplicates<Integer, Item> indexes;
+    private final LinearProbingHashSTWithDuplicates<Item, Integer> items;
+    private final LinearProbingHashSTWithDuplicates<Integer, Item> indexes;
     private int n;
 
-    List() {
+    public List() {
         items = new LinearProbingHashSTWithDuplicates<>();
         indexes = new LinearProbingHashSTWithDuplicates<>();
     }

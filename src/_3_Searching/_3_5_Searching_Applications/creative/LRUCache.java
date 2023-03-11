@@ -1,9 +1,9 @@
 package _3_Searching._3_5_Searching_Applications.creative;
 
 /*****************************************************************************************************
- *
- * 3.5.26 LRU cache. Create a data structure that supports the following operations: ac-
- * cess and remove. The access operation inserts the item onto the data structure if it’s
+ * <p>
+ * 3.5.26 LRU cache. Create a data structure that supports the following operations:
+ * access and remove. The access operation inserts the item onto the data structure if it’s
  * not already present. The remove operation deletes and returns the item that was least
  * recently accessed. Hint : Maintain the items in order of access in a doubly linked list,
  * along with pointers to the first and last nodes. Use a symbol table with keys = items,
