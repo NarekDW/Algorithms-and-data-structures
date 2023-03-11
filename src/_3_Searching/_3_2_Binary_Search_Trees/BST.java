@@ -476,6 +476,20 @@ public class BST<Key extends Comparable<Key>, Value> implements SymbolTable<Key,
         }
     }
 
+    public void invertTree() {
+        invertTree(root);
+    }
+
+    public void invertTree(Node x) {
+        if (x == null) return;
+        Node left = x.left;
+        Node right = x.right;
+        x.left = right;
+        x.right = left;
+        invertTree(left);
+        invertTree(right);
+    }
+
 
     public static void main(String[] args) {
         testHeight();

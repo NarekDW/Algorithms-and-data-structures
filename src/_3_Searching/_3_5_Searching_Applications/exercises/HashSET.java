@@ -4,14 +4,14 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 /*****************************************************************************************************
- *
- * 3.5.1 Implement SET and HashSET as “wrapper class” clients of ST and HashST , respec-
- * tively (provide dummy values and ignore them).
+ * <p>
+ * 3.5.1 Implement SET and HashSET as “wrapper class” clients of ST and HashST,
+ * respectively (provide dummy values and ignore them).
  *
  ****************************************************************************************************/
 public class HashSET<Key extends Comparable<Key>> implements Iterable<Key> {
 
-    private HashSet<Key> set;
+    private final HashSet<Key> set;
 
     public HashSET() {
         set = new HashSet<>();

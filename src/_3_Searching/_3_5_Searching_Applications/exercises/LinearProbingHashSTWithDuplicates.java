@@ -4,15 +4,13 @@ import _1_Fundamentals._1_3_Bags_Queues_and_Stacks.Queue;
 import _2_Sorting._2_3_Quicksort.Quick;
 
 /*****************************************************************************************************
- *
+ * <p>
  * 3.5.8 Modify LinearProbingHashST to keep duplicate keys in the table. Return any
  * value associated with the given key for get() , and remove all items in the table that have
  * keys equal to the given key for delete() .
  *
  ****************************************************************************************************/
-@SuppressWarnings("Duplicates")
 public class LinearProbingHashSTWithDuplicates<Key extends Comparable<Key>, Value> {
-
     private int n;
     private int m;
     private Key[] keys;
@@ -157,6 +155,7 @@ public class LinearProbingHashSTWithDuplicates<Key extends Comparable<Key>, Valu
         st.put(3, "f");
         st.put(4, "g");
 
+        System.out.println(st.get(2));
         st.keys().forEach(System.out::println);
         st.delete(2);
         System.out.println();

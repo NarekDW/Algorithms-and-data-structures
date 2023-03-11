@@ -4,15 +4,13 @@ import _1_Fundamentals._1_3_Bags_Queues_and_Stacks.Queue;
 import common.StdOut;
 
 /*****************************************************************************************************
- *
+ * <p>
  * 3.5.9 Modify BST to keep duplicate keys in the tree. Return any value associated with
  * the given key for get() , and remove all nodes in the tree that h ave keys equal to the
  * given key for delete() .
  *
  ****************************************************************************************************/
-@SuppressWarnings("Duplicates")
 public class BSTWithDuplicates<Key extends Comparable<Key>, Value> {
-
     private Node root;
     private Node last;
 

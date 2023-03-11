@@ -6,14 +6,14 @@ import java.util.Iterator;
 import java.util.TreeSet;
 
 /*****************************************************************************************************
- *
- * 3.5.1 Implement SET and HashSET as “wrapper class” clients of ST and HashST , respec-
- * tively (provide dummy values and ignore them).
+ * <p>
+ * 3.5.1 Implement SET and HashSET as “wrapper class” clients of ST and HashST,
+ * respectively (provide dummy values and ignore them).
  *
  ****************************************************************************************************/
 public class SET<Key extends Comparable<Key>> implements Iterable<Key> {
 
-    private TreeSet<Key> set;
+    private final TreeSet<Key> set;
 
     public SET() {
         set = new TreeSet<>();

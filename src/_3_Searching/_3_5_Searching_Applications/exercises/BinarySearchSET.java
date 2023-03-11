@@ -3,17 +3,18 @@ package _3_Searching._3_5_Searching_Applications.exercises;
 import _1_Fundamentals._1_3_Bags_Queues_and_Stacks.Queue;
 
 /*****************************************************************************************************
- *
+ * <p>
  * 3.5.3 Develop a SET implementation BinarySearchSET by starting with the code for
  * BinarySearchST and eliminating all of the code involving values.
  *
  ****************************************************************************************************/
 public class BinarySearchSET<Key extends Comparable<Key>> {
 
-    private Key[] keys;
+    private final Key[] keys;
     private int n;
 
     public BinarySearchSET(int capacity) {
+        //noinspection unchecked
         keys = (Key[]) new Comparable[capacity];
     }
 

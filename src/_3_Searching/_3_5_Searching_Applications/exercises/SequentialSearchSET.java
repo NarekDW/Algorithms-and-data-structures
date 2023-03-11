@@ -3,13 +3,12 @@ package _3_Searching._3_5_Searching_Applications.exercises;
 import java.util.Iterator;
 
 /*****************************************************************************************************
- *
+ * <p>
  * 3.5.2 Develop a SET implementation SequentialSearchSET by starting with the code
  * for SequentialSearchST and eliminating all of the code involving values.
  *
  ****************************************************************************************************/
 public class SequentialSearchSET<Key> {
-
     private int n;
     private Node first;
 
