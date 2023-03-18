@@ -1,3 +1,65 @@
+# Union Find
+
+## Implementations
+
+### Quick-find
+
+Complexity of find is O(1)  
+Complexity of union N elements is O(N^2)
+
+_One approach is to maintain the invariant that p and q are connected if and only if id[p] is equal to id[q]_
+
+![img.png](../../resources/UF_quick_find.png)
+
+```
+public int find(int p) {  return id[p];  }
+
+public void union(int p, int q) {
+     int pID = find(p);
+     int qID = find(q);
+
+     if (pID == qID) return;
+
+     // Rename p’s component to q’s name.
+     for (int i = 0; i < id.length; i++)
+         if (id[i] == pID) id[i] = qID;
+     
+     count--; 
+}
+```
+
+### Quick-union
+
+Complexity of find is O(N) in worst case  
+Complexity of union N elements is O(N^2) in worst case
+
+![img.png](../../resources/UF_quick_union.png)
+
+```
+private int find(int p) { 
+     while (p != id[p]) p = id[p];
+     return p; 
+}
+
+public void union(int p, int q) {
+     int pRoot = find(p);
+     int qRoot = find(q);
+     if (pRoot == qRoot) return;
+     id[pRoot] = qRoot;
+     count--; 
+}
+```
+
+### Weighted quick-union.
+
+Complexity of find is O(log N) in worst case  
+Complexity of union N elements is O(log N) in worst case
+
+_Rather than arbitrarily connecting the second tree to the first for union(), we keep track
+of the size of each tree and always connect the smaller tree to the larger._
+
+![img.png](../../resources/UF_weighted_quick_union.png)
+
 # Exercise:
 
 ## Done:
