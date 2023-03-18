@@ -227,6 +227,14 @@ public class Graph {
         return adj[v].size();
     }
 
+    public boolean hasEdge(int v, int w) {
+        for (Integer vertex : adj[v]) {
+            if (vertex == w)
+                return true;
+        }
+
+        return false;
+    }
 
     /**
      * Returns a string representation of this graph.
@@ -254,9 +262,13 @@ public class Graph {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        In in = new In(args[0]);
+        In in = new In("https://algs4.cs.princeton.edu/41graph/tinyG.txt");
         Graph G = new Graph(in);
         StdOut.println(G);
+
+        StdOut.println(G.hasEdge(0, 1));
+        StdOut.println(G.hasEdge(0, 5));
+        StdOut.println(G.hasEdge(0, 4));
     }
 
 }

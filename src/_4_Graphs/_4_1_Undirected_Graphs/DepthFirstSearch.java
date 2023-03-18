@@ -30,7 +30,7 @@ import common.StdOut;
  *  {@link DepthFirstPaths} and {@link BreadthFirstPaths}.
  *  <p>
  *  This implementation uses depth-first search.
- *  See {@link NonrecursiveDFS} for a non-recursive version.
+ *  See NonrecursiveDFS for a non-recursive version.
  *  The constructor takes &Theta;(<em>V</em> + <em>E</em>) time in the worst
  *  case, where <em>V</em> is the number of vertices and <em>E</em>
  *  is the number of edges.
@@ -44,8 +44,8 @@ import common.StdOut;
  *  @author Robert Sedgewick
  *  @author Kevin Wayne
  */
-public class DepthFirstSearch {
-    private boolean[] marked;    // marked[v] = is there an s-v path?
+public class DepthFirstSearch implements Search {
+    private final boolean[] marked;    // marked[v] = is there an s-v path?
     private int count;           // number of vertices connected to s
 
     /**
@@ -78,6 +78,7 @@ public class DepthFirstSearch {
      * @return {@code true} if there is a path, {@code false} otherwise
      * @throws IllegalArgumentException unless {@code 0 <= v < V}
      */
+    @Override
     public boolean marked(int v) {
         validateVertex(v);
         return marked[v];
@@ -87,6 +88,7 @@ public class DepthFirstSearch {
      * Returns the number of vertices connected to the source vertex {@code s}.
      * @return the number of vertices connected to the source vertex {@code s}
      */
+    @Override
     public int count() {
         return count;
     }
@@ -104,18 +106,28 @@ public class DepthFirstSearch {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        In in = new In(args[0]);
-        Graph G = new Graph(in);
-        int s = Integer.parseInt(args[1]);
-        DepthFirstSearch search = new DepthFirstSearch(G, s);
-        for (int v = 0; v < G.V(); v++) {
-            if (search.marked(v))
-                StdOut.print(v + " ");
-        }
+//        In in = new In(args[0]);
+//        Graph G = new Graph(in);
+//        int s = Integer.parseInt(args[1]);
+//        DepthFirstSearch search = new DepthFirstSearch(G, s);
+//        for (int v = 0; v < G.V(); v++) {
+//            if (search.marked(v))
+//                StdOut.print(v + " ");
+//        }
+//
+//        StdOut.println();
+//        if (search.count() != G.V()) StdOut.println("NOT connected");
+//        else                         StdOut.println("connected");
 
-        StdOut.println();
-        if (search.count() != G.V()) StdOut.println("NOT connected");
-        else                         StdOut.println("connected");
+        In in = new In("https://algs4.cs.princeton.edu/41graph/tinyG.txt");
+        Graph G = new Graph(in);
+
+        DepthFirstSearch dfs = new DepthFirstSearch(G, 0);
+        System.out.println(dfs.count);
+        System.out.println(dfs.marked(3));
+        System.out.println(dfs.marked(4));
+        System.out.println(dfs.marked(9));
+        System.out.println(dfs.marked(11));
     }
 
 }

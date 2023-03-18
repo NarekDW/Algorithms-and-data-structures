@@ -111,3 +111,36 @@ to any marked vertex in time proportional its length.
 
 **Proposition C**. DFS uses preprocessing time and space proportional to V + E to support constant-time
 connectivity queries in a graph.
+
+# Exercise:
+
+## Done:
+
+4.1.4 Add a method hasEdge() to Graph which takes two int arguments v and w and returns true if the graph
+has an edge v-w, false otherwise.    
+[Implementation: Graph.java](./Graph.java)
+
+4.1.8 Develop an implementation for the Search API on page 528 that uses UF,as described in the text.  
+[Implementation: UnionFindSearch.java](./exercises/UnionFindSearch.java)
+
+4.1.13 Add a distTo() method to the BreadthFirstPaths API and implementation, which returns the number of
+edges on the shortest path from the source to a given vertex. A distTo() query should run in constant time.  
+[Implementation: BreadthFirstPaths.java](./BreadthFirstPaths.java)
+
+4.1.16 The eccentricity of a vertex v is the length of the shortest path from that vertex
+to the furthest vertex from v. The diameter of a graph is the maximum eccentricity of any
+vertex. The radius of a graph is the smallest eccentricity of any vertex.
+A center is a vertex whose eccentricity is the radius. Implement the following API:  
+[Implementation: GraphProperties.java](./exercises/GraphProperties.java)
+
+4.1.18 The girth of a graph is the length of its shortest cycle. If a graph is a cyclic,
+then its girth is infinite. Add a method girth() to GraphProperties that returns the girth
+of the graph. Hint : Run BFS from each vertex.
+The shortest cycle containing s is a shortest path from s to some vertex v, plus the edge
+from v back to s.  
+[Implementation: GraphProperties.java](./exercises/GraphProperties.java)
+
+## Not covered/ TODO (numbers)
+
+- 4.1.5
+- 4.1.18 The girth
