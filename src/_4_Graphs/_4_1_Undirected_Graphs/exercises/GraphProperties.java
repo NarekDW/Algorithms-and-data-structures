@@ -142,12 +142,89 @@ public class GraphProperties {
         return Integer.MAX_VALUE;
     }
 
+    public int girth2() {
+        boolean[] marked = new boolean[g.V()];
+        int[] pathTo = new int[g.V()];
+        Arrays.fill(pathTo, -1);
+        int result = Integer.MAX_VALUE;
+        for (int i = 0; i < g.V(); i++) {
+            if (!marked[i])
+                result = Math.min(result, dfs(g, i, i, result, marked, pathTo));
+        }
+
+        return result;
+    }
+
+    private int dfs(Graph g, int curr, int prev, int result, boolean[] marked, int[] pathTo) {
+        marked[curr] = true;
+        pathTo[curr] = pathTo[prev] + 1;
+
+        for (Integer adj : g.adj(curr)) {
+            if (!marked[adj]) {
+                result = Math.min(result, dfs(g, adj, curr, result, marked, pathTo));
+            } else if (adj != prev && pathTo[curr] > pathTo[adj]) {
+                result = Math.min(result, pathTo[curr] - pathTo[adj] + 1);
+            }
+        }
+
+        return result;
+    }
+
+    public int maxCycle() {
+        boolean[] marked = new boolean[g.V()];
+        int[] pathTo = new int[g.V()];
+        Arrays.fill(pathTo, -1);
+        int result = Integer.MIN_VALUE;
+        for (int i = 0; i < g.V(); i++) {
+            if (!marked[i])
+                result = Math.max(result, maxCycle(g, i, i, result, marked, pathTo));
+        }
+
+        return result;
+    }
+
+    private int maxCycle(Graph g, int curr, int prev, int result, boolean[] marked, int[] pathTo) {
+        marked[curr] = true;
+        pathTo[curr] = pathTo[prev] + 1;
+
+        for (Integer adj : g.adj(curr)) {
+            if (!marked[adj]) {
+                result = Math.max(result, maxCycle(g, adj, curr, result, marked, pathTo));
+            } else if (adj != prev && pathTo[curr] > pathTo[adj]) {
+                result = Math.max(result, pathTo[curr] - pathTo[adj] + 1);
+            }
+        }
+
+        return result;
+    }
+
 
     public static void main(String[] args) {
-//        In in = new In("https://algs4.cs.princeton.edu/41graph/tinyG.txt");
-//        Graph G = new Graph(in);
-//        in.close();
+        In in = new In("https://algs4.cs.princeton.edu/41graph/tinyG.txt");
+        Graph graph = new Graph(in);
+        in.close();
 
+//        Graph graph = getGraph2();
+        GraphProperties properties = new GraphProperties(graph);
+        System.out.println("eccentricity: " + properties.eccentricity(0));
+        System.out.println("diameter: " + properties.diameter());
+        System.out.println("radius: " + properties.radius());
+        System.out.println("center: " + properties.center());
+        System.out.println("girth: " + properties.girth());
+        System.out.println("girth2: " + properties.girth2());
+        System.out.println("maxCycle: " + properties.maxCycle());
+    }
+
+    private static Graph getGraph1() {
+        Graph graph = new Graph(4);
+        graph.addEdge(0, 1);
+        graph.addEdge(1, 2);
+        graph.addEdge(2, 3);
+        graph.addEdge(3, 1);
+        return graph;
+    }
+
+    private static Graph getGraph2() {
         Graph graph = new Graph(15);
         graph.addEdge(0, 5);
         graph.addEdge(4, 3);
@@ -164,12 +241,6 @@ public class GraphProperties {
         graph.addEdge(7, 8);
         graph.addEdge(9, 11);
         graph.addEdge(5, 3);
-
-        GraphProperties properties = new GraphProperties(graph);
-        System.out.println("eccentricity: " + properties.eccentricity(0));
-        System.out.println("diameter: " + properties.diameter());
-        System.out.println("radius: " + properties.radius());
-        System.out.println("center: " + properties.center());
-        System.out.println("girth: " + properties.girth());
+        return graph;
     }
 }
