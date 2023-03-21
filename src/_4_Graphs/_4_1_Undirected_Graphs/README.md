@@ -140,6 +140,11 @@ The shortest cycle containing s is a shortest path from s to some vertex v, plus
 from v back to s.  
 [Implementation: GraphProperties.java](./exercises/GraphProperties.java)
 
+4.1.36 Edge connectivity. A bridge in a graph is an edge that, if removed, would separate
+a connected graph into two disjoint subgraphs. A graph that has no bridges is said to be
+edge connected. Develop a DFS-based data type for determing whether a given graph is edge connected.  
+[Implementation: Bridge.java](./creative/Bridge.java)
+
 ## Not covered/ TODO (numbers)
 
 - 4.1.5
